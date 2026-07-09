@@ -5,11 +5,16 @@ import urllib.parse
 import xml.etree.ElementTree as ET
 import hashlib
 import email.utils
+import re
 
+
+# ==========================================
 # 検索するニューステーマ
+# ==========================================
+
 SEARCHES = [
     ("US", "Trump Iran US military Middle East"),
-    ("Iran", "Iran missile retaliation nuclear"),
+    ("Iran", "Iran missile retaliation nuclear attack"),
     ("Gulf", "UAE Saudi Qatar Bahrain Kuwait Oman Iran attack"),
     ("Flight", "UAE Dubai airspace closure flights Iran Middle East"),
     ("Hormuz", "Strait of Hormuz tanker shipping Iran"),
@@ -18,8 +23,27 @@ SEARCHES = [
 MAX_ITEMS_PER_SEARCH = 5
 
 
+# ==========================================
+# 日本語カテゴリー名
+# ==========================================
+
+CATEGORY_NAMES = {
+    "US": "米国・トランプ",
+    "Iran": "イラン",
+    "Gulf": "湾岸諸国",
+    "Flight": "空域・フライト",
+    "Hormuz": "ホルムズ海峡",
+}
+
+
+# ==========================================
+# Google News RSS取得
+# ==========================================
+
 def fetch_google_news(category, query):
+
     encoded = urllib.parse.quote(query)
+
     url = (
         "https://news.google.com/rss/search?"
         f"q={encoded}&hl=en-US&gl=US&ceid=US:en"
@@ -34,71 +58,231 @@ def fetch_google_news(category, query):
         xml_data = response.read()
 
     root = ET.fromstring(xml_data)
-    results = []
+
+    items = []
 
     for item in root.findall(".//item")[:MAX_ITEMS_PER_SEARCH]:
+
         title = item.findtext("title", "").strip()
         link = item.findtext("link", "").strip()
         pub_date = item.findtext("pubDate", "").strip()
 
         try:
-            parsed_date = email.utils.parsedate_to_datetime(pub_date)
-            published_at = parsed_date.isoformat()
+            dt = email.utils.parsedate_to_datetime(pub_date)
+            published_at = dt.isoformat()
         except Exception:
-            published_at = datetime.datetime.now(
-                datetime.timezone.utc
-            ).isoformat()
+            published_at = pub_date
 
-        item_id = hashlib.md5(
+        news_id = hashlib.md5(
             (title + link).encode("utf-8")
         ).hexdigest()
 
-        results.append({
-            "id": item_id,
+        items.append({
+            "id": news_id,
             "category": category,
-            "published_at": published_at,
-            "title_ja": title,
-            "summary_ja": "最新ニュースとして自動取得されました。",
-            "dubai_impact": assess_dubai_impact(title),
+            "title": title,
             "url": link,
-            "location": None
+            "published_at": published_at,
         })
 
-    return results
+    return items
 
 
-def assess_dubai_impact(text):
-    text = text.lower()
+# ==========================================
+# ニュースの重要度を自動判定
+# ==========================================
+
+def calculate_importance(title, category):
+
+    text = title.lower()
+
+    score = 0
 
     high_keywords = [
-        "uae",
-        "dubai",
-        "abu dhabi",
-        "missile attack",
-        "drone attack",
+        "attack",
+        "strike",
+        "missile",
+        "war",
+        "airspace closed",
         "airspace closure",
+        "airport closed",
+        "evacuation",
+        "explosion",
+        "nuclear",
+        "retaliation",
+        "military action",
     ]
 
     medium_keywords = [
-        "bahrain",
-        "qatar",
-        "kuwait",
-        "saudi",
-        "hormuz",
+        "trump",
+        "iran",
+        "pentagon",
+        "ceasefire",
+        "sanctions",
+        "negotiations",
+        "deal",
+        "threat",
         "tanker",
-        "us military",
+        "shipping",
     ]
 
-    if any(word in text for word in high_keywords):
+    dubai_keywords = [
+        "dubai",
+        "uae",
+        "emirates",
+        "abu dhabi",
+        "gulf",
+    ]
+
+    for word in high_keywords:
+        if word in text:
+            score += 5
+
+    for word in medium_keywords:
+        if word in text:
+            score += 2
+
+    for word in dubai_keywords:
+        if word in text:
+            score += 4
+
+    if category == "Flight":
+        score += 3
+
+    if category == "Gulf":
+        score += 2
+
+    return score
+
+
+# ==========================================
+# 日本語の読むべきポイントを自動生成
+# ==========================================
+
+def create_japanese_summary(title, category):
+
+    text = title.lower()
+
+    if any(word in text for word in [
+        "missile", "attack", "strike", "explosion"
+    ]):
+
         return (
-            "UAEまたはドバイに直接関係する可能性があります。"
-            "公式情報とフライト状況を確認してください。"
+            "軍事攻撃やミサイルに関する新たな動きです。"
+            "攻撃場所、被害状況、報復の可能性を確認する必要があります。"
         )
 
-    if any(word in text for word in medium_keywords):
+    if "trump" in text:
+
         return (
-            "湾岸地域に関連する動きです。現時点でドバイへの"
-            "直接的影響が確認されていない場合でも、情勢の変化に注意が必要です。"
+            "トランプ大統領の最新発言または米国政府の動きです。"
+            "イランへの軍事対応や外交方針に影響する可能性があります。"
+        )
+
+    if any(word in text for word in [
+        "airspace", "flight", "airport", "emirates"
+    ]):
+
+        return (
+            "中東地域の空域またはフライトに関する最新情報です。"
+            "UAE発着便への影響や迂回ルートに注意が必要です。"
+        )
+
+    if any(word in text for word in [
+        "hormuz", "tanker", "shipping"
+    ]):
+
+        return (
+            "ホルムズ海峡と船舶輸送に関する重要な動きです。"
+            "原油価格や湾岸地域の物流への影響に注意が必要です。"
+        )
+
+    if category == "Iran":
+
+        return (
+            "イラン情勢に関する最新の動きです。"
+            "軍事的緊張や米国・湾岸諸国への影響を確認しています。"
+        )
+
+    if category == "Gulf":
+
+        return (
+            "湾岸諸国に関連する最新情報です。"
+            "UAEとドバイへの直接的・間接的影響に注意が必要です。"
+        )
+
+    return (
+        "中東情勢に関する最新ニュースです。"
+        "今後の動きとドバイへの影響を継続して確認します。"
+    )
+
+
+# ==========================================
+# ドバイへの影響を自動判定
+# ==========================================
+
+def create_dubai_impact(title, category):
+
+    text = title.lower()
+
+    if any(word in text for word in [
+        "dubai airport closed",
+        "dubai airspace closed",
+        "uae attack",
+        "uae missile",
+        "dubai attack",
+    ]):
+
+        return (
+            "ドバイまたはUAEへの直接的な影響が報じられています。"
+            "航空便、安全情報、政府発表を優先して確認してください。"
+        )
+
+    if any(word in text for word in [
+        "airspace",
+        "flight",
+        "airport",
+        "emirates",
+    ]):
+
+        return (
+            "ドバイ発着便に遅延、欠航、迂回が発生する可能性があります。"
+        )
+
+    if any(word in text for word in [
+        "bahrain",
+        "kuwait",
+        "qatar",
+        "saudi",
+        "oman",
+    ]):
+
+        return (
+            "現時点でドバイへの直接的な影響は確認されていませんが、"
+            "湾岸地域全体の緊張拡大に注意が必要です。"
+        )
+
+    if any(word in text for word in [
+        "hormuz",
+        "tanker",
+        "shipping",
+    ]):
+
+        return (
+            "ドバイへの直接的な軍事影響は確認されていませんが、"
+            "物流、燃料価格、海上輸送への影響が考えられます。"
+        )
+
+    if any(word in text for word in [
+        "missile",
+        "attack",
+        "strike",
+        "retaliation",
+    ]):
+
+        return (
+            "現時点でドバイへの直接的な影響は確認されていません。"
+            "ただし、報復の連鎖による湾岸地域への波及に注意が必要です。"
         )
 
     return (
@@ -106,117 +290,198 @@ def assess_dubai_impact(text):
     )
 
 
+# ==========================================
+# 警戒レベルを判定
+# ==========================================
+
 def calculate_risk(items):
-    titles = " ".join(
-        item["title_ja"].lower() for item in items
+
+    if not items:
+        return {
+            "level": "情報確認中",
+            "summary": "現在、最新情報を確認しています。"
+        }
+
+    max_score = max(
+        item.get("importance", 0)
+        for item in items
     )
 
-    red_terms = [
-        "attack on uae",
-        "missile hits dubai",
-        "attack on dubai",
-        "uae under attack",
-    ]
+    direct_uae = any(
+        any(keyword in item["title"].lower() for keyword in [
+            "uae attack",
+            "uae missile",
+            "dubai attack",
+            "dubai airport closed",
+            "dubai airspace closed",
+        ])
+        for item in items
+    )
 
-    orange_terms = [
-        "uae airspace closure",
-        "missile attack",
-        "drone attack",
-        "strait of hormuz closed",
-    ]
-
-    yellow_terms = [
-        "iran retaliation",
-        "us military",
-        "tanker attack",
-        "airspace",
-        "flight cancelled",
-    ]
-
-    if any(term in titles for term in red_terms):
+    if direct_uae:
         return {
-            "level": "red",
+            "level": "警戒",
             "summary": (
-                "UAEまたはドバイに直接関係する重大な安全保障上の"
-                "情報が検出されました。公式情報を優先して確認してください。"
+                "UAEまたはドバイへの直接的な影響を示す報道があります。"
+                "航空、安全、政府発表を優先して確認してください。"
             )
         }
 
-    if any(term in titles for term in orange_terms):
+    if max_score >= 12:
         return {
-            "level": "orange",
+            "level": "注意",
             "summary": (
-                "地域情勢に重大な動きがあります。現時点でドバイへの"
-                "直接的影響が確認されていない場合でも、注意が必要です。"
-            )
-        }
-
-    if any(term in titles for term in yellow_terms):
-        return {
-            "level": "yellow",
-            "summary": (
-                "湾岸・イラン情勢に注意すべき動きがあります。"
-                "ドバイへの直接的影響を継続して確認します。"
+                "湾岸・イラン情勢に注意すべき重要な動きがあります。"
+                "ドバイへの直接的な影響を継続して確認します。"
             )
         }
 
     return {
-        "level": "green",
+        "level": "通常",
         "summary": (
-            "現時点で、取得したニュースからドバイへの重大な"
-            "直接的影響は検出されていません。"
+            "現時点でドバイへの重大な直接的影響は確認されていません。"
         )
     }
 
 
+# ==========================================
+# 前回データを読み込む
+# ==========================================
+
+def load_previous_data():
+
+    try:
+        with open("news.json", encoding="utf-8") as f:
+            return json.load(f)
+
+    except Exception:
+        return {
+            "items": []
+        }
+
+
+# ==========================================
+# メイン処理
+# ==========================================
+
 def main():
+
+    previous_data = load_previous_data()
+
+    previous_ids = {
+        item.get("id")
+        for item in previous_data.get("items", [])
+    }
+
     all_items = []
 
     for category, query in SEARCHES:
-        try:
-            print(f"Fetching: {category} / {query}")
-            items = fetch_google_news(category, query)
-            all_items.extend(items)
-        except Exception as error:
-            print(f"Error fetching {category}: {error}")
 
-    # 重複を削除
+        try:
+            news_items = fetch_google_news(category, query)
+
+            for item in news_items:
+
+                item["importance"] = calculate_importance(
+                    item["title"],
+                    category
+                )
+
+                item["summary_ja"] = create_japanese_summary(
+                    item["title"],
+                    category
+                )
+
+                item["impact_ja"] = create_dubai_impact(
+                    item["title"],
+                    category
+                )
+
+                all_items.append(item)
+
+        except Exception as error:
+            print(
+                f"Error fetching {category}: {error}"
+            )
+
+
+    # 重複削除
     unique_items = {}
+
     for item in all_items:
         unique_items[item["id"]] = item
 
-    items = list(unique_items.values())
+    all_items = list(unique_items.values())
 
-    # 新しい順
-    items.sort(
-        key=lambda x: x["published_at"],
+
+    # 重要度順に並べる
+    all_items.sort(
+        key=lambda item: (
+            item.get("importance", 0),
+            item.get("published_at", "")
+        ),
         reverse=True
     )
 
-    # 最大30件
-    items = items[:30]
 
-    data = {
+    # 最大30件
+    all_items = all_items[:30]
+
+
+    # 前回から新しく追加された重要ニュース
+    changes = []
+
+    for item in all_items:
+
+        if (
+            item["id"] not in previous_ids
+            and item.get("importance", 0) >= 7
+        ):
+
+            changes.append({
+                "title": item["title"],
+                "summary": item["summary_ja"],
+            })
+
+
+    # 最大5件
+    changes = changes[:5]
+
+
+    risk = calculate_risk(all_items)
+
+
+    output = {
         "updated_at": datetime.datetime.now(
             datetime.timezone.utc
         ).isoformat(),
-        "risk": calculate_risk(items),
-        "items": items
+
+        "risk": risk,
+
+        "changes": changes,
+
+        "items": all_items,
     }
+
 
     with open(
         "news.json",
         "w",
         encoding="utf-8"
-    ) as file:
+    ) as f:
+
         json.dump(
-            data,
-            file,
+            output,
+            f,
             ensure_ascii=False,
             indent=2
         )
 
-    print(f"Updated news.json with {len(items)} items.")
+
+    print(
+        f"Updated news.json with "
+        f"{len(all_items)} items."
+    )
 
 
 if __name__ == "__main__":
