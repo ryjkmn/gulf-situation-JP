@@ -98,7 +98,9 @@ def load_previous_data():
 
 def call_gemini(prompt, max_attempts=3):
     if not GEMINI_API_KEY:
-        raise RuntimeError("GEMINI_API_KEY が設定されていません。")
+        raise RuntimeError(
+            "GEMINI_API_KEY が設定されていません。"
+        )
 
     url = (
         "https://generativelanguage.googleapis.com/v1beta/"
@@ -124,7 +126,9 @@ def call_gemini(prompt, max_attempts=3):
         request = urllib.request.Request(
             url,
             data=json.dumps(payload).encode("utf-8"),
-            headers={"Content-Type": "application/json"},
+            headers={
+                "Content-Type": "application/json"
+            },
             method="POST"
         )
 
@@ -170,7 +174,13 @@ def call_gemini(prompt, max_attempts=3):
                 errors="replace"
             )
 
-            if error.code in (429, 500, 502, 503, 504):
+            if error.code in (
+                429,
+                500,
+                502,
+                503,
+                504
+            ):
                 if attempt < max_attempts:
                     wait_seconds = 30 * attempt
 
@@ -192,7 +202,7 @@ def call_gemini(prompt, max_attempts=3):
                 wait_seconds = 30 * attempt
 
                 print(
-                    f"Gemini API接続エラー。"
+                    "Gemini API接続エラー。"
                     f"{wait_seconds}秒後に再試行します..."
                 )
 
@@ -201,6 +211,11 @@ def call_gemini(prompt, max_attempts=3):
 
             raise RuntimeError(
                 f"Gemini APIへの接続に失敗しました: {error}"
+            )
+
+        except json.JSONDecodeError as error:
+            raise RuntimeError(
+                f"GeminiのJSON解析に失敗しました: {error}"
             )
 
     raise RuntimeError(
@@ -230,23 +245,41 @@ def build_prompt(items, previous_ids):
 
 以下のニュース見出しを分析し、
 ドバイ在住者が30秒から2分程度で、
-「今何が起きているか」「ドバイにどう影響するか」
+「今何が起きているか」
+「ドバイにどう影響するか」
 を理解できるように編集してください。
 
-【最重要ルール】
 
-1. 必ず自然で読みやすい日本語で回答する。
-2. ニュース見出しから確認できない事実を推測しない。
-3. 同じ出来事を扱う類似ニュースは重複として扱い、原則1件だけ選ぶ。
-4. 同じ出来事について複数メディアの記事がある場合、最も具体的で重要な1件を代表記事として選ぶ。
-5. ドバイへの直接的影響と、湾岸地域全体への間接的影響を明確に区別する。
-6. センセーショナルな表現を避ける。
-7. 単に Iran、Trump、missile などの単語が含まれるだけで危険度を上げない。
-8. 「今日読むべきニュース」と「その他の重要ニュース」は絶対に重複させない。
-9. 「昨日から何が変わった？」と「今日読むべきニュース」も、可能な限り重複を避ける。
-10. フライトへの影響には、UAE、Dubai、DXB、DWC、Abu Dhabi、AUH、Emirates、flydubai、Etihadに実際に関連する記事だけを選ぶ。
-11. 同じ事実や結論を、タイトル・要約・読むべきポイントで繰り返さない。
-12. 各文章にはそれぞれ明確に異なる役割を持たせる。
+【絶対ルール】
+
+1. 必ず自然な日本語で回答する。
+2. 返却する items には、入力された全ニュースを必ず含める。
+3. 全ニュースについて必ず title_ja を日本語で作成する。
+4. 全ニュースについて必ず summary_ja を日本語で作成する。
+5. 全ニュースについて必ず key_point_ja を日本語で作成する。
+6. 英語タイトルを title_ja にそのままコピーしてはいけない。
+7. ニュース見出しから確認できない事実を推測しない。
+8. センセーショナルな表現を避ける。
+9. ドバイへの直接的影響と、湾岸地域全体への間接的影響を区別する。
+10. 単に Iran、Trump、missile などの単語が含まれるだけで危険度を上げない。
+
+
+【ニュースの重複について】
+
+同じ出来事を扱う類似ニュースは、
+表示対象として原則1件だけ選んでください。
+
+同じ出来事について複数メディアの記事がある場合は、
+最も具体的で重要な1件を代表記事として選んでください。
+
+以下のセクション間では、
+同じニュースIDを重複させないでください。
+
+- 昨日から何が変わった？
+- 今日読むべきニュース
+- フライトへの影響
+- その他の重要ニュース
+
 
 【サイトの表示構成】
 
@@ -254,22 +287,28 @@ def build_prompt(items, previous_ids):
 2. 現在の状況まとめ：約3文
 3. 昨日から何が変わった？：最大3件
 4. 今日読むべきニュース：最大3件
-5. フライトへの影響：関連する重要記事のみ、最大3件
-6. その他の重要ニュース：最大6件。ただし十分な重要ニュースがなければ少なくてよい。
+5. フライトへの影響：最大3件
+6. その他の重要ニュース：最大6件
+
 
 【今、ドバイは安全？】
 
 risk.summary は、
-「現在のドバイまたはUAEの安全状況の結論」だけを書いてください。
+現在のドバイまたはUAEの安全状況について、
+結論だけを書いてください。
 
-必ず1〜2文、できるだけ短くしてください。
+1〜2文で簡潔にしてください。
 
-ここでは国際情勢全体を詳しく説明しないでください。
-米国・イラン間で何が起きたかなどの詳細は、
-current_situation_summary に書いてください。
+ここでは、
+米国とイランの攻撃内容や、
+ホルムズ海峡などの国際情勢を
+詳しく説明しないでください。
+
+それらは current_situation_summary に書いてください。
 
 risk.summary と current_situation_summary で、
-同じ文章、同じ事実、同じ表現を繰り返してはいけません。
+同じ事実や同じ表現を繰り返してはいけません。
+
 
 【安全レベル】
 
@@ -279,68 +318,108 @@ orange = 警戒
 red = 重大
 
 安全レベルは、
-ドバイまたはUAEへの実際の直接的影響を最も重視してください。
+ドバイまたはUAEへの実際の直接的影響を
+最も重視してください。
 
 湾岸地域で緊張が高まっているだけで、
-ドバイへの直接的な脅威が確認されていない場合、
+ドバイへの直接的な脅威が確認されていない場合は、
 過度に高い安全レベルを設定しないでください。
+
 
 【現在の状況まとめ】
 
 current_situation_summary は、
 日本語で約3文にしてください。
 
-内容は可能な限り次の順番にしてください。
+内容は可能な限り、
+次の順番にしてください。
 
-- 現在、国際情勢または湾岸地域で何が起きているか
-- ドバイまたはUAEへの直接的・間接的影響
-- フライト、空域、物流など今後注意すべきこと
+1. 現在、国際情勢または湾岸地域で何が起きているか。
+2. ドバイまたはUAEへの直接的・間接的影響。
+3. フライト、空域、物流など今後注意すべきこと。
 
-risk.summary ですでに書いた結論を繰り返さず、
-より具体的な背景と現在の状況を説明してください。
+risk.summary ですでに書いた結論を
+そのまま繰り返してはいけません。
+
 
 【各ニュースの文章の役割】
 
-各ニュースについて、以下を作成してください。
+各ニュースについて、
+以下を必ず作成してください。
+
 
 ■ title_ja
 
 何が起きたかを一目で理解できる、
 自然で簡潔な日本語タイトル。
 
+
 ■ summary_ja
 
-ニュース本文の要約。
-「何が起きたか」に加えて、
-タイトルだけでは分からない具体的な情報や背景を書く。
-1〜2文。
+タイトルだけでは分からない、
+具体的な情報や背景を書いてください。
 
-タイトルを単純に言い換えただけの文章は禁止。
+1〜2文にしてください。
+
+タイトルを単純に言い換えただけの文章は禁止です。
+
 
 ■ key_point_ja
 
 ニュース内容を再び要約してはいけません。
 
-必ず以下のどれかを説明してください。
+以下のいずれかを説明してください。
 
 - なぜこのニュースが重要なのか
 - ドバイ・UAE在住者にどんな影響があり得るのか
 - フライト、空域、物流、安全、生活にどう関係するのか
 - 今後何に注目すべきなのか
 
-1文で簡潔に書いてください。
+1文で簡潔にしてください。
+
 
 ■ importance_score
 
 0〜100の整数。
 
+
+【タイトル・要約・ポイントの重複禁止】
+
+悪い例：
+
+タイトル：
+「米軍がイランを攻撃」
+
+要約：
+「米軍がイランへの攻撃を実施しました。」
+
+読むべきポイント：
+「米軍によるイラン攻撃は重要な動きです。」
+
+これは同じ内容を3回繰り返しているので禁止です。
+
+
+良い例：
+
+タイトル：
+「米軍、イラン国内の複数目標を攻撃」
+
+要約：
+「米軍は過去2夜で複数の目標を攻撃し、
+米イラン間の軍事的緊張が再び高まっています。」
+
+読むべきポイント：
+「緊張の拡大により、
+UAE周辺の空域変更やフライト運航への影響に
+注意が必要です。」
+
+
 【重要フレーズのハイライト】
 
 各文章について、
-読者が一目で最重要ポイントを理解できるよう、
-重要な短いフレーズを1つだけ選んでください。
+最重要の短いフレーズを1つだけ選んでください。
 
-以下のフィールドを追加してください。
+以下を返してください。
 
 - risk_highlight
 - situation_highlight
@@ -350,11 +429,62 @@ risk.summary ですでに書いた結論を繰り返さず、
 ルール：
 
 1. 必ず元の文章の中に完全一致する文字列を選ぶ。
-2. 1つのハイライトは原則5〜20文字程度。
+2. 原則5〜20文字程度。
 3. 文章全体をハイライトしない。
-4. 1文章につき最大1か所だけ。
+4. 1文章につき最大1か所。
 5. 重要な結論、数字、直接的影響を優先する。
-6. 適切なフレーズがない場合は空文字 "" にする。
+6. 適切なフレーズがなければ空文字 "" にする。
+
+
+【昨日から何が変わった？】
+
+changes_ids には、
+is_new=true のニュースの中から、
+前回更新以降の重要な変化を最大3件選んでください。
+
+同じ出来事の類似記事を複数選ばないでください。
+
+
+【今日読むべきニュース】
+
+must_read_ids には、
+ドバイ・UAE在住者が今日読む価値が最も高いニュースを
+最大3件選んでください。
+
+changes_ids と重複させないでください。
+
+
+【フライトへの影響】
+
+flight_impact_ids には、
+以下に実際に関係するニュースだけを
+最大3件選んでください。
+
+- UAE
+- Dubai
+- DXB
+- DWC
+- Abu Dhabi
+- AUH
+- Emirates
+- flydubai
+- Etihad
+- UAE周辺空域
+
+単に中東の航空ニュースというだけでは選ばないでください。
+
+changes_ids と must_read_ids に
+すでに含まれる記事は選ばないでください。
+
+
+【その他の重要ニュース】
+
+other_news_ids には、
+上記3セクションに含まれていないニュースから、
+重要なものを最大6件選んでください。
+
+同じ出来事の類似記事を複数選ばないでください。
+
 
 【返却するJSON形式】
 
@@ -366,18 +496,23 @@ risk.summary ですでに書いた結論を繰り返さず、
     "risk_highlight": "summary内に完全一致する重要フレーズ"
   }},
 
-  "current_situation_summary": "現在の状況を約3文でまとめた日本語",
+  "current_situation_summary":
+    "現在の状況を約3文でまとめた日本語",
 
-  "situation_highlight": "current_situation_summary内に完全一致する重要フレーズ",
+  "situation_highlight":
+    "current_situation_summary内に完全一致する重要フレーズ",
 
   "items": [
     {{
       "id": "元のニュースID",
-      "title_ja": "日本語タイトル",
-      "summary_ja": "日本語要約",
-      "summary_highlight": "summary_ja内に完全一致する重要フレーズ",
-      "key_point_ja": "ドバイ・UAE在住者への意味や影響",
-      "key_point_highlight": "key_point_ja内に完全一致する重要フレーズ",
+      "title_ja": "必ず日本語タイトル",
+      "summary_ja": "必ず日本語要約",
+      "summary_highlight":
+        "summary_ja内に完全一致する重要フレーズ",
+      "key_point_ja":
+        "必ず日本語でドバイ・UAE在住者への意味や影響",
+      "key_point_highlight":
+        "key_point_ja内に完全一致する重要フレーズ",
       "importance_score": 0
     }}
   ],
@@ -399,23 +534,52 @@ risk.summary ですでに書いた結論を繰り返さず、
   ]
 }}
 
+
 【最終確認】
 
 JSONを返す前に必ず確認してください。
 
-- risk.summary と current_situation_summary が同じ内容になっていないか
-- title_ja と summary_ja が同じ内容になっていないか
-- summary_ja と key_point_ja が同じ内容になっていないか
-- 「今日読むべきニュース」と「その他の重要ニュース」が重複していないか
-- ハイライト文字列が元の文章内に完全一致しているか
-- 日本語として自然か
+- 入力された全ニュースが items に含まれているか。
+- 全記事に日本語の title_ja があるか。
+- 全記事に日本語の summary_ja があるか。
+- 全記事に日本語の key_point_ja があるか。
+- risk.summary と current_situation_summary が重複していないか。
+- title_ja と summary_ja が同じ内容になっていないか。
+- summary_ja と key_point_ja が同じ内容になっていないか。
+- 各セクション間で同じIDが重複していないか。
+- 類似ニュースを複数選んでいないか。
+- ハイライト文字列が元文章内に完全一致しているか。
+- 日本語として自然か。
 
-重複があれば、返答前に必ず書き直してください。
+問題があれば、
+JSONを返す前に必ず修正してください。
+
 
 【ニュース一覧】
 
 {json.dumps(simplified_items, ensure_ascii=False, indent=2)}
 """
+
+
+# ==========================================
+# 日本語文字が含まれているか確認
+# ==========================================
+
+def contains_japanese(text):
+    if not text:
+        return False
+
+    for char in text:
+        code = ord(char)
+
+        if (
+            0x3040 <= code <= 0x309F or
+            0x30A0 <= code <= 0x30FF or
+            0x4E00 <= code <= 0x9FFF
+        ):
+            return True
+
+    return False
 
 
 # ==========================================
@@ -435,37 +599,58 @@ def merge_ai_results(items, ai_result):
         item = original.copy()
         ai_data = ai_items.get(item["id"], {})
 
-        item["title_ja"] = ai_data.get(
-            "title_ja",
-            item["title"]
-        )
+        title_ja = str(
+            ai_data.get("title_ja", "")
+        ).strip()
 
-        item["summary_ja"] = ai_data.get(
-            "summary_ja",
-            ""
-        )
+        summary_ja = str(
+            ai_data.get("summary_ja", "")
+        ).strip()
 
-        item["summary_highlight"] = ai_data.get(
-            "summary_highlight",
-            ""
-        )
+        key_point_ja = str(
+            ai_data.get("key_point_ja", "")
+        ).strip()
 
-        item["key_point_ja"] = ai_data.get(
-            "key_point_ja",
-            ""
-        )
+        item["title_ja"] = title_ja
+        item["summary_ja"] = summary_ja
 
-        item["key_point_highlight"] = ai_data.get(
-            "key_point_highlight",
-            ""
-        )
+        item["summary_highlight"] = str(
+            ai_data.get(
+                "summary_highlight",
+                ""
+            )
+        ).strip()
+
+        item["key_point_ja"] = key_point_ja
+
+        item["key_point_highlight"] = str(
+            ai_data.get(
+                "key_point_highlight",
+                ""
+            )
+        ).strip()
 
         try:
             item["importance_score"] = int(
-                ai_data.get("importance_score", 0)
+                ai_data.get(
+                    "importance_score",
+                    0
+                )
             )
         except Exception:
             item["importance_score"] = 0
+
+        # 表示可能条件：
+        # タイトル・要約・ポイントがすべて存在し、
+        # すべてに日本語が含まれていること
+        item["is_translated"] = (
+            bool(title_ja) and
+            bool(summary_ja) and
+            bool(key_point_ja) and
+            contains_japanese(title_ja) and
+            contains_japanese(summary_ja) and
+            contains_japanese(key_point_ja)
+        )
 
         merged.append(item)
 
@@ -511,17 +696,57 @@ def select_items_by_ids(
 
 
 # ==========================================
+# 重要度順から不足分を補完
+# ==========================================
+
+def fill_from_ranked_items(
+    selected,
+    ranked_items,
+    limit,
+    excluded_ids=None
+):
+    excluded_ids = set(excluded_ids or [])
+
+    existing_ids = {
+        item["id"]
+        for item in selected
+    }
+
+    for item in ranked_items:
+        item_id = item["id"]
+
+        if item_id in excluded_ids:
+            continue
+
+        if item_id in existing_ids:
+            continue
+
+        selected.append(item)
+        existing_ids.add(item_id)
+
+        if len(selected) >= limit:
+            break
+
+    return selected
+
+
+# ==========================================
 # メイン
 # ==========================================
 
 def main():
-    print("Starting GULF WATCH JP AI update...")
+    print(
+        "Starting GULF WATCH JP AI update..."
+    )
 
     previous_data = load_previous_data()
 
     previous_ids = {
         item.get("id")
-        for item in previous_data.get("items", [])
+        for item in previous_data.get(
+            "items",
+            []
+        )
         if item.get("id")
     }
 
@@ -531,15 +756,20 @@ def main():
         print(f"Fetching {category}...")
 
         try:
-            fetched = fetch_google_news(category, query)
+            fetched = fetch_google_news(
+                category,
+                query
+            )
+
             all_items.extend(fetched)
 
         except Exception as error:
             print(
-                f"Fetch error for {category}: {error}"
+                f"Fetch error for "
+                f"{category}: {error}"
             )
 
-    # 完全一致の重複削除
+    # 完全一致の重複を削除
     unique_items = {}
 
     for item in all_items:
@@ -564,7 +794,8 @@ def main():
         )
 
     print(
-        f"Fetched {len(items)} unique news items."
+        f"Fetched {len(items)} "
+        "unique news items."
     )
 
     prompt = build_prompt(
@@ -572,18 +803,33 @@ def main():
         previous_ids
     )
 
-    print("Sending news to Gemini AI...")
+    print(
+        "Sending news to Gemini AI..."
+    )
 
     ai_result = call_gemini(prompt)
 
-    print("Gemini AI analysis completed.")
+    print(
+        "Gemini AI analysis completed."
+    )
 
     items = merge_ai_results(
         items,
         ai_result
     )
 
-    items.sort(
+    # 日本語化が完了した記事だけを
+    # 実際の表示候補にする
+    display_items = [
+        item
+        for item in items
+        if item.get(
+            "is_translated",
+            False
+        )
+    ]
+
+    display_items.sort(
         key=lambda item: item.get(
             "importance_score",
             0
@@ -591,13 +837,27 @@ def main():
         reverse=True
     )
 
+    print(
+        f"Translated display items: "
+        f"{len(display_items)}"
+    )
+
+    if not display_items:
+        raise RuntimeError(
+            "日本語化されたニュースが"
+            "1件もありませんでした。"
+        )
+
     # ======================================
     # 昨日から何が変わった？
     # ======================================
 
     changes = select_items_by_ids(
-        items,
-        ai_result.get("changes_ids", []),
+        display_items,
+        ai_result.get(
+            "changes_ids",
+            []
+        ),
         limit=3
     )
 
@@ -608,32 +868,25 @@ def main():
 
     # ======================================
     # 今日読むべきニュース
+    # changesとの重複を禁止
     # ======================================
 
     must_read = select_items_by_ids(
-        items,
-        ai_result.get("must_read_ids", []),
+        display_items,
+        ai_result.get(
+            "must_read_ids",
+            []
+        ),
         limit=3,
         excluded_ids=change_ids
     )
 
-    # 3件未満なら重要度順から補完
-    if len(must_read) < 3:
-        existing_ids = (
-            change_ids |
-            {
-                item["id"]
-                for item in must_read
-            }
-        )
-
-        for item in items:
-            if item["id"] not in existing_ids:
-                must_read.append(item)
-                existing_ids.add(item["id"])
-
-            if len(must_read) >= 3:
-                break
+    must_read = fill_from_ranked_items(
+        must_read,
+        display_items,
+        3,
+        excluded_ids=change_ids
+    )
 
     must_read_ids = {
         item["id"]
@@ -642,15 +895,22 @@ def main():
 
     # ======================================
     # フライトへの影響
+    # changes・must_readとの重複を禁止
     # ======================================
 
+    excluded_from_flights = (
+        change_ids |
+        must_read_ids
+    )
+
     flight_impacts = select_items_by_ids(
-        items,
+        display_items,
         ai_result.get(
             "flight_impact_ids",
             []
         ),
-        limit=3
+        limit=3,
+        excluded_ids=excluded_from_flights
     )
 
     flight_ids = {
@@ -660,16 +920,17 @@ def main():
 
     # ======================================
     # その他の重要ニュース
+    # 上の全セクションとの重複を禁止
     # ======================================
 
     excluded_from_other = (
-        must_read_ids |
         change_ids |
+        must_read_ids |
         flight_ids
     )
 
     other_news = select_items_by_ids(
-        items,
+        display_items,
         ai_result.get(
             "other_news_ids",
             []
@@ -678,23 +939,12 @@ def main():
         excluded_ids=excluded_from_other
     )
 
-    # 6件未満なら重要度順から補完
-    if len(other_news) < MAX_OTHER_NEWS:
-        existing_ids = (
-            excluded_from_other |
-            {
-                item["id"]
-                for item in other_news
-            }
-        )
-
-        for item in items:
-            if item["id"] not in existing_ids:
-                other_news.append(item)
-                existing_ids.add(item["id"])
-
-            if len(other_news) >= MAX_OTHER_NEWS:
-                break
+    other_news = fill_from_ranked_items(
+        other_news,
+        display_items,
+        MAX_OTHER_NEWS,
+        excluded_ids=excluded_from_other
+    )
 
     # ======================================
     # 安全状況
@@ -714,24 +964,30 @@ def main():
         }
     )
 
-    current_situation_summary = ai_result.get(
-        "current_situation_summary",
-        ""
-    )
+    current_situation_summary = str(
+        ai_result.get(
+            "current_situation_summary",
+            ""
+        )
+    ).strip()
 
-    situation_highlight = ai_result.get(
-        "situation_highlight",
-        ""
-    )
+    situation_highlight = str(
+        ai_result.get(
+            "situation_highlight",
+            ""
+        )
+    ).strip()
 
     # ======================================
     # news.json 出力
     # ======================================
 
     output = {
-        "updated_at": datetime.datetime.now(
-            datetime.timezone.utc
-        ).isoformat(),
+        "updated_at": (
+            datetime.datetime.now(
+                datetime.timezone.utc
+            ).isoformat()
+        ),
 
         "risk": risk,
 
@@ -745,11 +1001,12 @@ def main():
 
         "must_read": must_read,
 
-        "flight_impacts": flight_impacts,
+        "flight_impacts":
+            flight_impacts,
 
         "other_news": other_news,
 
-        # 元データも保持
+        # 元データは保存しておく
         "items": items
     }
 
@@ -757,27 +1014,46 @@ def main():
         "news.json",
         "w",
         encoding="utf-8"
-    ) as f:
+    ) as file:
         json.dump(
             output,
-            f,
+            file,
             ensure_ascii=False,
             indent=2
         )
 
-    print("================================")
-    print("GULF WATCH JP AI update complete")
-    print(f"Total source news: {len(items)}")
-    print(f"Changes: {len(changes)}")
-    print(f"Must read: {len(must_read)}")
     print(
-        f"Flight impacts: {len(flight_impacts)}"
+        "================================"
     )
-    print(f"Other news: {len(other_news)}")
+    print(
+        "GULF WATCH JP AI update complete"
+    )
+    print(
+        f"Total source news: {len(items)}"
+    )
+    print(
+        "Translated display items: "
+        f"{len(display_items)}"
+    )
+    print(
+        f"Changes: {len(changes)}"
+    )
+    print(
+        f"Must read: {len(must_read)}"
+    )
+    print(
+        "Flight impacts: "
+        f"{len(flight_impacts)}"
+    )
+    print(
+        f"Other news: {len(other_news)}"
+    )
     print(
         f"Risk: {risk.get('label', '不明')}"
     )
-    print("================================")
+    print(
+        "================================"
+    )
 
 
 if __name__ == "__main__":
