@@ -1,259 +1,277 @@
 {
-  "updated_at": "2026-07-09T08:00:31.969741+00:00",
+  "updated_at": "2026-07-09T08:30:03.732935+00:00",
   "risk": {
-    "level": "yellow",
-    "summary": "湾岸・イラン情勢に注意すべき動きがあります。ドバイへの直接的影響を継続して確認します。"
+    "level": "注意",
+    "summary": "湾岸・イラン情勢に注意すべき重要な動きがあります。ドバイへの直接的な影響を継続して確認します。"
   },
+  "changes": [
+    {
+      "title": "Dubai and Middle East flight disruption: security alerts in Bahrain, Qatar and Kuwait as Trump says US-Iran ceasefire is ‘over’ - Condé Nast Traveller Middle East",
+      "summary": "トランプ大統領の最新発言または米国政府の動きです。イランへの軍事対応や外交方針に影響する可能性があります。"
+    },
+    {
+      "title": "Gulf states: More than 1,000 arrested in sweeping war-related crackdown on expression - Amnesty International",
+      "summary": "湾岸諸国に関連する最新情報です。UAEとドバイへの直接的・間接的影響に注意が必要です。"
+    },
+    {
+      "title": "2026 Iran war | Deal, Explained, United States, Israel, Strait of Hormuz, Map, & Conflict - Encyclopedia Britannica",
+      "summary": "ホルムズ海峡と船舶輸送に関する重要な動きです。原油価格や湾岸地域の物流への影響に注意が必要です。"
+    },
+    {
+      "title": "Iranian Economist Calls for Iran to Demonstrate Nuclear Capability Against U.S. and Israel - Homeland Security Today",
+      "summary": "イラン情勢に関する最新の動きです。軍事的緊張や米国・湾岸諸国への影響を確認しています。"
+    }
+  ],
   "items": [
     {
       "id": "19f8f6690c34637a075f2848bd0823a4",
       "category": "US",
-      "published_at": "2026-07-09T07:41:23+00:00",
-      "title_ja": "Iran war latest: Trump says Iran called to make deal after renewed strikes - The Independent",
-      "summary_ja": "最新ニュースとして自動取得されました。",
-      "dubai_impact": "現時点では、ドバイへの直接的な影響は確認されていません。",
+      "title": "Iran war latest: Trump says Iran called to make deal after renewed strikes - The Independent",
       "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQY21BS0FGWk0zdG5EM200bGU5RW01Skh4cC1tZHM0SzBZWVliUWMyZ2dHNlhWUEdEaEtPcVBCX1R4UlFuZXNPR29qLVNkYzJvOUVxZUdKaV9MeXlKMjZYMEhxMGo1NHpRTEQ0Zi1tOTNqakVWcGxmRzJQMURhUUV6TmgzcHpWWm9vcGVhQTZCTURuY0VVTHlkbHAtWGZ6QkE1bmZnREJhcmZtQlRvQlFYelo4alJTZ1JFbklF?oc=5",
-      "location": null
-    },
-    {
-      "id": "4e3e7aebfd6adf8034a3d7229e0f01e3",
-      "category": "US",
-      "published_at": "2026-07-09T07:02:40+00:00",
-      "title_ja": "Trump says Iran truce is ‘over’ as US hits 170 targets over two nights – Middle East crisis live - The Guardian",
-      "summary_ja": "最新ニュースとして自動取得されました。",
-      "dubai_impact": "現時点では、ドバイへの直接的な影響は確認されていません。",
-      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNSzZmYVBxWmdLdUp5NUhCSXZrMnpVeG5lUWJSRTFMMDBuRUpfbHBJYlU3S0R4S1FwblBZZUhuUVZiODJ6OXRkUmhhRktaVXNIdUIweWdBZ1FWckZVTWxWV1FoOGpVbldETUk0cFRONXVXazJhaEh5aHRQQVYyell0amFnNVRZZ1JLZnZZX2hOT25WYkdsUEJoLWZ4NGVaSEF5SGlCel85c21HMENZc1M3RWltRG94Zkp0a1p1Z1FaM1hWR1ZaN0hNdVdJSmQ5c21GdVRjMTA4TmtuMU54?oc=5",
-      "location": null
-    },
-    {
-      "id": "5c61fabb3053ce595082eb80a508d0b9",
-      "category": "Flight",
-      "published_at": "2026-07-09T05:24:00+00:00",
-      "title_ja": "Dubai and Middle East flight disruption: the latest updates as Trump says US-Iran ceasefire is ‘over’ - Condé Nast Traveller India",
-      "summary_ja": "最新ニュースとして自動取得されました。",
-      "dubai_impact": "UAEまたはドバイに直接関係する可能性があります。公式情報とフライト状況を確認してください。",
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNajl1OC03b09aQUw0VzIxV29xLUZqRmFSVWhRNzZ6WFNiOG5aTFpQaFR2VUhNM2RMMEUzWjJlN0lBYkc1Y1dja3J3ZXczU244RmhzZDd6Y0xycnVzQmxFZWxPLUdsaFhPQWY5S2Q1RmFBXzFhX3lrbkU1SF81NWdzenc2V29zeHlFWU0tc1JGc2lRVVk2UWswbDNGUWJ0M2I2NF9SNEswM0tkQnJpNG55dDM2RjhDVDJkSHprUGQ1eFNTc2YzTGl2cXhMQWs?oc=5",
-      "location": null
-    },
-    {
-      "id": "034d4142296956e60287892ec60bb627",
-      "category": "US",
-      "published_at": "2026-07-09T00:42:54+00:00",
-      "title_ja": "US launches new strikes on Iran, Trump says they could get 'much worse' - France 24",
-      "summary_ja": "最新ニュースとして自動取得されました。",
-      "dubai_impact": "現時点では、ドバイへの直接的な影響は確認されていません。",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxONHRHNVlOUHl1YlpjbzEwMXZsT1l2c1plMVFlSUJfNUUtTjFIM2JPZWdMcWlSTWcwT1UzYWJOWHl2SjZHZ1Fkc044WVVEQjROemcxOC02OW1ETVVEdlVhV2M2QkhqX2R3VXZFcHZ2eERhbGZ5WGNncFVJbUdrM0c0MEwzQ3V0cTF4X1pfNTRyMEtEc3IyS1RTRWd3aHVob18td2RvZndNaV9BRHRZWjhINTF3SDVOcjEt?oc=5",
-      "location": null
-    },
-    {
-      "id": "50bc04b1c6b55356fad82463af6c4fc7",
-      "category": "US",
-      "published_at": "2026-07-08T20:24:00+00:00",
-      "title_ja": "Ceasefire plunged into greater uncertainty amid fresh US strikes in Iran – as it happened - The Guardian",
-      "summary_ja": "最新ニュースとして自動取得されました。",
-      "dubai_impact": "現時点では、ドバイへの直接的な影響は確認されていません。",
-      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNM2dkTlFYUVNFbEJKVjlsUmQ4NGJ3Q004XzN6TU9pb0QyQnltem9ReEM3ZE05ZE9GUmRadmRuc0Z2OWlSSlJVREI5WEFtS3VqUXRDUWJZcVN0WTc5OVBacTVEOFE0QWdDN2hGcmNnbnFwbDJ6T1NnTV93RC0yTFEzbXItcUgtUTNJazQ2VFNnYkNhMnBKSW9LR2h0eklWUQ?oc=5",
-      "location": null
-    },
-    {
-      "id": "24c320fbcb33ad24606212382a5dd7d8",
-      "category": "Gulf",
-      "published_at": "2026-07-08T15:04:59+00:00",
-      "title_ja": "US ,Iran trade attacks in Strait of Hormuz, Iran may have advantage - The Jerusalem Post",
-      "summary_ja": "最新ニュースとして自動取得されました。",
-      "dubai_impact": "湾岸地域に関連する動きです。現時点でドバイへの直接的影響が確認されていない場合でも、情勢の変化に注意が必要です。",
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBzZkh2UERWTzR0ZlFHZjBCckU0X0t1MkhCZ05wWVdBMFliVW9aUFZRaEoxeFBMdzdvbWNQUTlOb3JPVjNEbDMzS3JOam1FaEduejg3RGU1R2dqUlFC?oc=5",
-      "location": null
-    },
-    {
-      "id": "91c052d3c837d7d5dba8be847310c50c",
-      "category": "Hormuz",
-      "published_at": "2026-07-08T14:44:24+00:00",
-      "title_ja": "U.S. and Iran launch fresh strikes following attacks on commercial ships - The Washington Post",
-      "summary_ja": "最新ニュースとして自動取得されました。",
-      "dubai_impact": "現時点では、ドバイへの直接的な影響は確認されていません。",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNY1o5OHkwY0twdzRvVmpHd1IyVXQyOWNObEpxcEJEaS0xSHQ2UDhRRnJ1bURnNlZKb05VWlI4SXFrRXYxZE03ZzRQV2JTTWRjN0FhZU5ZSWRPdl9CTjl5QjljS2Z2Z0hsZzBfLXB0NFpoalZPSGU2aU1zWkxUUDVETV9NcmtCb3RlZ19JUWdDbDlLeHlEWmFoZnFkNUdRV1RXSGdQN0hZTnNuRTNEWERXbTdJOVVGZw?oc=5",
-      "location": null
-    },
-    {
-      "id": "048b69aa3f9215de7d91db65913c489e",
-      "category": "Hormuz",
-      "published_at": "2026-07-08T13:59:20+00:00",
-      "title_ja": "How Iran uses the Strait of Hormuz to pressure the US - dw.com",
-      "summary_ja": "最新ニュースとして自動取得されました。",
-      "dubai_impact": "湾岸地域に関連する動きです。現時点でドバイへの直接的影響が確認されていない場合でも、情勢の変化に注意が必要です。",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPWE9NY0RyZWF3Mjg4cE9jVjZKOEMtdzI1Ym5oYzJ6NXRodlVDZ2ZaZnpqWncta1c3R09leGc2NVpoXzVoVjBRaDBzTWtQR2EtVHdkWGpqa3o1cE9pckpNLUxNRHBHZk04Mk1rV3ZkdzRMaUFXbTl6SmdVbGRwUnlIZ25uVWc0M21hYUxObzhQSdIBjwFBVV95cUxOOW9hWjVZYjR3RVZzakdEeEl3MWJrWmk3SURXOFR0ZlVfM2ZlS2NSUzhtWGdNcmVDbDRNbGVvR2FaTTY2cVRSTUc2VkYyQ2pXMElLcU4xanpRT2xhMGVNaXpBMTRrZk52c3pmSFdjMmRMRkEzdG94Q0RNNWJlQWJRV2RtSGhmR0xuNjNGUkhvcw?oc=5",
-      "location": null
-    },
-    {
-      "id": "bb6fa831a74c56ef10f91330cc517b1b",
-      "category": "US",
-      "published_at": "2026-07-08T12:04:33+00:00",
-      "title_ja": "Iran Live Updates: Trump Suggests Cease-Fire Is 'Over' After Latest Strikes - The New York Times",
-      "summary_ja": "最新ニュースとして自動取得されました。",
-      "dubai_impact": "現時点では、ドバイへの直接的な影響は確認されていません。",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1VclFMUUV4cGpfbEw4M3FsMU10S1I4bFo3d1RYZV9hWFcwR1NrNVBwLU5pVVI1NUowSHhLeDJFTFpkNEtKNWYzTm02Ul9nUnpaMnVoVWJCdVdrLUVGMXcxRzJQR2Zadjc1ejlGOUFORmE?oc=5",
-      "location": null
-    },
-    {
-      "id": "09bea36618644879913ac2f67983084b",
-      "category": "Gulf",
-      "published_at": "2026-07-08T10:30:17+00:00",
-      "title_ja": "Dubai and Middle East flight disruption: the latest updates as Trump says US-Iran ceasefire is ‘over’ - Condé Nast Traveller Middle East",
-      "summary_ja": "最新ニュースとして自動取得されました。",
-      "dubai_impact": "UAEまたはドバイに直接関係する可能性があります。公式情報とフライト状況を確認してください。",
-      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPcHQxZzljN0xaVWtsOTU5cjZLWFBqNlJyQlNiNThOOXFfTXVudTBkVGFrT0Nzc1hyTTBYNjhYbkFGSWw4bFFaMk83N0R0UDRIblNWWFZlMVNBWFpIYlUtcld2OTUwbkVham5IZy1ZMWZhUWhoMDdYc0hjS2NKbUE0LUxLcWdnTDN5Vlc4R1FhRnBfTmJ4ZDFRbFJ0YjJOWnBVYlRSMTh6SXpDYnQtWF92bnpqd2QyaHZiVWJDYTQ2OEpyX2E2VWFkeTNDc2NQTHc?oc=5",
-      "location": null
-    },
-    {
-      "id": "981189c5f5c76f290f32863e110decd8",
-      "category": "Hormuz",
-      "published_at": "2026-07-08T02:46:00+00:00",
-      "title_ja": "US launches new strikes on Iran, revokes oil sales permit after 3 ships attacked in Strait of Hormuz - AP News",
-      "summary_ja": "最新ニュースとして自動取得されました。",
-      "dubai_impact": "湾岸地域に関連する動きです。現時点でドバイへの直接的影響が確認されていない場合でも、情勢の変化に注意が必要です。",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOT2tfRFIyMHM3Y3R0UHRSQ0xwNEdNX2pjVUV5QkFGZk4yLUpVeU9RN0RHLXpUYU5UMzVIZkNwOWV4Q2dKTnJYZVl6UzZadkxHYUVYNmUzYWxoUEo1S2pPRUkxWmFsMHhadUYyams3ME5TOTlVSHhuTmgtRVA4NGo1NlJIOF9ZOUU2dGc?oc=5",
-      "location": null
-    },
-    {
-      "id": "d3c8b540e1b2d3a6585c7d10cdd1d036",
-      "category": "Hormuz",
-      "published_at": "2026-07-07T23:13:29+00:00",
-      "title_ja": "Hormuz shipping risk raised to severe after tankers hit, reviving U.S.-Iran tensions - Reuters",
-      "summary_ja": "最新ニュースとして自動取得されました。",
-      "dubai_impact": "湾岸地域に関連する動きです。現時点でドバイへの直接的影響が確認されていない場合でも、情勢の変化に注意が必要です。",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPUVFSZk5WeEJaVV96QWl0TDFIZDJUNWFlNTVkNERLdkxfYlVuY2paaS1KbkFHaDB6dkpEeVQ0ZXlLLW1RTXlBTmN2XzBPaklObVJ1VzdpWkFVTDhIYWFNbWlRdDVWZDJkZF9BY0FlNmJHaDBPbmY5ZTVDMEw3M0ozbjN5N2ljem83ZVBQZ3BhUEc4VTZBYmNZVnBiTVFoWUJUdml0dEdOUVYtMG02VEJKQUhMaUZSSnJuWmc?oc=5",
-      "location": null
-    },
-    {
-      "id": "e9bdb779445b425bc8542dad0f4f1b32",
-      "category": "Hormuz",
-      "published_at": "2026-07-07T18:18:39+00:00",
-      "title_ja": "U.S. revokes license authorizing sale of Iranian oil after 3 tankers hit in Strait of Hormuz - PBS",
-      "summary_ja": "最新ニュースとして自動取得されました。",
-      "dubai_impact": "湾岸地域に関連する動きです。現時点でドバイへの直接的影響が確認されていない場合でも、情勢の変化に注意が必要です。",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQYlh4d2pqRHdIMEdnS3c0NWJOMnE1T2JiQVNOSHdEcGNVLXBPT2k3ekU1WWpCTndhWGdkckRJNVdVUVRXcHlCeDdRd0x3ZHVnQ2czbGp2cHFUcnlzTTE0M1ZUTXBieDJwVnRFdEU5T3gzdFpmU0JCM0c3RTNpMWJFV0xqTGZEaWEyZGhFNUJFcG5KVlliNDg2Q2pabmcwLVhYTnI1b3hNLUJIRTltR1d2Q0VR0gG3AUFVX3lxTE1UR2FGNF93bG9qRWdWUEx0d2owQWxERkpicVJLYVpDbldkTTBnejRFQkptT1lvT0hYcF9KRWllUWVraGtRWmkzVm42MkZYbUFTanR6SmZOM0RycW01WFZYUmE4dzhOTWJQVzNDbkhjaFpUQWdIQUxPM3NwZ215cTQ0ODBQNEtadFRxajhId1o0Mklfb1NGM2lLOHRlbzFjcWlsSE40Uklqckw0S01OWnR2VVJHUGFMdw?oc=5",
-      "location": null
-    },
-    {
-      "id": "b7cf6ca415a7b1303e9248bbb9da94b3",
-      "category": "Flight",
-      "published_at": "2026-07-02T07:00:00+00:00",
-      "title_ja": "Airlines resume some Middle East flights but disruption continues - Reuters",
-      "summary_ja": "最新ニュースとして自動取得されました。",
-      "dubai_impact": "現時点では、ドバイへの直接的な影響は確認されていません。",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNTFA3dXVfVFNLY2dtWkM0MlYxMlNsUDkxVWhEdnoySWYyQ3dCQUlkMUhUREttNW8zay1WUXNEdFduNl9KRGozdDI1eFJjYzVoMkNfRzJMVHhkdnZZNHF6ankyYnhwb0Y4c2lYTE16VUJFeEdCUWNNUnVlLVBQYWpwX1daNzloVHZLMGs1Q3Z4WGVLdnZ4MVZCS1g4bmt3UTdsekhOUGoyc0VtcWlnQ2NOa1hGbkY2dw?oc=5",
-      "location": null
-    },
-    {
-      "id": "f05b977ce709b692f3e13a66f8ce0071",
-      "category": "Iran",
-      "published_at": "2026-06-28T07:00:00+00:00",
-      "title_ja": "Iran attacks Gulf nations, threatens ‘complete halt’ to talks with US - The Hill",
-      "summary_ja": "最新ニュースとして自動取得されました。",
-      "dubai_impact": "現時点では、ドバイへの直接的な影響は確認されていません。",
-      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQZVpXMi1QWnlhMFo1REhmQ3BHWTdLQjZLeGpvZnVQRkYzNjg2cWhUS3djOWZXbm4ybm1DY3NiY3A5cGtSS3VlbEFJYlBrMzN6N045a251bTZLQkNSSzBZUnYwVU9RZFQzbXZUaTFFWEJ2ckxCTUgxaV9vY01ueERiUnpiQ3FoSnB2dm5fbGY3M01sdEnSAZgBQVVfeXFMTXpwelQ3YjVIR1RTdmNPVk5Cd3lRTS1xUHlDeXJvRkpmaUdXRkN6WjlyTTZibFItaHZpQkY4b2c0MXpWTmFGU25uczVMUTFjS0N6cFpxNHY5N1IwaTI3WENkeGszRUFEcktjN3lHWlVncG9sU2xmQ1lOa2xmNkdxX2dmcGNjLWl4NllTQjJPUU5oQTNlcFViVmo?oc=5",
-      "location": null
+      "published_at": "2026-07-09T07:41:23+00:00",
+      "importance": 16,
+      "summary_ja": "軍事攻撃やミサイルに関する新たな動きです。攻撃場所、被害状況、報復の可能性を確認する必要があります。",
+      "impact_ja": "現時点でドバイへの直接的な影響は確認されていません。ただし、報復の連鎖による湾岸地域への波及に注意が必要です。"
     },
     {
       "id": "990c6a1aaec5a19a39eac5bf19615a29",
       "category": "Gulf",
-      "published_at": "2026-06-25T07:00:00+00:00",
-      "title_ja": "Pragmatic choice: Israel’s war backfires as Gulf backs US-Iran deal - Al Jazeera",
-      "summary_ja": "最新ニュースとして自動取得されました。",
-      "dubai_impact": "現時点では、ドバイへの直接的な影響は確認されていません。",
+      "title": "Pragmatic choice: Israel’s war backfires as Gulf backs US-Iran deal - Al Jazeera",
       "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNTThlLW1nRGJvTmRsV18yeWtHUkhPMC1fUHh4XzlGS3RObVlKYVBFMVJ1VWVCN05ENnF1RXFHSWdSMF82Z0ZKSU1xMXVZN2xxRmVBUmlUb09UV3BfY2ZiVGl0OTZZMXJJN2xZaWFINkhQT3pXTmV4Q1FLa1ZZd09acTF4OGZOT0E2eG04VjdjLTlGYnRQaUtwZTVyOU83Y0dPSThMb3dvSVBBQTI0S05EcHg1LTdfUdIBuwFBVV95cUxOc04tT0ZzcWZOaHJlSzRyekVTUERET3J0UEpWRVRDaDVyZG1Dakh0S0NuYklRWWk0T3NObDRtR3VKSW1kOGxwNXNuZVVBaHVISWN1WHhQd3JaSEV6UVI2c19QdVVmWTA0bU1ibEVLelVsV0hEbjRsb21XMEE0MFFNQ0laZl9oZVVhakI2YXQyQ0dRNlo3RkcyRmhOaWJ2dTJ2Q0E5d3NvemdldkNVak80LVdqTUNMdTBKS2ZZ?oc=5",
-      "location": null
+      "published_at": "2026-06-25T07:00:00+00:00",
+      "importance": 15,
+      "summary_ja": "湾岸諸国に関連する最新情報です。UAEとドバイへの直接的・間接的影響に注意が必要です。",
+      "impact_ja": "現時点では、ドバイへの直接的な影響は確認されていません。"
     },
     {
-      "id": "beae1dac8be18b4016785020e8cb150c",
+      "id": "98b1be40b271cfb4cfc61792aa85d35e",
       "category": "Flight",
-      "published_at": "2026-06-25T07:00:00+00:00",
-      "title_ja": "Supply Chain Operational Update: Middle East - Marken.",
-      "summary_ja": "最新ニュースとして自動取得されました。",
-      "dubai_impact": "現時点では、ドバイへの直接的な影響は確認されていません。",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNMEMxeENKUW00MEp3SE5semhEUlZJdU00TlVtNEctbzYwVEtha1JXZzdEV0sxaWtSZnhjaFlIdi1mTUpmTHFRTklhYXVVdzNLWUY1TXBSRXpITUJqeE55U1JBQWsxWE9GV3BnUWxTSWI4Mk02TXNTdTFHOTdLWW9EdDM3ZXUzWGR0?oc=5",
-      "location": null
+      "title": "Dubai and Middle East flight disruption: security alerts in Bahrain, Qatar and Kuwait as Trump says US-Iran ceasefire is ‘over’ - Condé Nast Traveller Middle East",
+      "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxNS2RTRDd2aFFoYndNMXRNN24tTHZ0VHM4Tk1NZ2ZnRDBfTHhLV3JsRTdIYXBDYmtoNzg4Yk5DNVdJUWpVcFhhTk9wMXNlZGx3clJXanY3Y0lodVdNZmpuS0sxTnYyQmk5SFF3UUpYNXVjRlpnc0J4cl90SDIwajBoUjJKM2EzWHF0dDFOdWRaeGFtcF9CMTZFWW9YQ1FTMVI1SVBuNzlhSDVFRkw4bk9oMjNoNHNSd1dvSWtXOGVKYmRGdnU3Rk5oNWdCSXVKOGNMTElWR3FOTVROamdPSDFiUmNuZHo3TFpqVzBxQjZzU20?oc=5",
+      "published_at": "2026-07-09T07:03:37+00:00",
+      "importance": 13,
+      "summary_ja": "トランプ大統領の最新発言または米国政府の動きです。イランへの軍事対応や外交方針に影響する可能性があります。",
+      "impact_ja": "ドバイ発着便に遅延、欠航、迂回が発生する可能性があります。"
+    },
+    {
+      "id": "f05b977ce709b692f3e13a66f8ce0071",
+      "category": "Iran",
+      "title": "Iran attacks Gulf nations, threatens ‘complete halt’ to talks with US - The Hill",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQZVpXMi1QWnlhMFo1REhmQ3BHWTdLQjZLeGpvZnVQRkYzNjg2cWhUS3djOWZXbm4ybm1DY3NiY3A5cGtSS3VlbEFJYlBrMzN6N045a251bTZLQkNSSzBZUnYwVU9RZFQzbXZUaTFFWEJ2ckxCTUgxaV9vY01ueERiUnpiQ3FoSnB2dm5fbGY3M01sdEnSAZgBQVVfeXFMTXpwelQ3YjVIR1RTdmNPVk5Cd3lRTS1xUHlDeXJvRkpmaUdXRkN6WjlyTTZibFItaHZpQkY4b2c0MXpWTmFGU25uczVMUTFjS0N6cFpxNHY5N1IwaTI3WENkeGszRUFEcktjN3lHWlVncG9sU2xmQ1lOa2xmNkdxX2dmcGNjLWl4NllTQjJPUU5oQTNlcFViVmo?oc=5",
+      "published_at": "2026-06-28T07:00:00+00:00",
+      "importance": 13,
+      "summary_ja": "軍事攻撃やミサイルに関する新たな動きです。攻撃場所、被害状況、報復の可能性を確認する必要があります。",
+      "impact_ja": "現時点でドバイへの直接的な影響は確認されていません。ただし、報復の連鎖による湾岸地域への波及に注意が必要です。"
     },
     {
       "id": "83dced403af1b611da12a2153175a21c",
       "category": "Gulf",
-      "published_at": "2026-06-24T07:00:00+00:00",
-      "title_ja": "Iran War Transforms Gulf Arab Region | Alhurra - الحرة",
-      "summary_ja": "最新ニュースとして自動取得されました。",
-      "dubai_impact": "現時点では、ドバイへの直接的な影響は確認されていません。",
+      "title": "Iran War Transforms Gulf Arab Region | Alhurra - الحرة",
       "url": "https://news.google.com/rss/articles/CBMiQkFVX3lxTE42SEx1M3ctMmY3VDY3M2w4Ym14NklUM2xQVFpyZ2dBM1J3ak80LXBNU0JQbFlOdmFTV2R0YjJVODl4UQ?oc=5",
-      "location": null
+      "published_at": "2026-06-24T07:00:00+00:00",
+      "importance": 13,
+      "summary_ja": "湾岸諸国に関連する最新情報です。UAEとドバイへの直接的・間接的影響に注意が必要です。",
+      "impact_ja": "現時点では、ドバイへの直接的な影響は確認されていません。"
     },
     {
-      "id": "33fb3ba909d17e377394f31979b5048f",
-      "category": "Flight",
-      "published_at": "2026-06-20T07:00:00+00:00",
-      "title_ja": "Middle East Flights Reopen as New Confusion Hits Travelers - Newsweek",
-      "summary_ja": "最新ニュースとして自動取得されました。",
-      "dubai_impact": "現時点では、ドバイへの直接的な影響は確認されていません。",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQLXhpRk12U01Id25TaURDZVR6bXZvbnV5QzREOENCTGhoLTVhZHZ1SDYwOUJUQW1zWUZGYW9oTDFUZmM4alEyNDRGWDlUb2ozcjNZNWN3bmh5eVB6ZnV6Mk1oS0VEZTlKR3BVMWQ0cmFYQy1mbFptX1Z5c2M5bDZkUUxldXdxYkJsaVVXZVZfS281S0o3RGJN?oc=5",
-      "location": null
+      "id": "91c052d3c837d7d5dba8be847310c50c",
+      "category": "Hormuz",
+      "title": "U.S. and Iran launch fresh strikes following attacks on commercial ships - The Washington Post",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNY1o5OHkwY0twdzRvVmpHd1IyVXQyOWNObEpxcEJEaS0xSHQ2UDhRRnJ1bURnNlZKb05VWlI4SXFrRXYxZE03ZzRQV2JTTWRjN0FhZU5ZSWRPdl9CTjl5QjljS2Z2Z0hsZzBfLXB0NFpoalZPSGU2aU1zWkxUUDVETV9NcmtCb3RlZ19JUWdDbDlLeHlEWmFoZnFkNUdRV1RXSGdQN0hZTnNuRTNEWERXbTdJOVVGZw?oc=5",
+      "published_at": "2026-07-08T14:44:24+00:00",
+      "importance": 12,
+      "summary_ja": "軍事攻撃やミサイルに関する新たな動きです。攻撃場所、被害状況、報復の可能性を確認する必要があります。",
+      "impact_ja": "現時点でドバイへの直接的な影響は確認されていません。ただし、報復の連鎖による湾岸地域への波及に注意が必要です。"
     },
     {
-      "id": "24f676b8f336a9d4b4ebcec169012132",
-      "category": "Gulf",
-      "published_at": "2026-06-18T07:00:00+00:00",
-      "title_ja": "The Gulf Cooperation Council - Middle East Institute",
-      "summary_ja": "最新ニュースとして自動取得されました。",
-      "dubai_impact": "現時点では、ドバイへの直接的な影響は確認されていません。",
-      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE04ZVhnaHZUYlUwVnpHVTIxb0dQYTdjbHJiNzJNT08yUXluQl84Q1BjRUVTSGhrVWZYZGVsdlZTNE1ybnVWSG9SZnA5N0FvZ2tucXVSWkVkMFF4Wi01RVZlWkhNbDdmZ0dJemc?oc=5",
-      "location": null
-    },
-    {
-      "id": "1f664bb32fcde8a817e046100f5974c4",
-      "category": "Iran",
-      "published_at": "2026-06-08T07:00:00+00:00",
-      "title_ja": "Middle East updates: Iran, Israel declare pause in attacks - dw.com",
-      "summary_ja": "最新ニュースとして自動取得されました。",
-      "dubai_impact": "現時点では、ドバイへの直接的な影響は確認されていません。",
-      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOVDViOWlMZEQ0eEZzQ3VOc1FfZHY1eUpJcTIxcjl3VUszaFpQUnMzRFl6cnlTS0VCRFQ2MHkySnlDMC1GdW80OTRwaXF3YlhJT2FCdzgtUVpYcFhNTkZpQzBycS00dHd3YVVfSnBST0N5Qjdyc1YtTFREWnVPT3RDMkpxUzZBLXlDYml4emdxbmpZRkE4cFhWeTAtTC1GQQ?oc=5",
-      "location": null
+      "id": "981189c5f5c76f290f32863e110decd8",
+      "category": "Hormuz",
+      "title": "US launches new strikes on Iran, revokes oil sales permit after 3 ships attacked in Strait of Hormuz - AP News",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOT2tfRFIyMHM3Y3R0UHRSQ0xwNEdNX2pjVUV5QkFGZk4yLUpVeU9RN0RHLXpUYU5UMzVIZkNwOWV4Q2dKTnJYZVl6UzZadkxHYUVYNmUzYWxoUEo1S2pPRUkxWmFsMHhadUYyams3ME5TOTlVSHhuTmgtRVA4NGo1NlJIOF9ZOUU2dGc?oc=5",
+      "published_at": "2026-07-08T02:46:00+00:00",
+      "importance": 12,
+      "summary_ja": "軍事攻撃やミサイルに関する新たな動きです。攻撃場所、被害状況、報復の可能性を確認する必要があります。",
+      "impact_ja": "ドバイへの直接的な軍事影響は確認されていませんが、物流、燃料価格、海上輸送への影響が考えられます。"
     },
     {
       "id": "f9f3df5bb5df3a6527bb62e508aebc7d",
       "category": "Iran",
-      "published_at": "2026-04-23T07:00:00+00:00",
-      "title_ja": "Why did US and Israel attack Iran and how long could the war last? - BBC",
-      "summary_ja": "最新ニュースとして自動取得されました。",
-      "dubai_impact": "現時点では、ドバイへの直接的な影響は確認されていません。",
+      "title": "Why did US and Israel attack Iran and how long could the war last? - BBC",
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE55MG5wdTJrMFlNLWRENFBMZEFMcW0yN0E5dE1lajB6eGRWU1JNN2Y0cXhkbGlGdEpTcG1naHdqN00yLThGV3Qzd2RmYWhBa0tfS1I5ejRobjVGZw?oc=5",
-      "location": null
+      "published_at": "2026-04-23T07:00:00+00:00",
+      "importance": 12,
+      "summary_ja": "軍事攻撃やミサイルに関する新たな動きです。攻撃場所、被害状況、報復の可能性を確認する必要があります。",
+      "impact_ja": "現時点でドバイへの直接的な影響は確認されていません。ただし、報復の連鎖による湾岸地域への波及に注意が必要です。"
     },
     {
       "id": "13de682dc4553e6ccddc6d26e52d65e1",
       "category": "Iran",
-      "published_at": "2026-03-18T07:00:00+00:00",
-      "title_ja": "War can't entirely eliminate Iran's nuclear program, the U.N. atomic energy chief says - NPR",
-      "summary_ja": "最新ニュースとして自動取得されました。",
-      "dubai_impact": "現時点では、ドバイへの直接的な影響は確認されていません。",
+      "title": "War can't entirely eliminate Iran's nuclear program, the U.N. atomic energy chief says - NPR",
       "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQc055WlFaeExSeG5tLXBmdV9jNVctZUFFZC1iLTlQcjdQOTUzVENEV25Ua2VDOGEzeVhVVkxyTVk3Y0EzZ0tKUW1Hc081M2t3TnczOEVfWWx2bWVUeU51azd3VlI3TnVuWjFMc2pwYUdZclJkd1NzNThzeWc4Z3R6eGhKYnRITEdFUEMzXzVmakFQaXFncFE3Y0VWemI4ekNL?oc=5",
-      "location": null
+      "published_at": "2026-03-18T07:00:00+00:00",
+      "importance": 12,
+      "summary_ja": "イラン情勢に関する最新の動きです。軍事的緊張や米国・湾岸諸国への影響を確認しています。",
+      "impact_ja": "現時点では、ドバイへの直接的な影響は確認されていません。"
     },
     {
-      "id": "0469f76ae548b97ffbb62c49f27e970a",
+      "id": "1ffaa91569d77bace140b9dc7d0b9cee",
+      "category": "Gulf",
+      "title": "Gulf states: More than 1,000 arrested in sweeping war-related crackdown on expression - Amnesty International",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNUTFpWTNlVEp6M3B2eFN6LWd3bTBDQk5FNjhmREF1TG5GV3g1ZXVjMzNSRDdSdWJyUVE5eUJUMjQzWVd2UkVILWlsdjlPNnlFOFdYXzExTUNrSUotQlRCYlhfZFJYdzV2WmJURElEMlBKd2VtRzR6TndRbjN0Rnd6SnhzMzJYMURrYWoxYUZvd2JsTGc0VC1QU0pQM19LVi1TSXRuMmFjdXNfM1BZRUh4T1FyTDl4V3N2ODVWNl9yMEFKOVBIWnJnRnEwZw?oc=5",
+      "published_at": "2026-06-01T07:00:00+00:00",
+      "importance": 11,
+      "summary_ja": "湾岸諸国に関連する最新情報です。UAEとドバイへの直接的・間接的影響に注意が必要です。",
+      "impact_ja": "現時点では、ドバイへの直接的な影響は確認されていません。"
+    },
+    {
+      "id": "034d4142296956e60287892ec60bb627",
+      "category": "US",
+      "title": "US launches new strikes on Iran, Trump says they could get 'much worse' - France 24",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxONHRHNVlOUHl1YlpjbzEwMXZsT1l2c1plMVFlSUJfNUUtTjFIM2JPZWdMcWlSTWcwT1UzYWJOWHl2SjZHZ1Fkc044WVVEQjROemcxOC02OW1ETVVEdlVhV2M2QkhqX2R3VXZFcHZ2eERhbGZ5WGNncFVJbUdrM0c0MEwzQ3V0cTF4X1pfNTRyMEtEc3IyS1RTRWd3aHVob18td2RvZndNaV9BRHRZWjhINTF3SDVOcjEt?oc=5",
+      "published_at": "2026-07-09T00:42:54+00:00",
+      "importance": 9,
+      "summary_ja": "軍事攻撃やミサイルに関する新たな動きです。攻撃場所、被害状況、報復の可能性を確認する必要があります。",
+      "impact_ja": "現時点でドバイへの直接的な影響は確認されていません。ただし、報復の連鎖による湾岸地域への波及に注意が必要です。"
+    },
+    {
+      "id": "50bc04b1c6b55356fad82463af6c4fc7",
+      "category": "US",
+      "title": "Ceasefire plunged into greater uncertainty amid fresh US strikes in Iran – as it happened - The Guardian",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNM2dkTlFYUVNFbEJKVjlsUmQ4NGJ3Q004XzN6TU9pb0QyQnltem9ReEM3ZE05ZE9GUmRadmRuc0Z2OWlSSlJVREI5WEFtS3VqUXRDUWJZcVN0WTc5OVBacTVEOFE0QWdDN2hGcmNnbnFwbDJ6T1NnTV93RC0yTFEzbXItcUgtUTNJazQ2VFNnYkNhMnBKSW9LR2h0eklWUQ?oc=5",
+      "published_at": "2026-07-08T20:24:00+00:00",
+      "importance": 9,
+      "summary_ja": "軍事攻撃やミサイルに関する新たな動きです。攻撃場所、被害状況、報復の可能性を確認する必要があります。",
+      "impact_ja": "現時点でドバイへの直接的な影響は確認されていません。ただし、報復の連鎖による湾岸地域への波及に注意が必要です。"
+    },
+    {
+      "id": "24c320fbcb33ad24606212382a5dd7d8",
+      "category": "Gulf",
+      "title": "US ,Iran trade attacks in Strait of Hormuz, Iran may have advantage - The Jerusalem Post",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBzZkh2UERWTzR0ZlFHZjBCckU0X0t1MkhCZ05wWVdBMFliVW9aUFZRaEoxeFBMdzdvbWNQUTlOb3JPVjNEbDMzS3JOam1FaEduejg3RGU1R2dqUlFC?oc=5",
+      "published_at": "2026-07-08T15:04:59+00:00",
+      "importance": 9,
+      "summary_ja": "軍事攻撃やミサイルに関する新たな動きです。攻撃場所、被害状況、報復の可能性を確認する必要があります。",
+      "impact_ja": "ドバイへの直接的な軍事影響は確認されていませんが、物流、燃料価格、海上輸送への影響が考えられます。"
+    },
+    {
+      "id": "bb6fa831a74c56ef10f91330cc517b1b",
+      "category": "US",
+      "title": "Iran Live Updates: Trump Suggests Cease-Fire Is 'Over' After Latest Strikes - The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1VclFMUUV4cGpfbEw4M3FsMU10S1I4bFo3d1RYZV9hWFcwR1NrNVBwLU5pVVI1NUowSHhLeDJFTFpkNEtKNWYzTm02Ul9nUnpaMnVoVWJCdVdrLUVGMXcxRzJQR2Zadjc1ejlGOUFORmE?oc=5",
+      "published_at": "2026-07-08T12:04:33+00:00",
+      "importance": 9,
+      "summary_ja": "軍事攻撃やミサイルに関する新たな動きです。攻撃場所、被害状況、報復の可能性を確認する必要があります。",
+      "impact_ja": "現時点でドバイへの直接的な影響は確認されていません。ただし、報復の連鎖による湾岸地域への波及に注意が必要です。"
+    },
+    {
+      "id": "2a5c1428364f66bc54aaab1ed9b3f0a0",
       "category": "Iran",
-      "published_at": "2026-02-28T08:00:00+00:00",
-      "title_ja": "Why did US and Israel attack Iran? What to know about Donald Trump's aim, reports of Iran school hit, retaliation and more - ABC7 Bay Area",
-      "summary_ja": "最新ニュースとして自動取得されました。",
-      "dubai_impact": "現時点では、ドバイへの直接的な影響は確認されていません。",
-      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPRHVuN2FaZzB4clkzaHlFNk43NWJGck5Hd0lUUzdJYWgwaVFfcWI4Z1FYSHJMT2kway03Q2pfdTNST0s0bE81VHJiME1tcXBONTNpdHNDdU5LcjlWVHV4U2hxdktucy1DZzRuN1QyeWh1VVg2Q1hlNGkzMTQwMUhsbkhpUmxsemlCbFphOEdHQkp2dUQ2dmkzVjV3UTVqbWxYN3NRS3JmV1lOV2JJa01IU0VqZ0NiTU1wQzdhMnVTTmo2MUnSAcgBQVVfeXFMTUNaWDVmaEQ1OTZFWjhhT2x3UUlocmxUR2o2b3NyVTJxZFJVbkJ2eDhWSmp1VENiR0JGRFMza1VyN2xLMUlYR204YlRjWDYwZ2Fyd2JJNGNBUE5tRUVQSE12eU5oUEVLOVRWM1NWcXQxcmNXRFU2SXlFNHlKR1RsNEpjbmdKU3RsQ0tWT0NfWWc4ajR5UGJxMU12YmpRbDlINks5aEppVHVwd3JTbTIwdU5RR0ZzWnhSSGFPaVlRQTJod1Y5S3VoX2w?oc=5",
-      "location": null
+      "title": "2026 Iran war | Deal, Explained, United States, Israel, Strait of Hormuz, Map, & Conflict - Encyclopedia Britannica",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5nTzlhOGZTS180cWNtVG91c2VWRVJFYlk0cW5Ba1RHUEFOSEtldU15QktQT0EzRVY1ZVdZZ0VTRHVWTVhyN1IzeU1wbmlDMUhrQ3Roc1YxcmdMUQ?oc=5",
+      "published_at": "2026-07-08T05:00:00+00:00",
+      "importance": 9,
+      "summary_ja": "ホルムズ海峡と船舶輸送に関する重要な動きです。原油価格や湾岸地域の物流への影響に注意が必要です。",
+      "impact_ja": "ドバイへの直接的な軍事影響は確認されていませんが、物流、燃料価格、海上輸送への影響が考えられます。"
     },
     {
       "id": "74c76ff854dfe0fe5b67368ebfa55888",
       "category": "Flight",
-      "published_at": "2026-02-28T08:00:00+00:00",
-      "title_ja": "Hundreds of thousands of travellers stranded or diverted by airspace closures in Middle East - The Guardian",
-      "summary_ja": "最新ニュースとして自動取得されました。",
-      "dubai_impact": "UAEまたはドバイに直接関係する可能性があります。公式情報とフライト状況を確認してください。",
+      "title": "Hundreds of thousands of travellers stranded or diverted by airspace closures in Middle East - The Guardian",
       "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQNkFTQUVjS3FrUzc3N29ZclJYYW42bWs5eGlCZF9YYnpUaURteXduSnBqaTJBR1U0U3FvNDdqQVMtYzkwcmFOVVpVSW5fWDVZWFFoSFJiQ3JhTXhDT0VBcGh3S0Z5RGtaMnIxSGliMVRLWWhWZkJDcHdiOEowZFNUNXdRbTJ6elcyNVpyYjMzUkZIUEN2WGZqSW5wemdUcVJiSE5FR0dWSndlUDNzMzVrRm5XYUF1ZnhNOUFJc1dMSGIwVUZtSjZZMjlrRGpOczg4SXNJY2hQc1hDWTg?oc=5",
-      "location": null
+      "published_at": "2026-02-28T08:00:00+00:00",
+      "importance": 8,
+      "summary_ja": "中東地域の空域またはフライトに関する最新情報です。UAE発着便への影響や迂回ルートに注意が必要です。",
+      "impact_ja": "ドバイ発着便に遅延、欠航、迂回が発生する可能性があります。"
+    },
+    {
+      "id": "0598fe25b876d18d1344a5a880116db1",
+      "category": "Iran",
+      "title": "Iranian Economist Calls for Iran to Demonstrate Nuclear Capability Against U.S. and Israel - Homeland Security Today",
+      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxOS19DcG12dzNSMDAwa2d3NzdxRFlQRDQwYlVBQWJuNlpXcnZYVFNHZEd3SU5aX2Y4dnhwdVN3VmRqbXc1WnNQUU1MTEZzaWNUX3o1Njc3R25VZmxEWWNPQm4wLV9qajNnUGtIYWVZMUstb3RMSGJQVTdZOFBOc1o4RkloRVJsRHc5SDc3cUNnZDlMOWhZWF96R3dGY1ZKcmZpaTlsaEdNTnVjTmc1eDBzWWF2anFlVlN6RDdvemc5SzVQNWZkNTF4SUdvZEx5ZzBJOFptSk9vbnRKaFJCSVlsdV8waEJOQQ?oc=5",
+      "published_at": "2026-06-10T07:00:00+00:00",
+      "importance": 7,
+      "summary_ja": "イラン情勢に関する最新の動きです。軍事的緊張や米国・湾岸諸国への影響を確認しています。",
+      "impact_ja": "現時点では、ドバイへの直接的な影響は確認されていません。"
+    },
+    {
+      "id": "d3c8b540e1b2d3a6585c7d10cdd1d036",
+      "category": "Hormuz",
+      "title": "Hormuz shipping risk raised to severe after tankers hit, reviving U.S.-Iran tensions - Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPUVFSZk5WeEJaVV96QWl0TDFIZDJUNWFlNTVkNERLdkxfYlVuY2paaS1KbkFHaDB6dkpEeVQ0ZXlLLW1RTXlBTmN2XzBPaklObVJ1VzdpWkFVTDhIYWFNbWlRdDVWZDJkZF9BY0FlNmJHaDBPbmY5ZTVDMEw3M0ozbjN5N2ljem83ZVBQZ3BhUEc4VTZBYmNZVnBiTVFoWUJUdml0dEdOUVYtMG02VEJKQUhMaUZSSnJuWmc?oc=5",
+      "published_at": "2026-07-07T23:13:29+00:00",
+      "importance": 6,
+      "summary_ja": "ホルムズ海峡と船舶輸送に関する重要な動きです。原油価格や湾岸地域の物流への影響に注意が必要です。",
+      "impact_ja": "ドバイへの直接的な軍事影響は確認されていませんが、物流、燃料価格、海上輸送への影響が考えられます。"
+    },
+    {
+      "id": "24f676b8f336a9d4b4ebcec169012132",
+      "category": "Gulf",
+      "title": "The Gulf Cooperation Council - Middle East Institute",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE04ZVhnaHZUYlUwVnpHVTIxb0dQYTdjbHJiNzJNT08yUXluQl84Q1BjRUVTSGhrVWZYZGVsdlZTNE1ybnVWSG9SZnA5N0FvZ2tucXVSWkVkMFF4Wi01RVZlWkhNbDdmZ0dJemc?oc=5",
+      "published_at": "2026-06-18T07:00:00+00:00",
+      "importance": 6,
+      "summary_ja": "湾岸諸国に関連する最新情報です。UAEとドバイへの直接的・間接的影響に注意が必要です。",
+      "impact_ja": "現時点では、ドバイへの直接的な影響は確認されていません。"
+    },
+    {
+      "id": "4e3e7aebfd6adf8034a3d7229e0f01e3",
+      "category": "US",
+      "title": "Trump says Iran truce is ‘over’ as US hits 170 targets over two nights – Middle East crisis live - The Guardian",
+      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNSzZmYVBxWmdLdUp5NUhCSXZrMnpVeG5lUWJSRTFMMDBuRUpfbHBJYlU3S0R4S1FwblBZZUhuUVZiODJ6OXRkUmhhRktaVXNIdUIweWdBZ1FWckZVTWxWV1FoOGpVbldETUk0cFRONXVXazJhaEh5aHRQQVYyell0amFnNVRZZ1JLZnZZX2hOT25WYkdsUEJoLWZ4NGVaSEF5SGlCel85c21HMENZc1M3RWltRG94Zkp0a1p1Z1FaM1hWR1ZaN0hNdVdJSmQ5c21GdVRjMTA4TmtuMU54?oc=5",
+      "published_at": "2026-07-09T07:02:40+00:00",
+      "importance": 4,
+      "summary_ja": "トランプ大統領の最新発言または米国政府の動きです。イランへの軍事対応や外交方針に影響する可能性があります。",
+      "impact_ja": "現時点では、ドバイへの直接的な影響は確認されていません。"
+    },
+    {
+      "id": "e9bdb779445b425bc8542dad0f4f1b32",
+      "category": "Hormuz",
+      "title": "U.S. revokes license authorizing sale of Iranian oil after 3 tankers hit in Strait of Hormuz - PBS",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQYlh4d2pqRHdIMEdnS3c0NWJOMnE1T2JiQVNOSHdEcGNVLXBPT2k3ekU1WWpCTndhWGdkckRJNVdVUVRXcHlCeDdRd0x3ZHVnQ2czbGp2cHFUcnlzTTE0M1ZUTXBieDJwVnRFdEU5T3gzdFpmU0JCM0c3RTNpMWJFV0xqTGZEaWEyZGhFNUJFcG5KVlliNDg2Q2pabmcwLVhYTnI1b3hNLUJIRTltR1d2Q0VR0gG3AUFVX3lxTE1UR2FGNF93bG9qRWdWUEx0d2owQWxERkpicVJLYVpDbldkTTBnejRFQkptT1lvT0hYcF9KRWllUWVraGtRWmkzVm42MkZYbUFTanR6SmZOM0RycW01WFZYUmE4dzhOTWJQVzNDbkhjaFpUQWdIQUxPM3NwZ215cTQ0ODBQNEtadFRxajhId1o0Mklfb1NGM2lLOHRlbzFjcWlsSE40Uklqckw0S01OWnR2VVJHUGFMdw?oc=5",
+      "published_at": "2026-07-07T18:18:39+00:00",
+      "importance": 4,
+      "summary_ja": "ホルムズ海峡と船舶輸送に関する重要な動きです。原油価格や湾岸地域の物流への影響に注意が必要です。",
+      "impact_ja": "ドバイへの直接的な軍事影響は確認されていませんが、物流、燃料価格、海上輸送への影響が考えられます。"
+    },
+    {
+      "id": "b7cf6ca415a7b1303e9248bbb9da94b3",
+      "category": "Flight",
+      "title": "Airlines resume some Middle East flights but disruption continues - Reuters",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNTFA3dXVfVFNLY2dtWkM0MlYxMlNsUDkxVWhEdnoySWYyQ3dCQUlkMUhUREttNW8zay1WUXNEdFduNl9KRGozdDI1eFJjYzVoMkNfRzJMVHhkdnZZNHF6ankyYnhwb0Y4c2lYTE16VUJFeEdCUWNNUnVlLVBQYWpwX1daNzloVHZLMGs1Q3Z4WGVLdnZ4MVZCS1g4bmt3UTdsekhOUGoyc0VtcWlnQ2NOa1hGbkY2dw?oc=5",
+      "published_at": "2026-07-02T07:00:00+00:00",
+      "importance": 3,
+      "summary_ja": "中東地域の空域またはフライトに関する最新情報です。UAE発着便への影響や迂回ルートに注意が必要です。",
+      "impact_ja": "ドバイ発着便に遅延、欠航、迂回が発生する可能性があります。"
+    },
+    {
+      "id": "beae1dac8be18b4016785020e8cb150c",
+      "category": "Flight",
+      "title": "Supply Chain Operational Update: Middle East - Marken.",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNMEMxeENKUW00MEp3SE5semhEUlZJdU00TlVtNEctbzYwVEtha1JXZzdEV0sxaWtSZnhjaFlIdi1mTUpmTHFRTklhYXVVdzNLWUY1TXBSRXpITUJqeE55U1JBQWsxWE9GV3BnUWxTSWI4Mk02TXNTdTFHOTdLWW9EdDM3ZXUzWGR0?oc=5",
+      "published_at": "2026-06-25T07:00:00+00:00",
+      "importance": 3,
+      "summary_ja": "中東情勢に関する最新ニュースです。今後の動きとドバイへの影響を継続して確認します。",
+      "impact_ja": "現時点では、ドバイへの直接的な影響は確認されていません。"
+    },
+    {
+      "id": "33fb3ba909d17e377394f31979b5048f",
+      "category": "Flight",
+      "title": "Middle East Flights Reopen as New Confusion Hits Travelers - Newsweek",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQLXhpRk12U01Id25TaURDZVR6bXZvbnV5QzREOENCTGhoLTVhZHZ1SDYwOUJUQW1zWUZGYW9oTDFUZmM4alEyNDRGWDlUb2ozcjNZNWN3bmh5eVB6ZnV6Mk1oS0VEZTlKR3BVMWQ0cmFYQy1mbFptX1Z5c2M5bDZkUUxldXdxYkJsaVVXZVZfS281S0o3RGJN?oc=5",
+      "published_at": "2026-06-20T07:00:00+00:00",
+      "importance": 3,
+      "summary_ja": "中東地域の空域またはフライトに関する最新情報です。UAE発着便への影響や迂回ルートに注意が必要です。",
+      "impact_ja": "ドバイ発着便に遅延、欠航、迂回が発生する可能性があります。"
+    },
+    {
+      "id": "a4d16420acfb1e5267a08981fd3a7960",
+      "category": "Hormuz",
+      "title": "How Iran uses the Strait of Hormuz to pressure the US - DW.com",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPWE9NY0RyZWF3Mjg4cE9jVjZKOEMtdzI1Ym5oYzJ6NXRodlVDZ2ZaZnpqWncta1c3R09leGc2NVpoXzVoVjBRaDBzTWtQR2EtVHdkWGpqa3o1cE9pckpNLUxNRHBHZk04Mk1rV3ZkdzRMaUFXbTl6SmdVbGRwUnlIZ25uVWc0M21hYUxObzhQSdIBjwFBVV95cUxOOW9hWjVZYjR3RVZzakdEeEl3MWJrWmk3SURXOFR0ZlVfM2ZlS2NSUzhtWGdNcmVDbDRNbGVvR2FaTTY2cVRSTUc2VkYyQ2pXMElLcU4xanpRT2xhMGVNaXpBMTRrZk52c3pmSFdjMmRMRkEzdG94Q0RNNWJlQWJRV2RtSGhmR0xuNjNGUkhvcw?oc=5",
+      "published_at": "2026-07-08T13:59:20+00:00",
+      "importance": 2,
+      "summary_ja": "ホルムズ海峡と船舶輸送に関する重要な動きです。原油価格や湾岸地域の物流への影響に注意が必要です。",
+      "impact_ja": "ドバイへの直接的な軍事影響は確認されていませんが、物流、燃料価格、海上輸送への影響が考えられます。"
     }
   ]
 }
