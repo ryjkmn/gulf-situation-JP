@@ -704,3 +704,20 @@ footer p {
     font-size: 38px;
   }
 }
+/* ニュースタイトルの文字重なり修正 */
+.news-card h3,
+.change-card h3,
+.must-read-card h3,
+.flight-card h3 {
+    line-height: 1.12 !important;
+    word-break: normal;
+    overflow-wrap: anywhere;
+}
+
+/* ハイライトも行ごとに自然に表示 */
+.news-card h3 span,
+.change-card h3 span,
+.must-read-card h3 span,
+.flight-card h3 span {
+    line-height: 1.12 !important;
+}
