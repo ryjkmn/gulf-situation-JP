@@ -1,6 +1,7 @@
 let allNews = [];
 let map = null;
 
+
 // ==========================================
 // データ取得
 // ==========================================
@@ -15,17 +16,21 @@ async function loadNews() {
 
     const data = await response.json();
 
-    allNews = data.items || [];
+    // その他の重要ニュースだけを保持
+    allNews = data.other_news || [];
 
     renderUpdatedAt(data.updated_at);
     renderRisk(data.risk);
+    renderCurrentSituation(data.current_situation_summary);
     renderChanges(data.changes || []);
     renderMustRead(data.must_read || []);
     renderFlights(data.flight_impacts || []);
     renderAllNews(allNews);
 
     initFilters();
-    initMap(allNews);
+
+    // 地図には全ニュースを渡す
+    initMap(data.items || []);
 
   } catch (error) {
     console.error(error);
@@ -95,6 +100,27 @@ function renderRisk(risk) {
   if (risk.level) {
     dot.classList.add("risk-" + risk.level);
   }
+}
+
+
+// ==========================================
+// 現在の状況 3行まとめ
+// ==========================================
+
+function renderCurrentSituation(summary) {
+  const element = document.getElementById(
+    "currentSituationSummary"
+  );
+
+  if (!element) return;
+
+  if (!summary) {
+    element.textContent =
+      "現在の情勢を分析しています。";
+    return;
+  }
+
+  element.textContent = summary;
 }
 
 
@@ -171,7 +197,7 @@ function renderFlights(items) {
   }
 
   container.innerHTML = items
-    .slice(0, 5)
+    .slice(0, 3)
     .map((item, index) =>
       createEditorialCard(item, index + 1, false)
     )
@@ -180,28 +206,23 @@ function renderFlights(items) {
 
 
 // ==========================================
-// 編集デザインカード
+// ニュースカード
 // ==========================================
 
 function createEditorialCard(item, number, highlight) {
 
-  // 日本語タイトルを最優先
   const title = escapeHtml(
     item.title_ja ||
     item.title ||
     "タイトルなし"
   );
 
-  // AIによる日本語要約
   const summary = escapeHtml(
-    item.summary_ja ||
-    ""
+    item.summary_ja || ""
   );
 
-  // AIが判断した重要ポイント
   const keyPoint = escapeHtml(
-    item.key_point_ja ||
-    ""
+    item.key_point_ja || ""
   );
 
   const category = getCategoryLabel(item.category);
@@ -215,6 +236,7 @@ function createEditorialCard(item, number, highlight) {
     <article class="editorial-card${highlightClass}">
 
       <div class="card-meta">
+
         <span class="card-number">
           ${String(number).padStart(2, "0")}
         </span>
@@ -222,6 +244,7 @@ function createEditorialCard(item, number, highlight) {
         <span class="card-category">
           ${escapeHtml(category)}
         </span>
+
       </div>
 
       <h3 class="card-title">
@@ -274,7 +297,7 @@ function createEditorialCard(item, number, highlight) {
 
 
 // ==========================================
-// 最新ニュース一覧
+// その他の重要ニュース
 // ==========================================
 
 function renderAllNews(items) {
@@ -285,13 +308,14 @@ function renderAllNews(items) {
   if (!items.length) {
     container.innerHTML = `
       <div class="empty-message">
-        現在、表示できるニュースはありません。
+        現在、その他の重要ニュースはありません。
       </div>
     `;
     return;
   }
 
   container.innerHTML = items
+    .slice(0, 6)
     .map(item => {
 
       const title = escapeHtml(
@@ -301,13 +325,11 @@ function renderAllNews(items) {
       );
 
       const summary = escapeHtml(
-        item.summary_ja ||
-        ""
+        item.summary_ja || ""
       );
 
       const keyPoint = escapeHtml(
-        item.key_point_ja ||
-        ""
+        item.key_point_ja || ""
       );
 
       const category = getCategoryLabel(item.category);
@@ -423,12 +445,10 @@ function initMap(items) {
     }
   ).addTo(map);
 
-  // ドバイ
   L.marker([25.2048, 55.2708])
     .addTo(map)
     .bindPopup("Dubai");
 
-  // 緯度・経度があるニュースのみ表示
   items.forEach(item => {
 
     if (
@@ -473,9 +493,7 @@ function getCategoryLabel(category) {
 // ==========================================
 
 function formatDate(dateString) {
-  if (!dateString) {
-    return "";
-  }
+  if (!dateString) return "";
 
   const date = new Date(dateString);
 
