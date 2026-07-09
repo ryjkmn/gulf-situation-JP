@@ -1,0 +1,33 @@
+{
+  "updated_at": "2026-07-09T08:00:00+04:00",
+  "risk": {
+    "level": "orange",
+    "summary": "サンプル表示です。公開後、自動更新スクリプトから生成されるデータに置き換えます。"
+  },
+  "items": [
+    {
+      "id": "sample-1",
+      "category": "Gulf",
+      "published_at": "2026-07-09T07:30:00+04:00",
+      "title_ja": "サンプル：湾岸地域の重要ニュース",
+      "summary_ja": "ここに日本語の短い要約を表示します。",
+      "dubai_impact": "現時点で直接的な影響は確認されていない、という形式で表示します。",
+      "url": "",
+      "location": {
+        "name": "Dubai, UAE",
+        "lat": 25.2048,
+        "lng": 55.2708
+      }
+    },
+    {
+      "id": "sample-2",
+      "category": "Flight",
+      "published_at": "2026-07-09T06:30:00+04:00",
+      "title_ja": "サンプル：空域・フライト情報",
+      "summary_ja": "空域閉鎖や大規模な迂回があれば表示します。",
+      "dubai_impact": "UAE発着便への影響を優先して説明します。",
+      "url": "",
+      "location": null
+    }
+  ]
+}
