@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>GULF WATCH JP</title>
+  <title>GULF WATCH JP | ドバイ在住者向け湾岸・イラン情勢</title>
 
   <link rel="stylesheet" href="style.css">
 
@@ -16,127 +16,225 @@
 
 <body>
 
-<header class="site-header">
-  <div>
-    <div class="logo">GULF WATCH JP</div>
-    <div class="tagline">ドバイ在住者向け 湾岸・イラン情勢</div>
-  </div>
-
-  <div class="update-time">
-    更新: <span id="updatedAt">確認中...</span>
-  </div>
-</header>
-
-
-<main>
-
-  <!-- CURRENT STATUS -->
-
-  <section class="hero">
-
-    <div class="hero-label">
-      CURRENT DUBAI STATUS
+  <!-- HEADER -->
+  <header class="site-header">
+    <div>
+      <div class="logo">GULF WATCH JP</div>
+      <div class="tagline">
+        ドバイ在住者向け｜湾岸・イラン情勢
+      </div>
     </div>
 
-    <h1 id="riskLevel">
-      確認中
-    </h1>
-
-    <p id="riskText" class="hero-highlight">
-      最新情報を確認しています。
-    </p>
-
-  </section>
+    <div class="update-time">
+      更新：<span id="updatedAt">確認中...</span>
+    </div>
+  </header>
 
 
-  <!-- WHAT CHANGED -->
+  <main>
 
-  <section class="changed-section">
+    <!-- 1. DUBAI SAFETY -->
+    <section class="safety-section">
 
-    <div class="section-number">01</div>
+      <div class="section-label">
+        今、ドバイは安全？
+      </div>
 
-    <h2>
-      前回見た時から<br>
-      何が変わった？
-    </h2>
+      <div class="risk-display">
 
-    <div id="changes" class="changes-list">
-      <p class="empty">
+        <span
+          id="riskDot"
+          class="risk-dot"
+        ></span>
+
+        <h1 id="riskLabel">
+          確認中...
+        </h1>
+
+      </div>
+
+      <p id="riskSummary">
         最新情報を確認しています。
       </p>
+
+    </section>
+
+
+    <!-- 2. CHANGES -->
+    <section class="content-section">
+
+      <div class="section-number">
+        01
+      </div>
+
+      <h2>
+        昨日から何が変わった？
+      </h2>
+
+      <p class="section-description">
+        前回の更新以降に確認された、重要な変化だけを最大3件表示します。
+      </p>
+
+      <div
+        id="changesList"
+        class="editorial-grid"
+      ></div>
+
+    </section>
+
+
+    <!-- 3. MUST READ -->
+    <section class="content-section must-read-section">
+
+      <div class="section-number">
+        02
+      </div>
+
+      <h2>
+        今日読むべきニュース
+      </h2>
+
+      <p class="section-description">
+        UAEへの影響、軍事的重要性、緊急性から重要な3件を自動選定します。
+      </p>
+
+      <div
+        id="mustReadList"
+        class="editorial-grid"
+      ></div>
+
+    </section>
+
+
+    <!-- 4. FLIGHT IMPACT -->
+    <section class="content-section">
+
+      <div class="section-number">
+        03
+      </div>
+
+      <h2>
+        フライトへの影響
+      </h2>
+
+      <p class="section-description">
+        UAE発着便、空域閉鎖、欠航、迂回などの情報だけを表示します。
+      </p>
+
+      <div
+        id="flightList"
+        class="editorial-grid"
+      ></div>
+
+    </section>
+
+
+    <!-- 5. ALL NEWS -->
+    <section class="content-section">
+
+      <div class="section-number">
+        04
+      </div>
+
+      <h2>
+        最新の重要情報
+      </h2>
+
+      <div class="filters">
+
+        <button
+          class="filter active"
+          data-category="all"
+        >
+          すべて
+        </button>
+
+        <button
+          class="filter"
+          data-category="US"
+        >
+          米国・トランプ
+        </button>
+
+        <button
+          class="filter"
+          data-category="Iran"
+        >
+          イラン
+        </button>
+
+        <button
+          class="filter"
+          data-category="Gulf"
+        >
+          湾岸諸国
+        </button>
+
+        <button
+          class="filter"
+          data-category="Flight"
+        >
+          空域・フライト
+        </button>
+
+        <button
+          class="filter"
+          data-category="Hormuz"
+        >
+          ホルムズ海峡
+        </button>
+
+      </div>
+
+      <div
+        id="newsList"
+        class="news-list"
+      ></div>
+
+    </section>
+
+
+    <!-- 6. MAP -->
+    <section class="content-section">
+
+      <div class="section-number">
+        05
+      </div>
+
+      <h2>
+        地域マップ
+      </h2>
+
+      <p class="section-description">
+        確認済みの地点情報があるニュースのみ表示します。推測地点は表示しません。
+      </p>
+
+      <div id="map"></div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    <div class="footer-logo">
+      GULF WATCH JP
     </div>
 
-  </section>
-
-
-  <!-- LATEST NEWS -->
-
-  <section class="news-section">
-
-    <div class="section-number">02</div>
-
-    <h2>
-      最新の<br>
-      重要情報
-    </h2>
-
-    <div id="filters" class="filters"></div>
-
-    <div id="newsList" class="news-list"></div>
-
-  </section>
-
-
-  <!-- MAP -->
-
-  <section class="map-section">
-
-    <div class="section-number">03</div>
-
-    <h2>
-      地域マップ
-    </h2>
-
-    <p class="section-description">
-      確認済みの地点情報があるニュースのみ表示します。
-      推測地点は表示しません。
+    <p>
+      情報は公開ニュースをもとに自動収集されています。
+      安全に関する判断では、UAE政府・航空会社などの公式情報を優先してください。
     </p>
 
-    <div id="map"></div>
-
-    <a
-      class="flight-link"
-      href="https://www.flightradar24.com/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      LIVE FLIGHT STATUS ↗
-    </a>
-
-  </section>
-
-</main>
+  </footer>
 
 
-<footer>
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  ></script>
 
-  <div class="footer-logo">
-    GULF WATCH JP
-  </div>
-
-  <p>
-    公開情報を自動収集して表示しています。
-    重要な判断には必ず公的機関や航空会社の公式情報も確認してください。
-  </p>
-
-</footer>
-
-
-<script
-  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
-</script>
-
-<script src="app.js"></script>
+  <script src="app.js"></script>
 
 </body>
 </html>
