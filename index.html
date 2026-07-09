@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>GULF WATCH JP | ドバイ在住者向け湾岸・イラン情勢</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    GULF WATCH JP | ドバイ在住者向け湾岸・イラン情勢
+  </title>
 
   <link rel="stylesheet" href="style.css">
 
@@ -14,20 +21,29 @@
   >
 </head>
 
+
 <body>
 
   <!-- HEADER -->
   <header class="site-header">
+
     <div>
-      <div class="logo">GULF WATCH JP</div>
+      <div class="logo">
+        GULF WATCH JP
+      </div>
+
       <div class="tagline">
         ドバイ在住者向け｜湾岸・イラン情勢
       </div>
     </div>
 
     <div class="update-time">
-      更新：<span id="updatedAt">確認中...</span>
+      更新：
+      <span id="updatedAt">
+        確認中...
+      </span>
     </div>
+
   </header>
 
 
@@ -60,6 +76,20 @@
     </section>
 
 
+    <!-- CURRENT SITUATION SUMMARY -->
+    <section class="situation-summary-section">
+
+      <div class="situation-summary-label">
+        現在の状況
+      </div>
+
+      <p id="currentSituationSummary">
+        最新の米国・イラン・湾岸情勢を分析しています。
+      </p>
+
+    </section>
+
+
     <!-- 2. CHANGES -->
     <section class="content-section">
 
@@ -68,7 +98,8 @@
       </div>
 
       <h2>
-        昨日から何が変わった？
+        昨日から<br>
+        何が変わった？
       </h2>
 
       <p class="section-description">
@@ -84,18 +115,19 @@
 
 
     <!-- 3. MUST READ -->
-    <section class="content-section must-read-section">
+    <section class="content-section">
 
       <div class="section-number">
         02
       </div>
 
       <h2>
-        今日読むべきニュース
+        今日読むべき<br>
+        ニュース
       </h2>
 
       <p class="section-description">
-        UAEへの影響、軍事的重要性、緊急性から重要な3件を自動選定します。
+        UAEへの影響、軍事的重要性、緊急性から、AIが重要な3件を選びます。
       </p>
 
       <div
@@ -114,11 +146,12 @@
       </div>
 
       <h2>
-        フライトへの影響
+        フライトへの<br>
+        影響
       </h2>
 
       <p class="section-description">
-        UAE発着便、空域閉鎖、欠航、迂回などの情報だけを表示します。
+        UAE発着便、空域閉鎖、欠航、迂回など、実際に関係する情報だけを表示します。
       </p>
 
       <div
@@ -129,7 +162,7 @@
     </section>
 
 
-    <!-- 5. ALL NEWS -->
+    <!-- 5. OTHER IMPORTANT NEWS -->
     <section class="content-section">
 
       <div class="section-number">
@@ -137,8 +170,13 @@
       </div>
 
       <h2>
-        最新の重要情報
+        その他の<br>
+        重要ニュース
       </h2>
+
+      <p class="section-description">
+        上のセクションと重複しない重要ニュースだけを、最大6件表示します。
+      </p>
 
       <div class="filters">
 
@@ -223,7 +261,7 @@
     </div>
 
     <p>
-      情報は公開ニュースをもとに自動収集されています。
+      情報は公開ニュースをもとにAIで自動収集・要約されています。
       安全に関する判断では、UAE政府・航空会社などの公式情報を優先してください。
     </p>
 
@@ -234,7 +272,7 @@
     src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
   ></script>
 
-<script src="app.js?v=2"></script>
-  
+  <script src="app.js?v=3"></script>
+
 </body>
 </html>
