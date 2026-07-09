@@ -1,16 +1,13 @@
 let allNews = [];
 let map = null;
 
-
 // ==========================================
 // データ取得
 // ==========================================
 
 async function loadNews() {
   try {
-    const response = await fetch(
-      "news.json?t=" + Date.now()
-    );
+    const response = await fetch("news.json?t=" + Date.now());
 
     if (!response.ok) {
       throw new Error("news.json の取得に失敗しました");
@@ -33,11 +30,15 @@ async function loadNews() {
   } catch (error) {
     console.error(error);
 
-    document.getElementById("newsList").innerHTML = `
-      <div class="empty-message">
-        最新ニュースを読み込めませんでした。
-      </div>
-    `;
+    const newsList = document.getElementById("newsList");
+
+    if (newsList) {
+      newsList.innerHTML = `
+        <div class="empty-message">
+          最新ニュースを読み込めませんでした。
+        </div>
+      `;
+    }
   }
 }
 
@@ -49,6 +50,8 @@ async function loadNews() {
 function renderUpdatedAt(dateString) {
   const element = document.getElementById("updatedAt");
 
+  if (!element) return;
+
   if (!dateString) {
     element.textContent = "不明";
     return;
@@ -56,17 +59,14 @@ function renderUpdatedAt(dateString) {
 
   const date = new Date(dateString);
 
-  element.textContent = date.toLocaleString(
-    "ja-JP",
-    {
-      timeZone: "Asia/Dubai",
-      year: "numeric",
-      month: "numeric",
-      day: "numeric",
-      hour: "2-digit",
-      minute: "2-digit"
-    }
-  );
+  element.textContent = date.toLocaleString("ja-JP", {
+    timeZone: "Asia/Dubai",
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit"
+  });
 }
 
 
@@ -78,6 +78,8 @@ function renderRisk(risk) {
   const label = document.getElementById("riskLabel");
   const summary = document.getElementById("riskSummary");
   const dot = document.getElementById("riskDot");
+
+  if (!label || !summary || !dot) return;
 
   if (!risk) {
     label.textContent = "確認中";
@@ -102,6 +104,8 @@ function renderRisk(risk) {
 
 function renderChanges(items) {
   const container = document.getElementById("changesList");
+
+  if (!container) return;
 
   if (!items.length) {
     container.innerHTML = `
@@ -128,6 +132,8 @@ function renderChanges(items) {
 function renderMustRead(items) {
   const container = document.getElementById("mustReadList");
 
+  if (!container) return;
+
   if (!items.length) {
     container.innerHTML = `
       <div class="empty-message">
@@ -153,6 +159,8 @@ function renderMustRead(items) {
 function renderFlights(items) {
   const container = document.getElementById("flightList");
 
+  if (!container) return;
+
   if (!items.length) {
     container.innerHTML = `
       <div class="empty-message">
@@ -176,10 +184,27 @@ function renderFlights(items) {
 // ==========================================
 
 function createEditorialCard(item, number, highlight) {
-  const title = escapeHtml(item.title || "タイトルなし");
+
+  // 日本語タイトルを最優先
+  const title = escapeHtml(
+    item.title_ja ||
+    item.title ||
+    "タイトルなし"
+  );
+
+  // AIによる日本語要約
+  const summary = escapeHtml(
+    item.summary_ja ||
+    ""
+  );
+
+  // AIが判断した重要ポイント
+  const keyPoint = escapeHtml(
+    item.key_point_ja ||
+    ""
+  );
 
   const category = getCategoryLabel(item.category);
-
   const date = formatDate(item.published_at);
 
   const highlightClass = highlight
@@ -189,36 +214,59 @@ function createEditorialCard(item, number, highlight) {
   return `
     <article class="editorial-card${highlightClass}">
 
-      <div class="card-top">
-
+      <div class="card-meta">
         <span class="card-number">
           ${String(number).padStart(2, "0")}
         </span>
 
         <span class="card-category">
-          ${category}
+          ${escapeHtml(category)}
         </span>
-
       </div>
 
-      <h3>
+      <h3 class="card-title">
         <span class="title-highlight">
           ${title}
         </span>
       </h3>
 
-      <div class="card-meta">
-        ${date}
-      </div>
+      ${
+        summary
+          ? `
+            <p class="card-summary">
+              ${summary}
+            </p>
+          `
+          : ""
+      }
 
-      <a
-        href="${escapeAttribute(item.url || "#")}"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="read-link"
-      >
-        情報源を読む →
-      </a>
+      ${
+        keyPoint
+          ? `
+            <div class="key-point">
+              <strong>読むべきポイント</strong>
+              <p>${keyPoint}</p>
+            </div>
+          `
+          : ""
+      }
+
+      <div class="card-bottom">
+
+        <span class="card-date">
+          ${date}
+        </span>
+
+        <a
+          class="source-link"
+          href="${escapeAttribute(item.url || "#")}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          情報源を読む →
+        </a>
+
+      </div>
 
     </article>
   `;
@@ -231,6 +279,8 @@ function createEditorialCard(item, number, highlight) {
 
 function renderAllNews(items) {
   const container = document.getElementById("newsList");
+
+  if (!container) return;
 
   if (!items.length) {
     container.innerHTML = `
@@ -245,29 +295,58 @@ function renderAllNews(items) {
     .map(item => {
 
       const title = escapeHtml(
-        item.title || "タイトルなし"
+        item.title_ja ||
+        item.title ||
+        "タイトルなし"
       );
 
-      const category = getCategoryLabel(
-        item.category
+      const summary = escapeHtml(
+        item.summary_ja ||
+        ""
       );
 
-      const date = formatDate(
-        item.published_at
+      const keyPoint = escapeHtml(
+        item.key_point_ja ||
+        ""
       );
+
+      const category = getCategoryLabel(item.category);
+      const date = formatDate(item.published_at);
 
       return `
-        <article class="news-card">
+        <article class="news-item">
 
           <div class="news-meta">
-            ${category} ・ ${date}
+            ${escapeHtml(category)} ・ ${date}
           </div>
 
-          <h3>
+          <h3 class="news-title">
             ${title}
           </h3>
 
+          ${
+            summary
+              ? `
+                <p class="news-summary">
+                  ${summary}
+                </p>
+              `
+              : ""
+          }
+
+          ${
+            keyPoint
+              ? `
+                <div class="news-key-point">
+                  <strong>重要ポイント：</strong>
+                  ${keyPoint}
+                </div>
+              `
+              : ""
+          }
+
           <a
+            class="source-link"
             href="${escapeAttribute(item.url || "#")}"
             target="_blank"
             rel="noopener noreferrer"
@@ -327,6 +406,11 @@ function initMap(items) {
     return;
   }
 
+  if (map) {
+    map.remove();
+    map = null;
+  }
+
   map = L.map("map").setView(
     [25.2048, 55.2708],
     5
@@ -335,8 +419,7 @@ function initMap(items) {
   L.tileLayer(
     "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
     {
-      attribution:
-        '&copy; OpenStreetMap contributors'
+      attribution: "© OpenStreetMap contributors"
     }
   ).addTo(map);
 
@@ -345,17 +428,23 @@ function initMap(items) {
     .addTo(map)
     .bindPopup("Dubai");
 
-  // 将来的にニュースデータに緯度・経度がある場合のみ表示
+  // 緯度・経度があるニュースのみ表示
   items.forEach(item => {
 
     if (
       typeof item.lat === "number" &&
       typeof item.lng === "number"
     ) {
+
+      const popupTitle =
+        item.title_ja ||
+        item.title ||
+        "";
+
       L.marker([item.lat, item.lng])
         .addTo(map)
         .bindPopup(
-          escapeHtml(item.title || "")
+          escapeHtml(popupTitle)
         );
     }
   });
@@ -394,16 +483,13 @@ function formatDate(dateString) {
     return dateString;
   }
 
-  return date.toLocaleString(
-    "ja-JP",
-    {
-      timeZone: "Asia/Dubai",
-      month: "numeric",
-      day: "numeric",
-      hour: "2-digit",
-      minute: "2-digit"
-    }
-  );
+  return date.toLocaleString("ja-JP", {
+    timeZone: "Asia/Dubai",
+    month: "numeric",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit"
+  });
 }
 
 
