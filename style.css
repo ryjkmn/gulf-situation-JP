@@ -398,10 +398,309 @@ footer p {
 
   #map {
     height: 430px;
-  }
+      }
 
   .footer-logo {
     margin-bottom: 60px;
     font-size: 55px;
+  }
+}
+/* ==========================================
+   DUBAI SAFETY
+========================================== */
+
+.safety-section {
+  min-height: 600px;
+  padding: 80px 0 70px;
+  border-bottom: 1px solid #111;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.section-label {
+  margin-bottom: 25px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.risk-display {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.risk-display h1 {
+  margin: 0;
+  font-size: clamp(100px, 17vw, 240px);
+  line-height: 0.8;
+  font-weight: 900;
+  letter-spacing: -0.09em;
+}
+
+.risk-dot {
+  width: 55px;
+  height: 55px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #aaa;
+}
+
+.risk-green {
+  background: #43d17d;
+}
+
+.risk-yellow {
+  background: #e8ff00;
+}
+
+.risk-orange {
+  background: #ff8a00;
+}
+
+.risk-red {
+  background: #ff2a2a;
+}
+
+#riskSummary {
+  display: inline;
+  align-self: flex-start;
+  max-width: 950px;
+  margin: 45px 0 0;
+  padding: 4px 8px;
+  background: #e8ff00;
+  font-size: clamp(22px, 3vw, 40px);
+  line-height: 1.45;
+  font-weight: 700;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+
+/* ==========================================
+   CONTENT SECTIONS
+========================================== */
+
+.content-section {
+  padding: 90px 0 110px;
+  border-bottom: 1px solid #111;
+}
+
+.content-section h2 {
+  max-width: 1100px;
+  margin: 0 0 25px;
+  font-size: clamp(55px, 9vw, 135px);
+  line-height: 0.85;
+  font-weight: 900;
+  letter-spacing: -0.075em;
+}
+
+.section-description {
+  max-width: 650px;
+  margin: 0 0 55px;
+  color: #777;
+  font-size: 14px;
+}
+
+
+/* ==========================================
+   EDITORIAL CARDS
+========================================== */
+
+.editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid #111;
+}
+
+.editorial-card {
+  min-height: 460px;
+  padding: 25px 25px 35px 0;
+  border-right: 1px solid #111;
+  display: flex;
+  flex-direction: column;
+}
+
+.editorial-card:nth-child(2),
+.editorial-card:nth-child(3) {
+  padding-left: 25px;
+}
+
+.editorial-card:last-child {
+  border-right: 0;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 60px;
+}
+
+.card-number,
+.card-category {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.card-category {
+  color: #777;
+  text-align: right;
+}
+
+.editorial-card h3 {
+  margin: 0 0 30px;
+  font-size: clamp(27px, 3vw, 48px);
+  line-height: 1.02;
+  font-weight: 900;
+  letter-spacing: -0.045em;
+}
+
+.highlight-card .title-highlight {
+  padding: 2px 5px;
+  background: #e8ff00;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.card-meta {
+  margin-top: auto;
+  padding-top: 30px;
+  color: #777;
+  font-size: 11px;
+}
+
+.read-link {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 15px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #111;
+  color: #111;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.read-link:hover {
+  background: #e8ff00;
+}
+
+
+/* ==========================================
+   NEWS LIST
+========================================== */
+
+.news-card {
+  padding: 40px 0 50px;
+  border-top: 1px solid #111;
+}
+
+.news-card:last-child {
+  border-bottom: 1px solid #111;
+}
+
+.news-meta {
+  margin-bottom: 18px;
+  color: #777;
+  font-size: 11px;
+}
+
+.news-card h3 {
+  max-width: 1050px;
+  margin: 0 0 25px;
+  font-size: clamp(35px, 5vw, 72px);
+  line-height: 0.96;
+  font-weight: 900;
+  letter-spacing: -0.055em;
+}
+
+.news-card a {
+  color: #111;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid #111;
+}
+
+.news-card a:hover {
+  background: #e8ff00;
+}
+
+
+/* ==========================================
+   EMPTY MESSAGE
+========================================== */
+
+.empty-message {
+  width: 100%;
+  padding: 35px 0;
+  border-top: 1px solid #111;
+  color: #777;
+  font-size: 15px;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 800px) {
+
+  .safety-section {
+    min-height: 480px;
+    padding: 60px 0 50px;
+  }
+
+  .risk-display {
+    gap: 14px;
+  }
+
+  .risk-display h1 {
+    font-size: 80px;
+  }
+
+  .risk-dot {
+    width: 30px;
+    height: 30px;
+  }
+
+  #riskSummary {
+    margin-top: 30px;
+    font-size: 20px;
+  }
+
+  .content-section {
+    padding: 65px 0 75px;
+  }
+
+  .content-section h2 {
+    font-size: 55px;
+  }
+
+  .editorial-grid {
+    display: block;
+  }
+
+  .editorial-card,
+  .editorial-card:nth-child(2),
+  .editorial-card:nth-child(3) {
+    min-height: auto;
+    padding: 25px 0 35px;
+    border-right: 0;
+    border-bottom: 1px solid #111;
+  }
+
+  .card-top {
+    margin-bottom: 35px;
+  }
+
+  .editorial-card h3 {
+    font-size: 34px;
+  }
+
+  .news-card h3 {
+    font-size: 38px;
   }
 }
