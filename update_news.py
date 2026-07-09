@@ -653,7 +653,7 @@ def main():
                 break
 
    risk = ai_result.get(
-    "risk",
+        "risk",
     {
         "level": "green",
         "label": "通常",
@@ -666,12 +666,12 @@ def main():
 )
 
 current_situation_summary = ai_result.get(
-    "current_situation_summary",
+        "current_situation_summary",
     ""
 )
 
 situation_highlight = ai_result.get(
-    "situation_highlight",
+        "situation_highlight",
     ""
 )
 
