@@ -551,3 +551,17 @@ footer p {
     font-size: 55px;
   }
 }
+
+/* =========================
+   AI IMPORTANT HIGHLIGHT
+========================= */
+
+.ai-highlight {
+  background: #dfff00;
+  color: inherit;
+  padding: 1px 4px;
+  margin: 0 1px;
+  line-height: 1.6;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
