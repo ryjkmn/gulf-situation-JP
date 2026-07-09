@@ -51,7 +51,6 @@ def fetch_google_news(category, query):
         xml_data = response.read()
 
     root = ET.fromstring(xml_data)
-
     items = []
 
     for item in root.findall(".//item")[:MAX_ITEMS_PER_SEARCH]:
@@ -94,7 +93,7 @@ def load_previous_data():
 
 # ==========================================
 # Gemini API
-# 503時は自動リトライ
+# 429 / 5xx は自動リトライ
 # ==========================================
 
 def call_gemini(prompt, max_attempts=3):
@@ -121,16 +120,19 @@ def call_gemini(prompt, max_attempts=3):
         }
     }
 
-    request = urllib.request.Request(
-        url,
-        data=json.dumps(payload).encode("utf-8"),
-        headers={"Content-Type": "application/json"},
-        method="POST"
-    )
-
     for attempt in range(1, max_attempts + 1):
+        request = urllib.request.Request(
+            url,
+            data=json.dumps(payload).encode("utf-8"),
+            headers={"Content-Type": "application/json"},
+            method="POST"
+        )
+
         try:
-            with urllib.request.urlopen(request, timeout=180) as response:
+            with urllib.request.urlopen(
+                request,
+                timeout=180
+            ) as response:
                 result = json.loads(
                     response.read().decode("utf-8")
                 )
@@ -142,15 +144,23 @@ def call_gemini(prompt, max_attempts=3):
                     f"Geminiから回答がありません: {result}"
                 )
 
-            text = (
+            parts = (
                 candidates[0]
                 .get("content", {})
-                .get("parts", [{}])[0]
-                .get("text", "")
+                .get("parts", [])
             )
 
+            if not parts:
+                raise RuntimeError(
+                    "Geminiの回答本文が空です。"
+                )
+
+            text = parts[0].get("text", "")
+
             if not text:
-                raise RuntimeError("Geminiの回答本文が空です。")
+                raise RuntimeError(
+                    "Geminiの回答本文が空です。"
+                )
 
             return json.loads(text)
 
@@ -163,18 +173,39 @@ def call_gemini(prompt, max_attempts=3):
             if error.code in (429, 500, 502, 503, 504):
                 if attempt < max_attempts:
                     wait_seconds = 30 * attempt
+
                     print(
                         f"Gemini API HTTP {error.code}. "
                         f"{wait_seconds}秒後に再試行します..."
                     )
+
                     time.sleep(wait_seconds)
                     continue
 
             raise RuntimeError(
-                f"Gemini API HTTP {error.code}: {error_body}"
+                f"Gemini API HTTP {error.code}: "
+                f"{error_body}"
             )
 
-    raise RuntimeError("Gemini APIへの接続に失敗しました。")
+        except urllib.error.URLError as error:
+            if attempt < max_attempts:
+                wait_seconds = 30 * attempt
+
+                print(
+                    f"Gemini API接続エラー。"
+                    f"{wait_seconds}秒後に再試行します..."
+                )
+
+                time.sleep(wait_seconds)
+                continue
+
+            raise RuntimeError(
+                f"Gemini APIへの接続に失敗しました: {error}"
+            )
+
+    raise RuntimeError(
+        "Gemini APIへの接続に失敗しました。"
+    )
 
 
 # ==========================================
@@ -199,8 +230,8 @@ def build_prompt(items, previous_ids):
 
 以下のニュース見出しを分析し、
 ドバイ在住者が30秒から2分程度で、
-「今何が起きているか」「ドバイにどう影響するか」を理解できるように編集してください。
-
+「今何が起きているか」「ドバイにどう影響するか」
+を理解できるように編集してください。
 
 【最重要ルール】
 
@@ -217,7 +248,6 @@ def build_prompt(items, previous_ids):
 11. 同じ事実や結論を、タイトル・要約・読むべきポイントで繰り返さない。
 12. 各文章にはそれぞれ明確に異なる役割を持たせる。
 
-
 【サイトの表示構成】
 
 1. 今、ドバイは安全？
@@ -227,8 +257,7 @@ def build_prompt(items, previous_ids):
 5. フライトへの影響：関連する重要記事のみ、最大3件
 6. その他の重要ニュース：最大6件。ただし十分な重要ニュースがなければ少なくてよい。
 
-
-【1. 今、ドバイは安全？】
+【今、ドバイは安全？】
 
 risk.summary は、
 「現在のドバイまたはUAEの安全状況の結論」だけを書いてください。
@@ -239,15 +268,8 @@ risk.summary は、
 米国・イラン間で何が起きたかなどの詳細は、
 current_situation_summary に書いてください。
 
-risk.summary と current_situation_summary で
+risk.summary と current_situation_summary で、
 同じ文章、同じ事実、同じ表現を繰り返してはいけません。
-
-良い例：
-「現時点でドバイ市内への直接的な脅威は確認されていません。ただし、湾岸地域の緊張とフライトへの影響には注意が必要です。」
-
-悪い例：
-米国とイランの攻撃内容やホルムズ海峡の詳細を長く説明する。
-
 
 【安全レベル】
 
@@ -263,8 +285,7 @@ red = 重大
 ドバイへの直接的な脅威が確認されていない場合、
 過度に高い安全レベルを設定しないでください。
 
-
-【2. 現在の状況まとめ】
+【現在の状況まとめ】
 
 current_situation_summary は、
 日本語で約3文にしてください。
@@ -278,16 +299,17 @@ current_situation_summary は、
 risk.summary ですでに書いた結論を繰り返さず、
 より具体的な背景と現在の状況を説明してください。
 
+【各ニュースの文章の役割】
 
-【3. 各ニュースの文章の役割】
-
-各ニュースについて、以下の4つを作成してください。
+各ニュースについて、以下を作成してください。
 
 ■ title_ja
+
 何が起きたかを一目で理解できる、
 自然で簡潔な日本語タイトル。
 
 ■ summary_ja
+
 ニュース本文の要約。
 「何が起きたか」に加えて、
 タイトルだけでは分からない具体的な情報や背景を書く。
@@ -296,6 +318,7 @@ risk.summary ですでに書いた結論を繰り返さず、
 タイトルを単純に言い換えただけの文章は禁止。
 
 ■ key_point_ja
+
 ニュース内容を再び要約してはいけません。
 
 必ず以下のどれかを説明してください。
@@ -308,36 +331,8 @@ risk.summary ですでに書いた結論を繰り返さず、
 1文で簡潔に書いてください。
 
 ■ importance_score
+
 0〜100の整数。
-
-
-【重複禁止の具体例】
-
-悪い例：
-
-タイトル：
-「米軍がイランを攻撃」
-
-要約：
-「米軍がイランへの攻撃を実施しました。」
-
-読むべきポイント：
-「米軍によるイラン攻撃は重要な動きです。」
-
-これは3回ほぼ同じことを言っているので禁止です。
-
-
-良い例：
-
-タイトル：
-「米軍、イラン国内の複数目標を攻撃」
-
-要約：
-「米軍は過去2夜で複数の目標を攻撃し、米イラン間の軍事的緊張が再び高まっています。」
-
-読むべきポイント：
-「緊張の拡大により、UAE周辺の空域変更やフライト運航への影響に注意が必要です。」
-
 
 【重要フレーズのハイライト】
 
@@ -360,7 +355,6 @@ risk.summary ですでに書いた結論を繰り返さず、
 4. 1文章につき最大1か所だけ。
 5. 重要な結論、数字、直接的影響を優先する。
 6. 適切なフレーズがない場合は空文字 "" にする。
-
 
 【返却するJSON形式】
 
@@ -405,7 +399,6 @@ risk.summary ですでに書いた結論を繰り返さず、
   ]
 }}
 
-
 【最終確認】
 
 JSONを返す前に必ず確認してください。
@@ -418,7 +411,6 @@ JSONを返す前に必ず確認してください。
 - 日本語として自然か
 
 重複があれば、返答前に必ず書き直してください。
-
 
 【ニュース一覧】
 
@@ -484,7 +476,12 @@ def merge_ai_results(items, ai_result):
 # IDから記事を選択
 # ==========================================
 
-def select_items_by_ids(items, ids, limit=None, excluded_ids=None):
+def select_items_by_ids(
+    items,
+    ids,
+    limit=None,
+    excluded_ids=None
+):
     item_map = {
         item["id"]: item
         for item in items
@@ -538,7 +535,9 @@ def main():
             all_items.extend(fetched)
 
         except Exception as error:
-            print(f"Fetch error for {category}: {error}")
+            print(
+                f"Fetch error for {category}: {error}"
+            )
 
     # 完全一致の重複削除
     unique_items = {}
@@ -550,18 +549,28 @@ def main():
     items = list(unique_items.values())
 
     items.sort(
-        key=lambda item: item.get("published_at", ""),
+        key=lambda item: item.get(
+            "published_at",
+            ""
+        ),
         reverse=True
     )
 
     items = items[:MAX_TOTAL_ITEMS]
 
     if not items:
-        raise RuntimeError("ニュースを1件も取得できませんでした。")
+        raise RuntimeError(
+            "ニュースを1件も取得できませんでした。"
+        )
 
-    print(f"Fetched {len(items)} unique news items.")
+    print(
+        f"Fetched {len(items)} unique news items."
+    )
 
-    prompt = build_prompt(items, previous_ids)
+    prompt = build_prompt(
+        items,
+        previous_ids
+    )
 
     print("Sending news to Gemini AI...")
 
@@ -569,14 +578,23 @@ def main():
 
     print("Gemini AI analysis completed.")
 
-    items = merge_ai_results(items, ai_result)
+    items = merge_ai_results(
+        items,
+        ai_result
+    )
 
     items.sort(
-        key=lambda item: item.get("importance_score", 0),
+        key=lambda item: item.get(
+            "importance_score",
+            0
+        ),
         reverse=True
     )
 
+    # ======================================
     # 昨日から何が変わった？
+    # ======================================
+
     changes = select_items_by_ids(
         items,
         ai_result.get("changes_ids", []),
@@ -584,11 +602,14 @@ def main():
     )
 
     change_ids = {
-        item["id"] for item in changes
+        item["id"]
+        for item in changes
     }
 
+    # ======================================
     # 今日読むべきニュース
-    # changesとの重複も可能な限り除外
+    # ======================================
+
     must_read = select_items_by_ids(
         items,
         ai_result.get("must_read_ids", []),
@@ -596,12 +617,15 @@ def main():
         excluded_ids=change_ids
     )
 
-    # AIが3件選ばなかった場合は、
-    # changesと重複しない重要記事から補完
+    # 3件未満なら重要度順から補完
     if len(must_read) < 3:
-        existing_ids = change_ids | {
-            item["id"] for item in must_read
-        }
+        existing_ids = (
+            change_ids |
+            {
+                item["id"]
+                for item in must_read
+            }
+        )
 
         for item in items:
             if item["id"] not in existing_ids:
@@ -612,36 +636,56 @@ def main():
                 break
 
     must_read_ids = {
-        item["id"] for item in must_read
+        item["id"]
+        for item in must_read
     }
 
+    # ======================================
     # フライトへの影響
+    # ======================================
+
     flight_impacts = select_items_by_ids(
         items,
-        ai_result.get("flight_impact_ids", []),
+        ai_result.get(
+            "flight_impact_ids",
+            []
+        ),
         limit=3
     )
 
+    flight_ids = {
+        item["id"]
+        for item in flight_impacts
+    }
+
+    # ======================================
     # その他の重要ニュース
-    # 今日読むべきニュースは絶対に除外
-    # changesも除外して重複を減らす
+    # ======================================
+
     excluded_from_other = (
         must_read_ids |
-        change_ids
+        change_ids |
+        flight_ids
     )
 
     other_news = select_items_by_ids(
         items,
-        ai_result.get("other_news_ids", []),
+        ai_result.get(
+            "other_news_ids",
+            []
+        ),
         limit=MAX_OTHER_NEWS,
         excluded_ids=excluded_from_other
     )
 
-    # AI選択が6件未満なら、重要度順から補完
+    # 6件未満なら重要度順から補完
     if len(other_news) < MAX_OTHER_NEWS:
         existing_ids = (
             excluded_from_other |
-            {item["id"] for item in other_news}
+            {
+                item["id"]
+                for item in other_news
+            }
         )
 
         for item in items:
@@ -652,28 +696,37 @@ def main():
             if len(other_news) >= MAX_OTHER_NEWS:
                 break
 
-   risk = ai_result.get(
+    # ======================================
+    # 安全状況
+    # ======================================
+
+    risk = ai_result.get(
         "risk",
-    {
-        "level": "green",
-        "label": "通常",
-        "summary": (
-            "現在取得できたニュースからは、"
-            "ドバイへの重大な直接的影響は確認されていません。"
-        ),
-        "risk_highlight": ""
-    }
-)
+        {
+            "level": "green",
+            "label": "通常",
+            "summary": (
+                "現在取得できたニュースからは、"
+                "ドバイへの重大な直接的影響は"
+                "確認されていません。"
+            ),
+            "risk_highlight": ""
+        }
+    )
 
-current_situation_summary = ai_result.get(
+    current_situation_summary = ai_result.get(
         "current_situation_summary",
-    ""
-)
+        ""
+    )
 
-situation_highlight = ai_result.get(
+    situation_highlight = ai_result.get(
         "situation_highlight",
-    ""
-)
+        ""
+    )
+
+    # ======================================
+    # news.json 出力
+    # ======================================
 
     output = {
         "updated_at": datetime.datetime.now(
@@ -682,7 +735,11 @@ situation_highlight = ai_result.get(
 
         "risk": risk,
 
-       "situation_highlight": situation_highlight,
+        "current_situation_summary":
+            current_situation_summary,
+
+        "situation_highlight":
+            situation_highlight,
 
         "changes": changes,
 
@@ -713,9 +770,13 @@ situation_highlight = ai_result.get(
     print(f"Total source news: {len(items)}")
     print(f"Changes: {len(changes)}")
     print(f"Must read: {len(must_read)}")
-    print(f"Flight impacts: {len(flight_impacts)}")
+    print(
+        f"Flight impacts: {len(flight_impacts)}"
+    )
     print(f"Other news: {len(other_news)}")
-    print(f"Risk: {risk.get('label', '不明')}")
+    print(
+        f"Risk: {risk.get('label', '不明')}"
+    )
     print("================================")
 
 
