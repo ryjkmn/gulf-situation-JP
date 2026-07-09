@@ -1,271 +1,392 @@
-const DATA_URL = "news.json";
+let allNews = [];
+let map = null;
 
-let allItems = [];
 
-// 日本語カテゴリー名
-const categoryNames = {
-  US: "米国・トランプ",
-  Iran: "イラン",
-  Gulf: "湾岸諸国",
-  Flight: "空域・フライト",
-  Hormuz: "ホルムズ海峡"
-};
+// ==========================================
+// データ取得
+// ==========================================
 
 async function loadNews() {
   try {
-    const response = await fetch(`${DATA_URL}?t=${Date.now()}`);
+    const response = await fetch(
+      "news.json?t=" + Date.now()
+    );
 
     if (!response.ok) {
-      throw new Error("ニュースデータを取得できませんでした");
+      throw new Error("news.json の取得に失敗しました");
     }
 
     const data = await response.json();
 
-    allItems = Array.isArray(data.items) ? data.items : [];
+    allNews = data.items || [];
 
-    updatePage(data);
-    renderNews(allItems);
-    renderFilters();
+    renderUpdatedAt(data.updated_at);
+    renderRisk(data.risk);
+    renderChanges(data.changes || []);
+    renderMustRead(data.must_read || []);
+    renderFlights(data.flight_impacts || []);
+    renderAllNews(allNews);
+
+    initFilters();
+    initMap(allNews);
 
   } catch (error) {
     console.error(error);
 
-    const newsList = document.getElementById("newsList");
-
-    if (newsList) {
-      newsList.innerHTML = `
-        <p class="empty">
-          現在、ニュース情報を取得できません。
-        </p>
-      `;
-    }
+    document.getElementById("newsList").innerHTML = `
+      <div class="empty-message">
+        最新ニュースを読み込めませんでした。
+      </div>
+    `;
   }
 }
 
 
-function updatePage(data) {
+// ==========================================
+// 更新時間
+// ==========================================
 
-  // 更新時間
-  const updatedAt = document.getElementById("updatedAt");
+function renderUpdatedAt(dateString) {
+  const element = document.getElementById("updatedAt");
 
-  if (updatedAt && data.updated_at) {
-    const date = new Date(data.updated_at);
+  if (!dateString) {
+    element.textContent = "不明";
+    return;
+  }
 
-    updatedAt.textContent = date.toLocaleString("ja-JP", {
+  const date = new Date(dateString);
+
+  element.textContent = date.toLocaleString(
+    "ja-JP",
+    {
       timeZone: "Asia/Dubai",
       year: "numeric",
       month: "numeric",
       day: "numeric",
       hour: "2-digit",
       minute: "2-digit"
-    });
-  }
-
-
-  // 現在の警戒レベル
-  const risk = data.risk || {};
-  const riskLevel = document.getElementById("riskLevel");
-
-  if (riskLevel) {
-    riskLevel.textContent = risk.level || "確認中";
-  }
-
-
-  // AIが選んだ最重要ポイント
-  const heroHighlight = document.getElementById("heroHighlight");
-
-  if (heroHighlight) {
-
-    if (risk.summary) {
-      heroHighlight.textContent = risk.summary;
-
-    } else if (allItems.length > 0) {
-      heroHighlight.textContent =
-        allItems[0].summary ||
-        allItems[0].title ||
-        "最新情報を確認しています。";
-
-    } else {
-      heroHighlight.textContent =
-        "現在、重要な変化がないか確認しています。";
     }
-  }
-
-
-  // 前回からの変化
-  renderChanges(data.changes || []);
+  );
 }
 
 
-function renderChanges(changes) {
+// ==========================================
+// 今、ドバイは安全？
+// ==========================================
 
-  const container = document.getElementById("changesList");
+function renderRisk(risk) {
+  const label = document.getElementById("riskLabel");
+  const summary = document.getElementById("riskSummary");
+  const dot = document.getElementById("riskDot");
 
-  if (!container) return;
-
-  if (!Array.isArray(changes) || changes.length === 0) {
-
-    container.innerHTML = `
-      <p class="empty">
-        前回の確認以降、重要な変化はありません。
-      </p>
-    `;
-
+  if (!risk) {
+    label.textContent = "確認中";
+    summary.textContent = "最新情報を確認しています。";
     return;
   }
 
-  container.innerHTML = changes.map(change => `
-    <article>
-      <h3>${escapeHTML(change.title || "重要な変化")}</h3>
+  label.textContent = risk.label || "確認中";
+  summary.textContent = risk.summary || "";
 
-      ${
-        change.summary
-          ? `<p>${escapeHTML(change.summary)}</p>`
-          : ""
-      }
-    </article>
-  `).join("");
+  dot.className = "risk-dot";
+
+  if (risk.level) {
+    dot.classList.add("risk-" + risk.level);
+  }
 }
 
 
-function renderFilters() {
+// ==========================================
+// 昨日から何が変わった？
+// ==========================================
 
-  const filters = document.getElementById("filters");
+function renderChanges(items) {
+  const container = document.getElementById("changesList");
 
-  if (!filters) return;
+  if (!items.length) {
+    container.innerHTML = `
+      <div class="empty-message">
+        前回の更新以降、重要な変化は確認されていません。
+      </div>
+    `;
+    return;
+  }
 
-  const existingCategories = [
-    ...new Set(
-      allItems
-        .map(item => item.category)
-        .filter(Boolean)
+  container.innerHTML = items
+    .slice(0, 3)
+    .map((item, index) =>
+      createEditorialCard(item, index + 1, true)
     )
-  ];
+    .join("");
+}
 
-  const buttons = [
-    `<button class="active" data-category="all">すべて</button>`,
 
-    ...existingCategories.map(category => `
-      <button data-category="${escapeHTML(category)}">
-        ${escapeHTML(categoryNames[category] || category)}
-      </button>
-    `)
-  ];
+// ==========================================
+// 今日読むべきニュース
+// ==========================================
 
-  filters.innerHTML = buttons.join("");
+function renderMustRead(items) {
+  const container = document.getElementById("mustReadList");
 
-  filters.querySelectorAll("button").forEach(button => {
+  if (!items.length) {
+    container.innerHTML = `
+      <div class="empty-message">
+        現在、重要ニュースを選定中です。
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = items
+    .slice(0, 3)
+    .map((item, index) =>
+      createEditorialCard(item, index + 1, true)
+    )
+    .join("");
+}
+
+
+// ==========================================
+// フライトへの影響
+// ==========================================
+
+function renderFlights(items) {
+  const container = document.getElementById("flightList");
+
+  if (!items.length) {
+    container.innerHTML = `
+      <div class="empty-message">
+        現時点で、UAE発着便に関する重要な影響は確認されていません。
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = items
+    .slice(0, 5)
+    .map((item, index) =>
+      createEditorialCard(item, index + 1, false)
+    )
+    .join("");
+}
+
+
+// ==========================================
+// 編集デザインカード
+// ==========================================
+
+function createEditorialCard(item, number, highlight) {
+  const title = escapeHtml(item.title || "タイトルなし");
+
+  const category = getCategoryLabel(item.category);
+
+  const date = formatDate(item.published_at);
+
+  const highlightClass = highlight
+    ? " highlight-card"
+    : "";
+
+  return `
+    <article class="editorial-card${highlightClass}">
+
+      <div class="card-top">
+
+        <span class="card-number">
+          ${String(number).padStart(2, "0")}
+        </span>
+
+        <span class="card-category">
+          ${category}
+        </span>
+
+      </div>
+
+      <h3>
+        <span class="title-highlight">
+          ${title}
+        </span>
+      </h3>
+
+      <div class="card-meta">
+        ${date}
+      </div>
+
+      <a
+        href="${escapeAttribute(item.url || "#")}"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="read-link"
+      >
+        情報源を読む →
+      </a>
+
+    </article>
+  `;
+}
+
+
+// ==========================================
+// 最新ニュース一覧
+// ==========================================
+
+function renderAllNews(items) {
+  const container = document.getElementById("newsList");
+
+  if (!items.length) {
+    container.innerHTML = `
+      <div class="empty-message">
+        現在、表示できるニュースはありません。
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = items
+    .map(item => {
+
+      const title = escapeHtml(
+        item.title || "タイトルなし"
+      );
+
+      const category = getCategoryLabel(
+        item.category
+      );
+
+      const date = formatDate(
+        item.published_at
+      );
+
+      return `
+        <article class="news-card">
+
+          <div class="news-meta">
+            ${category} ・ ${date}
+          </div>
+
+          <h3>
+            ${title}
+          </h3>
+
+          <a
+            href="${escapeAttribute(item.url || "#")}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            情報源を読む →
+          </a>
+
+        </article>
+      `;
+    })
+    .join("");
+}
+
+
+// ==========================================
+// フィルター
+// ==========================================
+
+function initFilters() {
+  const buttons = document.querySelectorAll(".filter");
+
+  buttons.forEach(button => {
 
     button.addEventListener("click", () => {
 
-      filters.querySelectorAll("button").forEach(btn => {
-        btn.classList.remove("active");
-      });
+      buttons.forEach(btn =>
+        btn.classList.remove("active")
+      );
 
       button.classList.add("active");
 
       const category = button.dataset.category;
 
       if (category === "all") {
-        renderNews(allItems);
-      } else {
-        renderNews(
-          allItems.filter(item => item.category === category)
-        );
+        renderAllNews(allNews);
+        return;
       }
+
+      const filtered = allNews.filter(
+        item => item.category === category
+      );
+
+      renderAllNews(filtered);
     });
   });
 }
 
 
-function renderNews(items) {
+// ==========================================
+// 地図
+// ==========================================
 
-  const newsList = document.getElementById("newsList");
+function initMap(items) {
+  const mapElement = document.getElementById("map");
 
-  if (!newsList) return;
-
-  if (!Array.isArray(items) || items.length === 0) {
-
-    newsList.innerHTML = `
-      <p class="empty">
-        現在、表示できる重要ニュースはありません。
-      </p>
-    `;
-
+  if (!mapElement || typeof L === "undefined") {
     return;
   }
 
-  newsList.innerHTML = items.map((item, index) => {
+  map = L.map("map").setView(
+    [25.2048, 55.2708],
+    5
+  );
 
-    const category =
-      categoryNames[item.category] ||
-      item.category ||
-      "最新情報";
+  L.tileLayer(
+    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    {
+      attribution:
+        '&copy; OpenStreetMap contributors'
+    }
+  ).addTo(map);
 
-    const date = formatDate(item.published_at);
+  // ドバイ
+  L.marker([25.2048, 55.2708])
+    .addTo(map)
+    .bindPopup("Dubai");
 
-    const title =
-      item.title_ja ||
-      item.title ||
-      "タイトルなし";
+  // 将来的にニュースデータに緯度・経度がある場合のみ表示
+  items.forEach(item => {
 
-    const summary =
-      item.summary_ja ||
-      item.summary ||
-      "";
-
-    const impact =
-      item.impact_ja ||
-      item.impact ||
-      "ドバイへの直接的な影響は現在確認中です。";
-
-    return `
-      <article class="card ${index === 0 ? "top-story" : ""}">
-
-        <div class="meta">
-          ${escapeHTML(category)}
-          ${date ? `・${escapeHTML(date)}` : ""}
-        </div>
-
-        <h3>
-          ${escapeHTML(title)}
-        </h3>
-
-        ${
-          summary
-            ? `<p>${escapeHTML(summary)}</p>`
-            : ""
-        }
-
-        <div>
-          <span class="impact">
-            ドバイへの影響：${escapeHTML(impact)}
-          </span>
-        </div>
-
-        ${
-          item.url
-            ? `
-              <a
-                href="${escapeHTML(item.url)}"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                情報源を開く →
-              </a>
-            `
-            : ""
-        }
-
-      </article>
-    `;
-  }).join("");
+    if (
+      typeof item.lat === "number" &&
+      typeof item.lng === "number"
+    ) {
+      L.marker([item.lat, item.lng])
+        .addTo(map)
+        .bindPopup(
+          escapeHtml(item.title || "")
+        );
+    }
+  });
 }
 
 
-function formatDate(dateString) {
+// ==========================================
+// カテゴリー日本語化
+// ==========================================
 
-  if (!dateString) return "";
+function getCategoryLabel(category) {
+  const labels = {
+    US: "米国・トランプ",
+    Iran: "イラン",
+    Gulf: "湾岸諸国",
+    Flight: "空域・フライト",
+    Hormuz: "ホルムズ海峡"
+  };
+
+  return labels[category] || category || "ニュース";
+}
+
+
+// ==========================================
+// 日付
+// ==========================================
+
+function formatDate(dateString) {
+  if (!dateString) {
+    return "";
+  }
 
   const date = new Date(dateString);
 
@@ -273,25 +394,40 @@ function formatDate(dateString) {
     return dateString;
   }
 
-  return date.toLocaleString("ja-JP", {
-    timeZone: "Asia/Dubai",
-    month: "numeric",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit"
-  });
+  return date.toLocaleString(
+    "ja-JP",
+    {
+      timeZone: "Asia/Dubai",
+      month: "numeric",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit"
+    }
+  );
 }
 
 
-function escapeHTML(value) {
+// ==========================================
+// セキュリティ
+// ==========================================
 
-  return String(value ?? "")
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
+
+function escapeAttribute(value) {
+  return escapeHtml(value);
+}
+
+
+// ==========================================
+// START
+// ==========================================
 
 loadNews();
