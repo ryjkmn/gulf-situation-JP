@@ -453,8 +453,18 @@ def merge_ai_results(items, ai_result):
             ""
         )
 
+        item["summary_highlight"] = ai_data.get(
+            "summary_highlight",
+            ""
+        )
+
         item["key_point_ja"] = ai_data.get(
             "key_point_ja",
+            ""
+        )
+
+        item["key_point_highlight"] = ai_data.get(
+            "key_point_highlight",
             ""
         )
 
