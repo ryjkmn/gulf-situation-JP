@@ -19,7 +19,10 @@ jobs:
         with:
           python-version: '3.12'
 
-      - run: python update_news.py
+      - name: Update news with Gemini AI
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python update_news.py
 
       - run: |
           git config user.name "gulf-watch-bot"
