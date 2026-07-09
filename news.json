@@ -1,246 +1,93 @@
 {
-  "updated_at": "2026-07-09T10:06:07.557532+00:00",
+  "updated_at": "2026-07-09T10:59:43.100465+00:00",
   "risk": {
     "level": "orange",
     "label": "警戒",
-    "summary": "米国とイランの軍事衝突が激化し、イランが湾岸諸国（クウェート、バーレーン）を攻撃したと報じられています。ホルムズ海峡の船舶リスクは「深刻」に引き上げられ、ドバイを含む中東地域のフライトにも混乱が生じています。"
+    "summary": "米イラン間の緊張が急速に高まり、米国はイランへの新たな攻撃を実施し、トランプ大統領は停戦の終了を宣言しました。ホルムズ海峡ではタンカー攻撃が発生し、船舶リスクが「深刻」に引き上げられています。ドバイを含む中東地域のフライトにも影響が出ている可能性があり、最新情報の確認が推奨されます。"
   },
+  "current_situation_summary": "米国とイラン間の緊張が急速に高まり、米国はイランへの新たな攻撃を実施し、トランプ大統領は停戦の終了を宣言しました。ホルムズ海峡ではタンカー攻撃が発生し、船舶リスクが「深刻」に引き上げられています。ドバイを含む中東地域のフライトにも影響が出ている可能性があり、航空会社の最新情報の確認が推奨されます。",
   "changes": [
     {
-      "id": "e28f678ab6dbdf8b57a3648f0f60f863",
+      "id": "20c1f2fd7f1a072b29fb8c8dbf4d1a88",
       "category": "US",
-      "title": "US military carries out fresh strikes on Iran, prompting Iran attacks on Kuwait and Bahrain - Reuters",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQeXVzMnQ5aVh0S2MxNlBNWXBLcWZ0TFNrUWJuVFRRWjhKSmFVb2UtcGVWNWNVajcwb2dGVERnc3E5QVZseV9qN3RqdFBueUtRUUp3WTA0UVlSREdxOHN4UmV1QUdxSDh1cHVjNFZCWkRqVGpudXpHRnNiOWlMamoyaXY3Tl9ZT0pua1lDTHFNR3hUY1BxWWxHWktDSmpSNEVSOTVTQVZLb1VXaHg0dHc?oc=5",
-      "published_at": "2026-07-08T04:21:00+00:00",
-      "title_ja": "米軍がイランに新たな攻撃、イランはクウェートとバーレーンを攻撃",
-      "summary_ja": "米軍がイランに新たな攻撃を実施し、これに対しイランがクウェートとバーレーンを攻撃したと報じられています。",
-      "key_point_ja": "イランがUAEの近隣国であるクウェートとバーレーンを攻撃したことは、湾岸地域全体の安全保障に直接的な影響を及ぼす重大なエスカレーションです。",
+      "title": "US launches new strikes on Iran that Trump says could get 'much worse' - France 24",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxONHRHNVlOUHl1YlpjbzEwMXZsT1l2c1plMVFlSUJfNUUtTjFIM2JPZWdMcWlSTWcwT1UzYWJOWHl2SjZHZ1Fkc044WVVEQjROemcxOC02OW1ETVVEdlVhV2M2QkhqX2R3VXZFcHZ2eERhbGZ5WGNncFVJbUdrM0c0MEwzQ3V0cTF4X1pfNTRyMEtEc3IyS1RTRWd3aHVob18td2RvZndNaV9BRHRZWjhINTF3SDVOcjEt?oc=5",
+      "published_at": "2026-07-09T00:42:54+00:00",
+      "title_ja": "米国、イランに新たな攻撃を実施、トランプ大統領は「さらに悪化する可能性」を示唆",
+      "summary_ja": "米国がイランに対し新たな攻撃を開始し、トランプ大統領は状況が「さらに悪化する可能性」があると警告しました。これにより、地域の緊張が一段と高まっています。",
+      "key_point_ja": "米国によるイランへの新たな攻撃とトランプ大統領の強硬な発言は、米イラン間の緊張が再び高まっていることを示唆しています。",
       "importance_score": 95
     },
     {
-      "id": "d4e52f86850b13bf93e07ee3aef854b6",
+      "id": "007a783bdfe6607129f4b1e092ed3214",
       "category": "Hormuz",
-      "title": "U.S. says it launched strikes on Iran for 'attacking commercial shipping' in Strait of Hormuz - CBC",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE8wWUxSMGlkR0lPSnJUbTRna1BQSWV1YWVhLU1qN0xvOGoyV3kxdDBXN0xwbjlSeDFncEl3ZmdETV94Z3RaQzM3VnBKVkdYck55V0RhUWlqRXBUWnViMkhYQWtpbER2WnJlX1l4WnpNdFhCeHFpcjVpX29B?oc=5",
-      "published_at": "2026-07-07T18:37:00+00:00",
-      "title_ja": "米国、ホルムズ海峡での商船攻撃に対しイランに攻撃実施",
-      "summary_ja": "米国は、ホルムズ海峡での商船攻撃に対応してイランに攻撃を実施したと発表しました。",
-      "key_point_ja": "ホルムズ海峡での商船の安全が脅かされており、米国による報復攻撃は地域の緊張を高めています。",
-      "importance_score": 80
-    },
-    {
-      "id": "494a681b3226f09e74323f8db2f4a183",
-      "category": "Hormuz",
-      "title": "Ships attacked in the Strait of Hormuz: What that means for ongoing talks - Al Jazeera",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOSWxQQVZHR2dmVHRRem9Mb25HeDdFQnJwVGUzTHY0QUx2YndfMlRXcDlJNDFSRjk1UF9TbFBTOVlIdUotbUV4M3FIVGZoWHdIdDBTdy0zMWRXWENacXR1QnhvQ1U1RkFBQUtNTjU5X3Qyc25TMXgxaTJ0R1E3aHBpdV9iZmxCSFpMYWI4SENTeWg0bmVJQ1pLVlFTQ3JPTTM2c0VWOHlLTFNXUWpVRjA4ZHpn0gG3AUFVX3lxTE1jS3JLS21OVy03MHh2NzNTNGx6YjBaMjlaeS1GTXM2dkk4RkZMR3VJc2hmTmRoUEZrVjJsYUY3VjBkYlBFcXlNRDVWMjhKQWZTai1SdTFBNXY2TEozbWl0aGlVRmFUdDUweDFoeFE3a2xVdTlzVWVMUkJMbF81ZlNFNDhKUTNVeE1vNjNjYnBWaEd4di1GLVZMbTlwbDFCYmpRVDhtYTVYbWdDRlFpNTItc1VpWUlfQQ?oc=5",
-      "published_at": "2026-07-08T03:24:30+00:00",
-      "title_ja": "ホルムズ海峡で船舶攻撃、協議への影響は",
-      "summary_ja": "ホルムズ海峡で船舶が攻撃され、これが進行中の協議にどのような影響を与えるかについて分析されています。",
-      "key_point_ja": "ホルムズ海峡での船舶攻撃は、国際的な海上輸送の安全保障とUAEの経済に直接的な懸念をもたらします。",
-      "importance_score": 85
+      "title": "Oil tanker hit at Hormuz: US accuses Iran of attacking 2 commercial ships, mulls counter strike - The Times of India",
+      "url": "https://news.google.com/rss/articles/CBMigwJBVV95cUxNRFBualhONlhGdkotd1Y5b2ctZ1ktZFREc1JQUXNDbzRFNDU0dGNtU01XR2MtTUdCandrdEFmOXc0QUhDWDRRNlh0dEhuRDFJakZMWDhFUGhNaHZxX1hGaHZzNlU2el9sSHg0Qy0xY0pnS3NHVjB0aUVsTGMxRnVuM2RGUkJzTEtmRGlodzRXRGdxbWh2WUNORTdfVDRTekpHeEJUT2VZNS1jWTdLMzl3VWFydzd2WVAtS0c5V3E2Y2VjWDRGZGtDSGMzaW9HeHdlN2I0RVNqeTdVTGx2UGtDSUJ6X1hzRDZqM1A2RG44d3MzZ3FZLXNzazRSQ0VTcHp0S0xF0gGIAkFVX3lxTE5TWlV5Qk90eWpNT3NPbTVJNjBkQktwcElNYVA3ZHlUYlpqWFBTTm5tYllqdG0wV3prTVF3UTIxWk9wNWVORUExVTBIZl9GX0czSGtPT2hsdlZkRjU5ZC1jZXFtOWFSOW1iSFZScmc3YVpPb282czZTUGlWalVXQ0dFMTkwSkszbUpiVTlhRmU5cFp0SkZEODZJUVhoT3FJc1JRQUJ0TmJ5S19DUU1PZEpaYVhYbmkxWlNfbGJjUmRJUXNuZGJyd04zck51RU9Hd0hnbGNodVl5M2c4NnJkdEc1cnppcUZkU1lzcDJXNS1PYXU5V19EUTFIb1NuTGJfQTVkX2IzeDRYNw?oc=5",
+      "published_at": "2026-07-07T01:33:00+00:00",
+      "title_ja": "ホルムズ海峡でタンカー攻撃、米国はイランを非難し報復を検討",
+      "summary_ja": "ホルムズ海峡で石油タンカーが攻撃され、米国はイランが商船2隻を攻撃したと非難し、報復措置を検討していると報じられています。",
+      "key_point_ja": "ホルムズ海峡でのタンカー攻撃は、主要な海上輸送路の安全保障に直接的な影響を及ぼす可能性があり、今後の動向が注目されます。",
+      "importance_score": 90
     }
   ],
   "must_read": [
-    {
-      "id": "98b1be40b271cfb4cfc61792aa85d35e",
-      "category": "Flight",
-      "title": "Dubai and Middle East flight disruption: security alerts in Bahrain, Qatar and Kuwait as Trump says US-Iran ceasefire is ‘over’ - Condé Nast Traveller Middle East",
-      "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxNS2RTRDd2aFFoYndNMXRNN24tTHZ0VHM4Tk1NZ2ZnRDBfTHhLV3JsRTdIYXBDYmtoNzg4Yk5DNVdJUWpVcFhhTk9wMXNlZGx3clJXanY3Y0lodVdNZmpuS0sxTnYyQmk5SFF3UUpYNXVjRlpnc0J4cl90SDIwajBoUjJKM2EzWHF0dDFOdWRaeGFtcF9CMTZFWW9YQ1FTMVI1SVBuNzlhSDVFRkw4bk9oMjNoNHNSd1dvSWtXOGVKYmRGdnU3Rk5oNWdCSXVKOGNMTElWR3FOTVROamdPSDFiUmNuZHo3TFpqVzBxQjZzU20?oc=5",
-      "published_at": "2026-07-09T07:03:37+00:00",
-      "title_ja": "ドバイを含む中東のフライトに混乱、湾岸諸国に警戒情報",
-      "summary_ja": "トランプ大統領が米イラン停戦の「終了」を宣言したことを受け、バーレーン、カタール、クウェートで治安警戒情報が出され、ドバイを含む中東のフライトに混乱が生じています。",
-      "key_point_ja": "ドバイ発着便を含む中東地域のフライトに遅延や欠航の可能性があるため、航空会社の最新情報を確認してください。",
-      "importance_score": 95
-    },
-    {
-      "id": "e28f678ab6dbdf8b57a3648f0f60f863",
-      "category": "US",
-      "title": "US military carries out fresh strikes on Iran, prompting Iran attacks on Kuwait and Bahrain - Reuters",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQeXVzMnQ5aVh0S2MxNlBNWXBLcWZ0TFNrUWJuVFRRWjhKSmFVb2UtcGVWNWNVajcwb2dGVERnc3E5QVZseV9qN3RqdFBueUtRUUp3WTA0UVlSREdxOHN4UmV1QUdxSDh1cHVjNFZCWkRqVGpudXpHRnNiOWlMamoyaXY3Tl9ZT0pua1lDTHFNR3hUY1BxWWxHWktDSmpSNEVSOTVTQVZLb1VXaHg0dHc?oc=5",
-      "published_at": "2026-07-08T04:21:00+00:00",
-      "title_ja": "米軍がイランに新たな攻撃、イランはクウェートとバーレーンを攻撃",
-      "summary_ja": "米軍がイランに新たな攻撃を実施し、これに対しイランがクウェートとバーレーンを攻撃したと報じられています。",
-      "key_point_ja": "イランがUAEの近隣国であるクウェートとバーレーンを攻撃したことは、湾岸地域全体の安全保障に直接的な影響を及ぼす重大なエスカレーションです。",
-      "importance_score": 95
-    },
-    {
-      "id": "d3c8b540e1b2d3a6585c7d10cdd1d036",
-      "category": "Hormuz",
-      "title": "Hormuz shipping risk raised to severe after tankers hit, reviving U.S.-Iran tensions - Reuters",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPUVFSZk5WeEJaVV96QWl0TDFIZDJUNWFlNTVkNERLdkxfYlVuY2paaS1KbkFHaDB6dkpEeVQ0ZXlLLW1RTXlBTmN2XzBPaklObVJ1VzdpWkFVTDhIYWFNbWlRdDVWZDJkZF9BY0FlNmJHaDBPbmY5ZTVDMEw3M0ozbjN5N2ljem83ZVBQZ3BhUEc4VTZBYmNZVnBiTVFoWUJUdml0dEdOUVYtMG02VEJKQUhMaUZSSnJuWmc?oc=5",
-      "published_at": "2026-07-07T23:13:29+00:00",
-      "title_ja": "ホルムズ海峡の船舶リスクが「深刻」に引き上げ",
-      "summary_ja": "タンカー攻撃を受け、ホルムズ海峡の船舶に対するリスクレベルが「深刻」に引き上げられ、米国とイランの緊張が再燃しています。",
-      "key_point_ja": "ホルムズ海峡はUAEの主要な貿易ルートであり、リスクレベルの引き上げは海上輸送の安全と経済活動に直接的な影響を与えます。",
-      "importance_score": 90
-    }
-  ],
-  "flight_impacts": [
-    {
-      "id": "98b1be40b271cfb4cfc61792aa85d35e",
-      "category": "Flight",
-      "title": "Dubai and Middle East flight disruption: security alerts in Bahrain, Qatar and Kuwait as Trump says US-Iran ceasefire is ‘over’ - Condé Nast Traveller Middle East",
-      "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxNS2RTRDd2aFFoYndNMXRNN24tTHZ0VHM4Tk1NZ2ZnRDBfTHhLV3JsRTdIYXBDYmtoNzg4Yk5DNVdJUWpVcFhhTk9wMXNlZGx3clJXanY3Y0lodVdNZmpuS0sxTnYyQmk5SFF3UUpYNXVjRlpnc0J4cl90SDIwajBoUjJKM2EzWHF0dDFOdWRaeGFtcF9CMTZFWW9YQ1FTMVI1SVBuNzlhSDVFRkw4bk9oMjNoNHNSd1dvSWtXOGVKYmRGdnU3Rk5oNWdCSXVKOGNMTElWR3FOTVROamdPSDFiUmNuZHo3TFpqVzBxQjZzU20?oc=5",
-      "published_at": "2026-07-09T07:03:37+00:00",
-      "title_ja": "ドバイを含む中東のフライトに混乱、湾岸諸国に警戒情報",
-      "summary_ja": "トランプ大統領が米イラン停戦の「終了」を宣言したことを受け、バーレーン、カタール、クウェートで治安警戒情報が出され、ドバイを含む中東のフライトに混乱が生じています。",
-      "key_point_ja": "ドバイ発着便を含む中東地域のフライトに遅延や欠航の可能性があるため、航空会社の最新情報を確認してください。",
-      "importance_score": 95
-    },
-    {
-      "id": "5c61fabb3053ce595082eb80a508d0b9",
-      "category": "Gulf",
-      "title": "Dubai and Middle East flight disruption: the latest updates as Trump says US-Iran ceasefire is ‘over’ - Condé Nast Traveller India",
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNajl1OC03b09aQUw0VzIxV29xLUZqRmFSVWhRNzZ6WFNiOG5aTFpQaFR2VUhNM2RMMEUzWjJlN0lBYkc1Y1dja3J3ZXczU244RmhzZDd6Y0xycnVzQmxFZWxPLUdsaFhPQWY5S2Q1RmFBXzFhX3lrbkU1SF81NWdzenc2V29zeHlFWU0tc1JGc2lRVVk2UWswbDNGUWJ0M2I2NF9SNEswM0tkQnJpNG55dDM2RjhDVDJkSHprUGQ1eFNTc2YzTGl2cXhMQWs?oc=5",
-      "published_at": "2026-07-09T05:24:00+00:00",
-      "title_ja": "ドバイを含む中東のフライトに混乱、最新情報",
-      "summary_ja": "トランプ大統領が米イラン停戦の「終了」を宣言したことを受け、ドバイを含む中東のフライトに混乱が生じており、最新情報が提供されています。",
-      "key_point_ja": "ドバイ発着便を含む中東地域のフライト状況に引き続き注意し、最新情報を確認することが重要です。",
-      "importance_score": 90
-    },
-    {
-      "id": "b7cf6ca415a7b1303e9248bbb9da94b3",
-      "category": "Flight",
-      "title": "Airlines resume some Middle East flights but disruption continues - Reuters",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNTFA3dXVfVFNLY2dtWkM0MlYxMlNsUDkxVWhEdnoySWYyQ3dCQUlkMUhUREttNW8zay1WUXNEdFduNl9KRGozdDI1eFJjYzVoMkNfRzJMVHhkdnZZNHF6ankyYnhwb0Y4c2lYTE16VUJFeEdCUWNNUnVlLVBQYWpwX1daNzloVHZLMGs1Q3Z4WGVLdnZ4MVZCS1g4bmt3UTdsekhOUGoyc0VtcWlnQ2NOa1hGbkY2dw?oc=5",
-      "published_at": "2026-07-02T07:00:00+00:00",
-      "title_ja": "中東の一部フライト再開も混乱続く",
-      "summary_ja": "中東地域で一部の航空便が再開されたものの、依然として混乱が続いていると報じられています。",
-      "key_point_ja": "中東全体のフライト状況は不安定であり、ドバイ発着便にも影響が及ぶ可能性があります。",
-      "importance_score": 60
-    }
-  ],
-  "items": [
-    {
-      "id": "98b1be40b271cfb4cfc61792aa85d35e",
-      "category": "Flight",
-      "title": "Dubai and Middle East flight disruption: security alerts in Bahrain, Qatar and Kuwait as Trump says US-Iran ceasefire is ‘over’ - Condé Nast Traveller Middle East",
-      "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxNS2RTRDd2aFFoYndNMXRNN24tTHZ0VHM4Tk1NZ2ZnRDBfTHhLV3JsRTdIYXBDYmtoNzg4Yk5DNVdJUWpVcFhhTk9wMXNlZGx3clJXanY3Y0lodVdNZmpuS0sxTnYyQmk5SFF3UUpYNXVjRlpnc0J4cl90SDIwajBoUjJKM2EzWHF0dDFOdWRaeGFtcF9CMTZFWW9YQ1FTMVI1SVBuNzlhSDVFRkw4bk9oMjNoNHNSd1dvSWtXOGVKYmRGdnU3Rk5oNWdCSXVKOGNMTElWR3FOTVROamdPSDFiUmNuZHo3TFpqVzBxQjZzU20?oc=5",
-      "published_at": "2026-07-09T07:03:37+00:00",
-      "title_ja": "ドバイを含む中東のフライトに混乱、湾岸諸国に警戒情報",
-      "summary_ja": "トランプ大統領が米イラン停戦の「終了」を宣言したことを受け、バーレーン、カタール、クウェートで治安警戒情報が出され、ドバイを含む中東のフライトに混乱が生じています。",
-      "key_point_ja": "ドバイ発着便を含む中東地域のフライトに遅延や欠航の可能性があるため、航空会社の最新情報を確認してください。",
-      "importance_score": 95
-    },
-    {
-      "id": "e28f678ab6dbdf8b57a3648f0f60f863",
-      "category": "US",
-      "title": "US military carries out fresh strikes on Iran, prompting Iran attacks on Kuwait and Bahrain - Reuters",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQeXVzMnQ5aVh0S2MxNlBNWXBLcWZ0TFNrUWJuVFRRWjhKSmFVb2UtcGVWNWNVajcwb2dGVERnc3E5QVZseV9qN3RqdFBueUtRUUp3WTA0UVlSREdxOHN4UmV1QUdxSDh1cHVjNFZCWkRqVGpudXpHRnNiOWlMamoyaXY3Tl9ZT0pua1lDTHFNR3hUY1BxWWxHWktDSmpSNEVSOTVTQVZLb1VXaHg0dHc?oc=5",
-      "published_at": "2026-07-08T04:21:00+00:00",
-      "title_ja": "米軍がイランに新たな攻撃、イランはクウェートとバーレーンを攻撃",
-      "summary_ja": "米軍がイランに新たな攻撃を実施し、これに対しイランがクウェートとバーレーンを攻撃したと報じられています。",
-      "key_point_ja": "イランがUAEの近隣国であるクウェートとバーレーンを攻撃したことは、湾岸地域全体の安全保障に直接的な影響を及ぼす重大なエスカレーションです。",
-      "importance_score": 95
-    },
-    {
-      "id": "5c61fabb3053ce595082eb80a508d0b9",
-      "category": "Gulf",
-      "title": "Dubai and Middle East flight disruption: the latest updates as Trump says US-Iran ceasefire is ‘over’ - Condé Nast Traveller India",
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNajl1OC03b09aQUw0VzIxV29xLUZqRmFSVWhRNzZ6WFNiOG5aTFpQaFR2VUhNM2RMMEUzWjJlN0lBYkc1Y1dja3J3ZXczU244RmhzZDd6Y0xycnVzQmxFZWxPLUdsaFhPQWY5S2Q1RmFBXzFhX3lrbkU1SF81NWdzenc2V29zeHlFWU0tc1JGc2lRVVk2UWswbDNGUWJ0M2I2NF9SNEswM0tkQnJpNG55dDM2RjhDVDJkSHprUGQ1eFNTc2YzTGl2cXhMQWs?oc=5",
-      "published_at": "2026-07-09T05:24:00+00:00",
-      "title_ja": "ドバイを含む中東のフライトに混乱、最新情報",
-      "summary_ja": "トランプ大統領が米イラン停戦の「終了」を宣言したことを受け、ドバイを含む中東のフライトに混乱が生じており、最新情報が提供されています。",
-      "key_point_ja": "ドバイ発着便を含む中東地域のフライト状況に引き続き注意し、最新情報を確認することが重要です。",
-      "importance_score": 90
-    },
-    {
-      "id": "d3c8b540e1b2d3a6585c7d10cdd1d036",
-      "category": "Hormuz",
-      "title": "Hormuz shipping risk raised to severe after tankers hit, reviving U.S.-Iran tensions - Reuters",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPUVFSZk5WeEJaVV96QWl0TDFIZDJUNWFlNTVkNERLdkxfYlVuY2paaS1KbkFHaDB6dkpEeVQ0ZXlLLW1RTXlBTmN2XzBPaklObVJ1VzdpWkFVTDhIYWFNbWlRdDVWZDJkZF9BY0FlNmJHaDBPbmY5ZTVDMEw3M0ozbjN5N2ljem83ZVBQZ3BhUEc4VTZBYmNZVnBiTVFoWUJUdml0dEdOUVYtMG02VEJKQUhMaUZSSnJuWmc?oc=5",
-      "published_at": "2026-07-07T23:13:29+00:00",
-      "title_ja": "ホルムズ海峡の船舶リスクが「深刻」に引き上げ",
-      "summary_ja": "タンカー攻撃を受け、ホルムズ海峡の船舶に対するリスクレベルが「深刻」に引き上げられ、米国とイランの緊張が再燃しています。",
-      "key_point_ja": "ホルムズ海峡はUAEの主要な貿易ルートであり、リスクレベルの引き上げは海上輸送の安全と経済活動に直接的な影響を与えます。",
-      "importance_score": 90
-    },
     {
       "id": "4e3e7aebfd6adf8034a3d7229e0f01e3",
       "category": "US",
       "title": "Trump says Iran truce is ‘over’ as US hits 170 targets over two nights – Middle East crisis live - The Guardian",
       "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNSzZmYVBxWmdLdUp5NUhCSXZrMnpVeG5lUWJSRTFMMDBuRUpfbHBJYlU3S0R4S1FwblBZZUhuUVZiODJ6OXRkUmhhRktaVXNIdUIweWdBZ1FWckZVTWxWV1FoOGpVbldETUk0cFRONXVXazJhaEh5aHRQQVYyell0amFnNVRZZ1JLZnZZX2hOT25WYkdsUEJoLWZ4NGVaSEF5SGlCel85c21HMENZc1M3RWltRG94Zkp0a1p1Z1FaM1hWR1ZaN0hNdVdJSmQ5c21GdVRjMTA4TmtuMU54?oc=5",
       "published_at": "2026-07-09T07:02:00+00:00",
-      "title_ja": "トランプ氏、イランとの停戦終了を宣言、米国が170目標を攻撃",
-      "summary_ja": "トランプ大統領はイランとの停戦が「終了した」と述べ、米国が2夜にわたり170の目標を攻撃したことを明らかにしました。",
-      "key_point_ja": "米国とイランの軍事衝突が激化しており、中東地域の情勢が不安定化しています。",
-      "importance_score": 85
+      "title_ja": "トランプ大統領、イランとの停戦は「終わった」と宣言、米軍は2夜で170目標を攻撃",
+      "summary_ja": "トランプ大統領はイランとの停戦が「終わった」と発言し、米軍が過去2夜で170の目標を攻撃したことを明らかにしました。これにより、米イラン間の緊張が再燃しています。",
+      "key_point_ja": "トランプ大統領の停戦終了宣言と大規模な攻撃は、米イラン関係が新たな局面に入ったことを示しており、地域情勢の悪化が懸念されます。",
+      "importance_score": 98
     },
     {
-      "id": "494a681b3226f09e74323f8db2f4a183",
-      "category": "Hormuz",
-      "title": "Ships attacked in the Strait of Hormuz: What that means for ongoing talks - Al Jazeera",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOSWxQQVZHR2dmVHRRem9Mb25HeDdFQnJwVGUzTHY0QUx2YndfMlRXcDlJNDFSRjk1UF9TbFBTOVlIdUotbUV4M3FIVGZoWHdIdDBTdy0zMWRXWENacXR1QnhvQ1U1RkFBQUtNTjU5X3Qyc25TMXgxaTJ0R1E3aHBpdV9iZmxCSFpMYWI4SENTeWg0bmVJQ1pLVlFTQ3JPTTM2c0VWOHlLTFNXUWpVRjA4ZHpn0gG3AUFVX3lxTE1jS3JLS21OVy03MHh2NzNTNGx6YjBaMjlaeS1GTXM2dkk4RkZMR3VJc2hmTmRoUEZrVjJsYUY3VjBkYlBFcXlNRDVWMjhKQWZTai1SdTFBNXY2TEozbWl0aGlVRmFUdDUweDFoeFE3a2xVdTlzVWVMUkJMbF81ZlNFNDhKUTNVeE1vNjNjYnBWaEd4di1GLVZMbTlwbDFCYmpRVDhtYTVYbWdDRlFpNTItc1VpWUlfQQ?oc=5",
-      "published_at": "2026-07-08T03:24:30+00:00",
-      "title_ja": "ホルムズ海峡で船舶攻撃、協議への影響は",
-      "summary_ja": "ホルムズ海峡で船舶が攻撃され、これが進行中の協議にどのような影響を与えるかについて分析されています。",
-      "key_point_ja": "ホルムズ海峡での船舶攻撃は、国際的な海上輸送の安全保障とUAEの経済に直接的な懸念をもたらします。",
-      "importance_score": 85
-    },
-    {
-      "id": "24c320fbcb33ad24606212382a5dd7d8",
+      "id": "5c61fabb3053ce595082eb80a508d0b9",
       "category": "Gulf",
-      "title": "US ,Iran trade attacks in Strait of Hormuz, Iran may have advantage - The Jerusalem Post",
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBzZkh2UERWTzR0ZlFHZjBCckU0X0t1MkhCZ05wWVdBMFliVW9aUFZRaEoxeFBMdzdvbWNQUTlOb3JPVjNEbDMzS3JOam1FaEduejg3RGU1R2dqUlFC?oc=5",
-      "published_at": "2026-07-08T15:04:59+00:00",
-      "title_ja": "ホルムズ海峡で米イランが攻撃を応酬、イランが優位か",
-      "summary_ja": "ホルムズ海峡で米国とイランが攻撃を応酬し、イランが優位に立っている可能性があると報じられています。",
-      "key_point_ja": "ホルムズ海峡での軍事衝突は、UAEを含む湾岸諸国の海上交通と経済に直接的な影響を与える可能性があります。",
-      "importance_score": 80
+      "title": "Dubai and Middle East flight disruption: the latest updates as Trump says US-Iran ceasefire is ‘over’ - Condé Nast Traveller India",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNajl1OC03b09aQUw0VzIxV29xLUZqRmFSVWhRNzZ6WFNiOG5aTFpQaFR2VUhNM2RMMEUzWjJlN0lBYkc1Y1dja3J3ZXczU244RmhzZDd6Y0xycnVzQmxFZWxPLUdsaFhPQWY5S2Q1RmFBXzFhX3lrbkU1SF81NWdzenc2V29zeHlFWU0tc1JGc2lRVVk2UWswbDNGUWJ0M2I2NF9SNEswM0tkQnJpNG55dDM2RjhDVDJkSHprUGQ1eFNTc2YzTGl2cXhMQWs?oc=5",
+      "published_at": "2026-07-09T05:24:00+00:00",
+      "title_ja": "ドバイと中東のフライトに影響、米イラン停戦終了宣言で最新情報",
+      "summary_ja": "トランプ大統領の米イラン停戦終了宣言を受け、ドバイを含む中東地域のフライトに混乱が生じており、最新情報が待たれます。",
+      "key_point_ja": "ドバイ発着便を含む中東地域のフライトに影響が出ている可能性があり、渡航予定のある方は航空会社の最新情報を確認してください。",
+      "importance_score": 85
     },
     {
-      "id": "d4e52f86850b13bf93e07ee3aef854b6",
+      "id": "d3c8b540e1b2d3a6585c7d10cdd1d036",
       "category": "Hormuz",
-      "title": "U.S. says it launched strikes on Iran for 'attacking commercial shipping' in Strait of Hormuz - CBC",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE8wWUxSMGlkR0lPSnJUbTRna1BQSWV1YWVhLU1qN0xvOGoyV3kxdDBXN0xwbjlSeDFncEl3ZmdETV94Z3RaQzM3VnBKVkdYck55V0RhUWlqRXBUWnViMkhYQWtpbER2WnJlX1l4WnpNdFhCeHFpcjVpX29B?oc=5",
-      "published_at": "2026-07-07T18:37:00+00:00",
-      "title_ja": "米国、ホルムズ海峡での商船攻撃に対しイランに攻撃実施",
-      "summary_ja": "米国は、ホルムズ海峡での商船攻撃に対応してイランに攻撃を実施したと発表しました。",
-      "key_point_ja": "ホルムズ海峡での商船の安全が脅かされており、米国による報復攻撃は地域の緊張を高めています。",
+      "title": "Hormuz shipping risk raised to severe after tankers hit, reviving U.S.-Iran tensions - Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPUVFSZk5WeEJaVV96QWl0TDFIZDJUNWFlNTVkNERLdkxfYlVuY2paaS1KbkFHaDB6dkpEeVQ0ZXlLLW1RTXlBTmN2XzBPaklObVJ1VzdpWkFVTDhIYWFNbWlRdDVWZDJkZF9BY0FlNmJHaDBPbmY5ZTVDMEw3M0ozbjN5N2ljem83ZVBQZ3BhUEc4VTZBYmNZVnBiTVFoWUJUdml0dEdOUVYtMG02VEJKQUhMaUZSSnJuWmc?oc=5",
+      "published_at": "2026-07-07T23:13:29+00:00",
+      "title_ja": "ホルムズ海峡の船舶リスクが「深刻」に引き上げ、米イラン間の緊張再燃",
+      "summary_ja": "タンカー攻撃を受け、ホルムズ海峡の船舶に対するリスクレベルが「深刻」に引き上げられました。これは米イラン間の緊張再燃を反映しています。",
+      "key_point_ja": "ホルムズ海峡の船舶リスク上昇は、湾岸地域の物流と経済に間接的な影響を与える可能性があり、今後の情勢に注意が必要です。",
       "importance_score": 80
-    },
+    }
+  ],
+  "flight_impacts": [
     {
-      "id": "034d4142296956e60287892ec60bb627",
-      "category": "US",
-      "title": "US launches new strikes on Iran, Trump says they could get 'much worse' - France 24",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxONHRHNVlOUHl1YlpjbzEwMXZsT1l2c1plMVFlSUJfNUUtTjFIM2JPZWdMcWlSTWcwT1UzYWJOWHl2SjZHZ1Fkc044WVVEQjROemcxOC02OW1ETVVEdlVhV2M2QkhqX2R3VXZFcHZ2eERhbGZ5WGNncFVJbUdrM0c0MEwzQ3V0cTF4X1pfNTRyMEtEc3IyS1RTRWd3aHVob18td2RvZndNaV9BRHRZWjhINTF3SDVOcjEt?oc=5",
-      "published_at": "2026-07-09T00:42:54+00:00",
-      "title_ja": "米国がイランに新たな攻撃、トランプ氏「さらに悪化する可能性」",
-      "summary_ja": "米国がイランに新たな攻撃を開始し、トランプ大統領は状況が「さらに悪化する可能性」があると警告しました。",
-      "key_point_ja": "米国とイランの軍事衝突がエスカレートしており、中東地域の緊張が高まっています。",
-      "importance_score": 75
-    },
-    {
-      "id": "05ff4d319cd44604b465f09ff3cc7870",
-      "category": "Hormuz",
-      "title": "US launches new strikes on Iran after reinstating oil sanctions over shipping attacks - Reuters",
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNbDVhY1RZUlFOQjM4aHdQa05DS0JCT0tfV3gxOUlqTGVFbWVTQnVhbUdDVElDMmxmVm1mUGZyOEQ5bGt1b1JmSGM3Mm1RNGZWdjFpei1wX1hXOFRXcXoxMDBmVy1SM1lMVEQ5U3E0RWNKbHJjTVlGSEd3RnZ1dmFIcWFjUFVhdDQxWjliNTZMMHkzX25IaXVreFRGN09qZ2k0VGxhVDNsTXlrV2pZTERKTmR0N2szZGZsZHB6V3lCWU1xZ0JQZXE0SFhlOWo?oc=5",
-      "published_at": "2026-07-07T09:29:00+00:00",
-      "title_ja": "米国、船舶攻撃と制裁再開後、イランに新たな攻撃",
-      "summary_ja": "米国は、船舶攻撃と石油制裁の再開を受けて、イランに新たな攻撃を開始しました。",
-      "key_point_ja": "ホルムズ海峡での船舶攻撃とそれに続く米国の軍事行動は、地域の安全保障環境を悪化させています。",
-      "importance_score": 75
-    },
-    {
-      "id": "bb6fa831a74c56ef10f91330cc517b1b",
-      "category": "US",
-      "title": "Iran Live Updates: Trump Suggests Cease-Fire Is 'Over' After Latest Strikes - The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1VclFMUUV4cGpfbEw4M3FsMU10S1I4bFo3d1RYZV9hWFcwR1NrNVBwLU5pVVI1NUowSHhLeDJFTFpkNEtKNWYzTm02Ul9nUnpaMnVoVWJCdVdrLUVGMXcxRzJQR2Zadjc1ejlGOUFORmE?oc=5",
-      "published_at": "2026-07-09T00:03:00+00:00",
-      "title_ja": "イラン情勢速報：トランプ氏、最新攻撃後に停戦終了を示唆",
-      "summary_ja": "トランプ大統領は、最新の攻撃後、イランとの停戦が「終了した」ことを示唆しました。",
-      "key_point_ja": "米国とイランの間の軍事的な緊張が継続しており、今後の動向に注意が必要です。",
-      "importance_score": 70
-    },
+      "id": "5c61fabb3053ce595082eb80a508d0b9",
+      "category": "Gulf",
+      "title": "Dubai and Middle East flight disruption: the latest updates as Trump says US-Iran ceasefire is ‘over’ - Condé Nast Traveller India",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNajl1OC03b09aQUw0VzIxV29xLUZqRmFSVWhRNzZ6WFNiOG5aTFpQaFR2VUhNM2RMMEUzWjJlN0lBYkc1Y1dja3J3ZXczU244RmhzZDd6Y0xycnVzQmxFZWxPLUdsaFhPQWY5S2Q1RmFBXzFhX3lrbkU1SF81NWdzenc2V29zeHlFWU0tc1JGc2lRVVk2UWswbDNGUWJ0M2I2NF9SNEswM0tkQnJpNG55dDM2RjhDVDJkSHprUGQ1eFNTc2YzTGl2cXhMQWs?oc=5",
+      "published_at": "2026-07-09T05:24:00+00:00",
+      "title_ja": "ドバイと中東のフライトに影響、米イラン停戦終了宣言で最新情報",
+      "summary_ja": "トランプ大統領の米イラン停戦終了宣言を受け、ドバイを含む中東地域のフライトに混乱が生じており、最新情報が待たれます。",
+      "key_point_ja": "ドバイ発着便を含む中東地域のフライトに影響が出ている可能性があり、渡航予定のある方は航空会社の最新情報を確認してください。",
+      "importance_score": 85
+    }
+  ],
+  "other_news": [
     {
       "id": "e9bdb779445b425bc8542dad0f4f1b32",
       "category": "Hormuz",
       "title": "U.S. revokes license authorizing sale of Iranian oil after 3 tankers hit in Strait of Hormuz - PBS",
       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQYlh4d2pqRHdIMEdnS3c0NWJOMnE1T2JiQVNOSHdEcGNVLXBPT2k3ekU1WWpCTndhWGdkckRJNVdVUVRXcHlCeDdRd0x3ZHVnQ2czbGp2cHFUcnlzTTE0M1ZUTXBieDJwVnRFdEU5T3gzdFpmU0JCM0c3RTNpMWJFV0xqTGZEaWEyZGhFNUJFcG5KVlliNDg2Q2pabmcwLVhYTnI1b3hNLUJIRTltR1d2Q0VR0gG3AUFVX3lxTE1UR2FGNF93bG9qRWdWUEx0d2owQWxERkpicVJLYVpDbldkTTBnejRFQkptT1lvT0hYcF9KRWllUWVraGtRWmkzVm42MkZYbUFTanR6SmZOM0RycW01WFZYUmE4dzhOTWJQVzNDbkhjaFpUQWdIQUxPM3NwZ215cTQ0ODBQNEtadFRxajhId1o0Mklfb1NGM2lLOHRlbzFjcWlsSE40Uklqckw0S01OWnR2VVJHUGFMdw?oc=5",
       "published_at": "2026-07-07T18:18:39+00:00",
-      "title_ja": "米国、ホルムズ海峡でのタンカー攻撃後、イラン産原油販売許可を撤回",
-      "summary_ja": "ホルムズ海峡で3隻のタンカーが攻撃された後、米国はイラン産原油の販売を許可するライセンスを撤回しました。",
-      "key_point_ja": "ホルムズ海峡での攻撃は、イランに対する経済制裁の強化につながり、地域のエネルギー市場に影響を与える可能性があります。",
+      "title_ja": "米国、ホルムズ海峡でのタンカー攻撃後、イラン産原油販売許可を取り消し",
+      "summary_ja": "ホルムズ海峡で3隻のタンカーが攻撃されたことを受け、米国はイラン産原油の販売を許可するライセンスを取り消しました。これはイランへの経済的圧力を強化する動きです。",
+      "key_point_ja": "米国によるイラン産原油販売許可の取り消しは、イラン経済に打撃を与え、米イラン間の緊張をさらに高める可能性があります。",
       "importance_score": 70
     },
     {
@@ -249,65 +96,188 @@
       "title": "Iran attacks Gulf nations, threatens ‘complete halt’ to talks with US - The Hill",
       "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQZVpXMi1QWnlhMFo1REhmQ3BHWTdLQjZLeGpvZnVQRkYzNjg2cWhUS3djOWZXbm4ybm1DY3NiY3A5cGtSS3VlbEFJYlBrMzN6N045a251bTZLQkNSSzBZUnYwVU9RZFQzbXZUaTFFWEJ2ckxCTUgxaV9vY01ueERiUnpiQ3FoSnB2dm5fbGY3M01sdEnSAZgBQVVfeXFMTXpwelQ3YjVIR1RTdmNPVk5Cd3lRTS1xUHlDeXJvRkpmaUdXRkN6WjlyTTZibFItaHZpQkY4b2c0MXpWTmFGU25uczVMUTFjS0N6cFpxNHY5N1IwaTI3WENkeGszRUFEcktjN3lHWlVncG9sU2xmQ1lOa2xmNkdxX2dmcGNjLWl4NllTQjJPUU5oQTNlcFViVmo?oc=5",
       "published_at": "2026-06-28T07:00:00+00:00",
-      "title_ja": "イランが湾岸諸国を攻撃、米国との協議「完全停止」を脅す",
-      "summary_ja": "イランが湾岸諸国を攻撃し、米国との協議を「完全に停止する」と脅迫したと報じられています。",
-      "key_point_ja": "イランによる湾岸諸国への攻撃は、UAEを含む地域の安全保障に対する直接的な脅威となります。",
+      "title_ja": "イランが湾岸諸国を攻撃、米国との協議「完全停止」を警告",
+      "summary_ja": "イランが湾岸諸国を攻撃し、米国との協議を「完全に停止する」と警告しました。これは地域の緊張をさらに高めるものです。",
+      "key_point_ja": "イランが湾岸諸国を攻撃したとの報道は、UAEを含む湾岸地域全体への間接的な影響を示唆しており、警戒が必要です。",
       "importance_score": 70
-    },
-    {
-      "id": "b7cf6ca415a7b1303e9248bbb9da94b3",
-      "category": "Flight",
-      "title": "Airlines resume some Middle East flights but disruption continues - Reuters",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNTFA3dXVfVFNLY2dtWkM0MlYxMlNsUDkxVWhEdnoySWYyQ3dCQUlkMUhUREttNW8zay1WUXNEdFduNl9KRGozdDI1eFJjYzVoMkNfRzJMVHhkdnZZNHF6ankyYnhwb0Y4c2lYTE16VUJFeEdCUWNNUnVlLVBQYWpwX1daNzloVHZLMGs1Q3Z4WGVLdnZ4MVZCS1g4bmt3UTdsekhOUGoyc0VtcWlnQ2NOa1hGbkY2dw?oc=5",
-      "published_at": "2026-07-02T07:00:00+00:00",
-      "title_ja": "中東の一部フライト再開も混乱続く",
-      "summary_ja": "中東地域で一部の航空便が再開されたものの、依然として混乱が続いていると報じられています。",
-      "key_point_ja": "中東全体のフライト状況は不安定であり、ドバイ発着便にも影響が及ぶ可能性があります。",
-      "importance_score": 60
-    },
-    {
-      "id": "33fb3ba909d17e377394f31979b5048f",
-      "category": "Flight",
-      "title": "Middle East Flights Reopen as New Confusion Hits Travelers - Newsweek",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQLXhpRk12U01Id25TaURDZVR6bXZvbnV5QzREOENCTGhoLTVhZHZ1SDYwOUJUQW1zWUZGYW9oTDFUZmM4alEyNDRGWDlUb2ozcjNZNWN3bmh5eVB6ZnV6Mk1oS0VEZTlKR3BVMWQ0cmFYQy1mbFptX1Z5c2M5bDZkUUxldXdxYkJsaVVXZVZfS281S0o3RGJN?oc=5",
-      "published_at": "2026-06-20T07:00:00+00:00",
-      "title_ja": "中東フライト再開も旅行者に新たな混乱",
-      "summary_ja": "中東のフライトが再開されたものの、旅行者には新たな混乱が生じていると報じられています。",
-      "key_point_ja": "中東全体のフライト状況は不安定であり、ドバイ発着便にも影響が及ぶ可能性があります。",
-      "importance_score": 55
     },
     {
       "id": "19f8f6690c34637a075f2848bd0823a4",
       "category": "US",
       "title": "Iran war latest: Trump says Iran called to make deal after renewed strikes - The Independent",
       "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQY21BS0FGWk0zdG5EM200bGU5RW01Skh4cC1tZHM0SzBZWVliUWMyZ2dHNlhWUEdEaEtPcVBCX1R4UlFuZXNPR29qLVNkYzJvOUVxZUdKaV9MeXlKMjZYMEhxMGo1NHpRTEQ0Zi1tOTNqakVWcGxmRzJQMURhUUV6TmgzcHpWWm9vcGVhQTZCTURuY0VVTHlkbHAtWGZ6QkE1bmZnREJhcmZtQlRvQlFYelo4alJTZ1JFbklF?oc=5",
-      "published_at": "2026-07-09T08:36:55+00:00",
-      "title_ja": "トランプ氏、イランが取引を求めたと発言",
-      "summary_ja": "トランプ大統領は、米国の新たな攻撃後、イランが取引を求めてきたと述べました。",
-      "key_point_ja": "米国とイランの間の緊張が続く中、外交的解決の可能性も示唆されています。",
-      "importance_score": 50
+      "published_at": "2026-07-09T10:43:40+00:00",
+      "title_ja": "トランプ大統領、新たな攻撃後にイランが取引を求めてきたと発言",
+      "summary_ja": "トランプ大統領は、米国による新たな攻撃の後、イランが取引を求めてきたと述べました。これは、現在の緊張状態における外交的な動きを示唆しています。",
+      "key_point_ja": "米イラン間の軍事行動が続く中で、イラン側から対話の可能性が示唆されたというトランプ大統領の発言は、今後の情勢に影響を与える可能性があります。",
+      "importance_score": 75
     },
     {
-      "id": "74c76ff854dfe0fe5b67368ebfa55888",
-      "category": "Flight",
-      "title": "Hundreds of thousands of travellers stranded or diverted by airspace closures in Middle East - The Guardian",
-      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQNkFTQUVjS3FrUzc3N29ZclJYYW42bWs5eGlCZF9YYnpUaURteXduSnBqaTJBR1U0U3FvNDdqQVMtYzkwcmFOVVpVSW5fWDVZWFFoSFJiQ3JhTXhDT0VBcGh3S0Z5RGtaMnIxSGliMVRLWWhWZkJDcHdiOEowZFNUNXdRbTJ6elcyNVpyYjMzUkZIUEN2WGZqSW5wemdUcVJiSE5FR0dWSndlUDNzMzVrRm5XYUF1ZnhNOUFJc1dMSGIwVUZtSjZZMjlrRGpOczg4SXNJY2hQc1hDWTg?oc=5",
-      "published_at": "2026-02-28T08:00:00+00:00",
-      "title_ja": "中東の空域閉鎖で数十万人の旅行者が立ち往生または迂回",
-      "summary_ja": "中東の空域閉鎖により、数十万人の旅行者が立ち往生したり、フライトが迂回したりしたと報じられています。",
-      "key_point_ja": "過去の空域閉鎖による大規模な影響を示しており、現在のフライト混乱の背景として参考になります。",
-      "importance_score": 50
+      "id": "d4e52f86850b13bf93e07ee3aef854b6",
+      "category": "Hormuz",
+      "title": "U.S. says it launched strikes on Iran for 'attacking commercial shipping' in Strait of Hormuz - CBC",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE8wWUxSMGlkR0lPSnJUbTRna1BQSWV1YWVhLU1qN0xvOGoyV3kxdDBXN0xwbjlSeDFncEl3ZmdETV94Z3RaQzM3VnBKVkdYck55V0RhUWlqRXBUWnViMkhYQWtpbER2WnJlX1l4WnpNdFhCeHFpcjVpX29B?oc=5",
+      "published_at": "2026-07-07T18:37:00+00:00",
+      "title_ja": "米国、ホルムズ海峡での「商船攻撃」に対しイランへの攻撃実施を表明",
+      "summary_ja": "米国は、ホルムズ海峡で「商船を攻撃した」としてイランに対し攻撃を実施したと発表しました。これは、海上安全保障を巡る緊張の高まりを示しています。",
+      "key_point_ja": "米国がホルムズ海峡での商船攻撃への報復としてイランを攻撃したことは、地域の軍事衝突のリスクを高める要因となります。",
+      "importance_score": 78
     },
     {
-      "id": "0598fe25b876d18d1344a5a880116db1",
+      "id": "bb6fa831a74c56ef10f91330cc517b1b",
+      "category": "US",
+      "title": "Iran Live Updates: Trump Suggests Cease-Fire Is 'Over' After Latest Strikes - The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1VclFMUUV4cGpfbEw4M3FsMU10S1I4bFo3d1RYZV9hWFcwR1NrNVBwLU5pVVI1NUowSHhLeDJFTFpkNEtKNWYzTm02Ul9nUnpaMnVoVWJCdVdrLUVGMXcxRzJQR2Zadjc1ejlGOUFORmE?oc=5",
+      "published_at": "2026-07-09T01:18:00+00:00",
+      "title_ja": "Iran Live Updates: Trump Suggests Cease-Fire Is 'Over' After Latest Strikes - The New York Times",
+      "summary_ja": "",
+      "key_point_ja": "",
+      "importance_score": 0
+    },
+    {
+      "id": "50bc04b1c6b55356fad82463af6c4fc7",
+      "category": "US",
+      "title": "Ceasefire plunged into greater uncertainty amid fresh US strikes in Iran – as it happened - The Guardian",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNM2dkTlFYUVNFbEJKVjlsUmQ4NGJ3Q004XzN6TU9pb0QyQnltem9ReEM3ZE05ZE9GUmRadmRuc0Z2OWlSSlJVREI5WEFtS3VqUXRDUWJZcVN0WTc5OVBacTVEOFE0QWdDN2hGcmNnbnFwbDJ6T1NnTV93RC0yTFEzbXItcUgtUTNJazQ2VFNnYkNhMnBKSW9LR2h0eklWUQ?oc=5",
+      "published_at": "2026-07-08T20:24:00+00:00",
+      "title_ja": "Ceasefire plunged into greater uncertainty amid fresh US strikes in Iran – as it happened - The Guardian",
+      "summary_ja": "",
+      "key_point_ja": "",
+      "importance_score": 0
+    }
+  ],
+  "items": [
+    {
+      "id": "4e3e7aebfd6adf8034a3d7229e0f01e3",
+      "category": "US",
+      "title": "Trump says Iran truce is ‘over’ as US hits 170 targets over two nights – Middle East crisis live - The Guardian",
+      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNSzZmYVBxWmdLdUp5NUhCSXZrMnpVeG5lUWJSRTFMMDBuRUpfbHBJYlU3S0R4S1FwblBZZUhuUVZiODJ6OXRkUmhhRktaVXNIdUIweWdBZ1FWckZVTWxWV1FoOGpVbldETUk0cFRONXVXazJhaEh5aHRQQVYyell0amFnNVRZZ1JLZnZZX2hOT25WYkdsUEJoLWZ4NGVaSEF5SGlCel85c21HMENZc1M3RWltRG94Zkp0a1p1Z1FaM1hWR1ZaN0hNdVdJSmQ5c21GdVRjMTA4TmtuMU54?oc=5",
+      "published_at": "2026-07-09T07:02:00+00:00",
+      "title_ja": "トランプ大統領、イランとの停戦は「終わった」と宣言、米軍は2夜で170目標を攻撃",
+      "summary_ja": "トランプ大統領はイランとの停戦が「終わった」と発言し、米軍が過去2夜で170の目標を攻撃したことを明らかにしました。これにより、米イラン間の緊張が再燃しています。",
+      "key_point_ja": "トランプ大統領の停戦終了宣言と大規模な攻撃は、米イラン関係が新たな局面に入ったことを示しており、地域情勢の悪化が懸念されます。",
+      "importance_score": 98
+    },
+    {
+      "id": "20c1f2fd7f1a072b29fb8c8dbf4d1a88",
+      "category": "US",
+      "title": "US launches new strikes on Iran that Trump says could get 'much worse' - France 24",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxONHRHNVlOUHl1YlpjbzEwMXZsT1l2c1plMVFlSUJfNUUtTjFIM2JPZWdMcWlSTWcwT1UzYWJOWHl2SjZHZ1Fkc044WVVEQjROemcxOC02OW1ETVVEdlVhV2M2QkhqX2R3VXZFcHZ2eERhbGZ5WGNncFVJbUdrM0c0MEwzQ3V0cTF4X1pfNTRyMEtEc3IyS1RTRWd3aHVob18td2RvZndNaV9BRHRZWjhINTF3SDVOcjEt?oc=5",
+      "published_at": "2026-07-09T00:42:54+00:00",
+      "title_ja": "米国、イランに新たな攻撃を実施、トランプ大統領は「さらに悪化する可能性」を示唆",
+      "summary_ja": "米国がイランに対し新たな攻撃を開始し、トランプ大統領は状況が「さらに悪化する可能性」があると警告しました。これにより、地域の緊張が一段と高まっています。",
+      "key_point_ja": "米国によるイランへの新たな攻撃とトランプ大統領の強硬な発言は、米イラン間の緊張が再び高まっていることを示唆しています。",
+      "importance_score": 95
+    },
+    {
+      "id": "007a783bdfe6607129f4b1e092ed3214",
+      "category": "Hormuz",
+      "title": "Oil tanker hit at Hormuz: US accuses Iran of attacking 2 commercial ships, mulls counter strike - The Times of India",
+      "url": "https://news.google.com/rss/articles/CBMigwJBVV95cUxNRFBualhONlhGdkotd1Y5b2ctZ1ktZFREc1JQUXNDbzRFNDU0dGNtU01XR2MtTUdCandrdEFmOXc0QUhDWDRRNlh0dEhuRDFJakZMWDhFUGhNaHZxX1hGaHZzNlU2el9sSHg0Qy0xY0pnS3NHVjB0aUVsTGMxRnVuM2RGUkJzTEtmRGlodzRXRGdxbWh2WUNORTdfVDRTekpHeEJUT2VZNS1jWTdLMzl3VWFydzd2WVAtS0c5V3E2Y2VjWDRGZGtDSGMzaW9HeHdlN2I0RVNqeTdVTGx2UGtDSUJ6X1hzRDZqM1A2RG44d3MzZ3FZLXNzazRSQ0VTcHp0S0xF0gGIAkFVX3lxTE5TWlV5Qk90eWpNT3NPbTVJNjBkQktwcElNYVA3ZHlUYlpqWFBTTm5tYllqdG0wV3prTVF3UTIxWk9wNWVORUExVTBIZl9GX0czSGtPT2hsdlZkRjU5ZC1jZXFtOWFSOW1iSFZScmc3YVpPb282czZTUGlWalVXQ0dFMTkwSkszbUpiVTlhRmU5cFp0SkZEODZJUVhoT3FJc1JRQUJ0TmJ5S19DUU1PZEpaYVhYbmkxWlNfbGJjUmRJUXNuZGJyd04zck51RU9Hd0hnbGNodVl5M2c4NnJkdEc1cnppcUZkU1lzcDJXNS1PYXU5V19EUTFIb1NuTGJfQTVkX2IzeDRYNw?oc=5",
+      "published_at": "2026-07-07T01:33:00+00:00",
+      "title_ja": "ホルムズ海峡でタンカー攻撃、米国はイランを非難し報復を検討",
+      "summary_ja": "ホルムズ海峡で石油タンカーが攻撃され、米国はイランが商船2隻を攻撃したと非難し、報復措置を検討していると報じられています。",
+      "key_point_ja": "ホルムズ海峡でのタンカー攻撃は、主要な海上輸送路の安全保障に直接的な影響を及ぼす可能性があり、今後の動向が注目されます。",
+      "importance_score": 90
+    },
+    {
+      "id": "5c61fabb3053ce595082eb80a508d0b9",
+      "category": "Gulf",
+      "title": "Dubai and Middle East flight disruption: the latest updates as Trump says US-Iran ceasefire is ‘over’ - Condé Nast Traveller India",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNajl1OC03b09aQUw0VzIxV29xLUZqRmFSVWhRNzZ6WFNiOG5aTFpQaFR2VUhNM2RMMEUzWjJlN0lBYkc1Y1dja3J3ZXczU244RmhzZDd6Y0xycnVzQmxFZWxPLUdsaFhPQWY5S2Q1RmFBXzFhX3lrbkU1SF81NWdzenc2V29zeHlFWU0tc1JGc2lRVVk2UWswbDNGUWJ0M2I2NF9SNEswM0tkQnJpNG55dDM2RjhDVDJkSHprUGQ1eFNTc2YzTGl2cXhMQWs?oc=5",
+      "published_at": "2026-07-09T05:24:00+00:00",
+      "title_ja": "ドバイと中東のフライトに影響、米イラン停戦終了宣言で最新情報",
+      "summary_ja": "トランプ大統領の米イラン停戦終了宣言を受け、ドバイを含む中東地域のフライトに混乱が生じており、最新情報が待たれます。",
+      "key_point_ja": "ドバイ発着便を含む中東地域のフライトに影響が出ている可能性があり、渡航予定のある方は航空会社の最新情報を確認してください。",
+      "importance_score": 85
+    },
+    {
+      "id": "d3c8b540e1b2d3a6585c7d10cdd1d036",
+      "category": "Hormuz",
+      "title": "Hormuz shipping risk raised to severe after tankers hit, reviving U.S.-Iran tensions - Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPUVFSZk5WeEJaVV96QWl0TDFIZDJUNWFlNTVkNERLdkxfYlVuY2paaS1KbkFHaDB6dkpEeVQ0ZXlLLW1RTXlBTmN2XzBPaklObVJ1VzdpWkFVTDhIYWFNbWlRdDVWZDJkZF9BY0FlNmJHaDBPbmY5ZTVDMEw3M0ozbjN5N2ljem83ZVBQZ3BhUEc4VTZBYmNZVnBiTVFoWUJUdml0dEdOUVYtMG02VEJKQUhMaUZSSnJuWmc?oc=5",
+      "published_at": "2026-07-07T23:13:29+00:00",
+      "title_ja": "ホルムズ海峡の船舶リスクが「深刻」に引き上げ、米イラン間の緊張再燃",
+      "summary_ja": "タンカー攻撃を受け、ホルムズ海峡の船舶に対するリスクレベルが「深刻」に引き上げられました。これは米イラン間の緊張再燃を反映しています。",
+      "key_point_ja": "ホルムズ海峡の船舶リスク上昇は、湾岸地域の物流と経済に間接的な影響を与える可能性があり、今後の情勢に注意が必要です。",
+      "importance_score": 80
+    },
+    {
+      "id": "d4e52f86850b13bf93e07ee3aef854b6",
+      "category": "Hormuz",
+      "title": "U.S. says it launched strikes on Iran for 'attacking commercial shipping' in Strait of Hormuz - CBC",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE8wWUxSMGlkR0lPSnJUbTRna1BQSWV1YWVhLU1qN0xvOGoyV3kxdDBXN0xwbjlSeDFncEl3ZmdETV94Z3RaQzM3VnBKVkdYck55V0RhUWlqRXBUWnViMkhYQWtpbER2WnJlX1l4WnpNdFhCeHFpcjVpX29B?oc=5",
+      "published_at": "2026-07-07T18:37:00+00:00",
+      "title_ja": "米国、ホルムズ海峡での「商船攻撃」に対しイランへの攻撃実施を表明",
+      "summary_ja": "米国は、ホルムズ海峡で「商船を攻撃した」としてイランに対し攻撃を実施したと発表しました。これは、海上安全保障を巡る緊張の高まりを示しています。",
+      "key_point_ja": "米国がホルムズ海峡での商船攻撃への報復としてイランを攻撃したことは、地域の軍事衝突のリスクを高める要因となります。",
+      "importance_score": 78
+    },
+    {
+      "id": "19f8f6690c34637a075f2848bd0823a4",
+      "category": "US",
+      "title": "Iran war latest: Trump says Iran called to make deal after renewed strikes - The Independent",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQY21BS0FGWk0zdG5EM200bGU5RW01Skh4cC1tZHM0SzBZWVliUWMyZ2dHNlhWUEdEaEtPcVBCX1R4UlFuZXNPR29qLVNkYzJvOUVxZUdKaV9MeXlKMjZYMEhxMGo1NHpRTEQ0Zi1tOTNqakVWcGxmRzJQMURhUUV6TmgzcHpWWm9vcGVhQTZCTURuY0VVTHlkbHAtWGZ6QkE1bmZnREJhcmZtQlRvQlFYelo4alJTZ1JFbklF?oc=5",
+      "published_at": "2026-07-09T10:43:40+00:00",
+      "title_ja": "トランプ大統領、新たな攻撃後にイランが取引を求めてきたと発言",
+      "summary_ja": "トランプ大統領は、米国による新たな攻撃の後、イランが取引を求めてきたと述べました。これは、現在の緊張状態における外交的な動きを示唆しています。",
+      "key_point_ja": "米イラン間の軍事行動が続く中で、イラン側から対話の可能性が示唆されたというトランプ大統領の発言は、今後の情勢に影響を与える可能性があります。",
+      "importance_score": 75
+    },
+    {
+      "id": "e9bdb779445b425bc8542dad0f4f1b32",
+      "category": "Hormuz",
+      "title": "U.S. revokes license authorizing sale of Iranian oil after 3 tankers hit in Strait of Hormuz - PBS",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQYlh4d2pqRHdIMEdnS3c0NWJOMnE1T2JiQVNOSHdEcGNVLXBPT2k3ekU1WWpCTndhWGdkckRJNVdVUVRXcHlCeDdRd0x3ZHVnQ2czbGp2cHFUcnlzTTE0M1ZUTXBieDJwVnRFdEU5T3gzdFpmU0JCM0c3RTNpMWJFV0xqTGZEaWEyZGhFNUJFcG5KVlliNDg2Q2pabmcwLVhYTnI1b3hNLUJIRTltR1d2Q0VR0gG3AUFVX3lxTE1UR2FGNF93bG9qRWdWUEx0d2owQWxERkpicVJLYVpDbldkTTBnejRFQkptT1lvT0hYcF9KRWllUWVraGtRWmkzVm42MkZYbUFTanR6SmZOM0RycW01WFZYUmE4dzhOTWJQVzNDbkhjaFpUQWdIQUxPM3NwZ215cTQ0ODBQNEtadFRxajhId1o0Mklfb1NGM2lLOHRlbzFjcWlsSE40Uklqckw0S01OWnR2VVJHUGFMdw?oc=5",
+      "published_at": "2026-07-07T18:18:39+00:00",
+      "title_ja": "米国、ホルムズ海峡でのタンカー攻撃後、イラン産原油販売許可を取り消し",
+      "summary_ja": "ホルムズ海峡で3隻のタンカーが攻撃されたことを受け、米国はイラン産原油の販売を許可するライセンスを取り消しました。これはイランへの経済的圧力を強化する動きです。",
+      "key_point_ja": "米国によるイラン産原油販売許可の取り消しは、イラン経済に打撃を与え、米イラン間の緊張をさらに高める可能性があります。",
+      "importance_score": 70
+    },
+    {
+      "id": "f05b977ce709b692f3e13a66f8ce0071",
       "category": "Iran",
-      "title": "Iranian Economist Calls for Iran to Demonstrate Nuclear Capability Against U.S. and Israel - Homeland Security Today",
-      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxOS19DcG12dzNSMDAwa2d3NzdxRFlQRDQwYlVBQWJuNlpXcnZYVFNHZEd3SU5aX2Y4dnhwdVN3VmRqbXc1WnNQUU1MTEZzaWNUX3o1Njc3R25VZmxEWWNPQm4wLV9qajNnUGtIYWVZMUstb3RMSGJQVTdZOFBOc1o4RkloRVJsRHc5SDc3cUNnZDlMOWhZWF96R3dGY1ZKcmZpaTlsaEdNTnVjTmc1eDBzWWF2anFlVlN6RDdvemc5SzVQNWZkNTF4SUdvZEx5ZzBJOFptSk9vbnRKaFJCSVlsdV8waEJOQQ?oc=5",
-      "published_at": "2026-06-10T07:00:00+00:00",
-      "title_ja": "イラン経済学者が米国とイスラエルに対する核能力誇示を要求",
-      "summary_ja": "イランの経済学者が、米国とイスラエルに対して核能力を誇示するよう要求したと報じられています。",
-      "key_point_ja": "イラン国内の強硬な意見ですが、イラン政府の公式な方針や行動を示すものではありません。",
-      "importance_score": 40
+      "title": "Iran attacks Gulf nations, threatens ‘complete halt’ to talks with US - The Hill",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQZVpXMi1QWnlhMFo1REhmQ3BHWTdLQjZLeGpvZnVQRkYzNjg2cWhUS3djOWZXbm4ybm1DY3NiY3A5cGtSS3VlbEFJYlBrMzN6N045a251bTZLQkNSSzBZUnYwVU9RZFQzbXZUaTFFWEJ2ckxCTUgxaV9vY01ueERiUnpiQ3FoSnB2dm5fbGY3M01sdEnSAZgBQVVfeXFMTXpwelQ3YjVIR1RTdmNPVk5Cd3lRTS1xUHlDeXJvRkpmaUdXRkN6WjlyTTZibFItaHZpQkY4b2c0MXpWTmFGU25uczVMUTFjS0N6cFpxNHY5N1IwaTI3WENkeGszRUFEcktjN3lHWlVncG9sU2xmQ1lOa2xmNkdxX2dmcGNjLWl4NllTQjJPUU5oQTNlcFViVmo?oc=5",
+      "published_at": "2026-06-28T07:00:00+00:00",
+      "title_ja": "イランが湾岸諸国を攻撃、米国との協議「完全停止」を警告",
+      "summary_ja": "イランが湾岸諸国を攻撃し、米国との協議を「完全に停止する」と警告しました。これは地域の緊張をさらに高めるものです。",
+      "key_point_ja": "イランが湾岸諸国を攻撃したとの報道は、UAEを含む湾岸地域全体への間接的な影響を示唆しており、警戒が必要です。",
+      "importance_score": 70
+    },
+    {
+      "id": "bb6fa831a74c56ef10f91330cc517b1b",
+      "category": "US",
+      "title": "Iran Live Updates: Trump Suggests Cease-Fire Is 'Over' After Latest Strikes - The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1VclFMUUV4cGpfbEw4M3FsMU10S1I4bFo3d1RYZV9hWFcwR1NrNVBwLU5pVVI1NUowSHhLeDJFTFpkNEtKNWYzTm02Ul9nUnpaMnVoVWJCdVdrLUVGMXcxRzJQR2Zadjc1ejlGOUFORmE?oc=5",
+      "published_at": "2026-07-09T01:18:00+00:00",
+      "title_ja": "Iran Live Updates: Trump Suggests Cease-Fire Is 'Over' After Latest Strikes - The New York Times",
+      "summary_ja": "",
+      "key_point_ja": "",
+      "importance_score": 0
+    },
+    {
+      "id": "50bc04b1c6b55356fad82463af6c4fc7",
+      "category": "US",
+      "title": "Ceasefire plunged into greater uncertainty amid fresh US strikes in Iran – as it happened - The Guardian",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNM2dkTlFYUVNFbEJKVjlsUmQ4NGJ3Q004XzN6TU9pb0QyQnltem9ReEM3ZE05ZE9GUmRadmRuc0Z2OWlSSlJVREI5WEFtS3VqUXRDUWJZcVN0WTc5OVBacTVEOFE0QWdDN2hGcmNnbnFwbDJ6T1NnTV93RC0yTFEzbXItcUgtUTNJazQ2VFNnYkNhMnBKSW9LR2h0eklWUQ?oc=5",
+      "published_at": "2026-07-08T20:24:00+00:00",
+      "title_ja": "Ceasefire plunged into greater uncertainty amid fresh US strikes in Iran – as it happened - The Guardian",
+      "summary_ja": "",
+      "key_point_ja": "",
+      "importance_score": 0
+    },
+    {
+      "id": "24c320fbcb33ad24606212382a5dd7d8",
+      "category": "Gulf",
+      "title": "US ,Iran trade attacks in Strait of Hormuz, Iran may have advantage - The Jerusalem Post",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBzZkh2UERWTzR0ZlFHZjBCckU0X0t1MkhCZ05wWVdBMFliVW9aUFZRaEoxeFBMdzdvbWNQUTlOb3JPVjNEbDMzS3JOam1FaEduejg3RGU1R2dqUlFC?oc=5",
+      "published_at": "2026-07-08T15:04:59+00:00",
+      "title_ja": "US ,Iran trade attacks in Strait of Hormuz, Iran may have advantage - The Jerusalem Post",
+      "summary_ja": "",
+      "key_point_ja": "",
+      "importance_score": 0
     },
     {
       "id": "2a5c1428364f66bc54aaab1ed9b3f0a0",
@@ -315,21 +285,32 @@
       "title": "2026 Iran war | Deal, Explained, United States, Israel, Strait of Hormuz, Map, & Conflict - Encyclopedia Britannica",
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5nTzlhOGZTS180cWNtVG91c2VWRVJFYlk0cW5Ba1RHUEFOSEtldU15QktQT0EzRVY1ZVdZZ0VTRHVWTVhyN1IzeU1wbmlDMUhrQ3Roc1YxcmdMUQ?oc=5",
       "published_at": "2026-07-08T05:00:00+00:00",
-      "title_ja": "2026年イラン戦争：解説、米国、イスラエル、ホルムズ海峡",
-      "summary_ja": "2026年のイラン戦争に関する背景、米国とイスラエルの関与、ホルムズ海峡の重要性などが解説されています。",
-      "key_point_ja": "現在のイラン情勢を理解するための背景情報ですが、直近の具体的な変化を示すものではありません。",
-      "importance_score": 30
+      "title_ja": "2026 Iran war | Deal, Explained, United States, Israel, Strait of Hormuz, Map, & Conflict - Encyclopedia Britannica",
+      "summary_ja": "",
+      "key_point_ja": "",
+      "importance_score": 0
     },
     {
-      "id": "f9f3df5bb5df3a6527bb62e508aebc7d",
-      "category": "Iran",
-      "title": "Why did US and Israel attack Iran and how long could the war last? - BBC",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE55MG5wdTJrMFlNLWRENFBMZEFMcW0yN0E5dE1lajB6eGRWU1JNN2Y0cXhkbGlGdEpTcG1naHdqN00yLThGV3Qzd2RmYWhBa0tfS1I5ejRobjVGZw?oc=5",
-      "published_at": "2026-04-23T07:00:00+00:00",
-      "title_ja": "米国とイスラエルはなぜイランを攻撃したのか、戦争はどれくらい続くのか",
-      "summary_ja": "米国とイスラエルがイランを攻撃した理由と、戦争がどれくらい続くかについて分析されています。",
-      "key_point_ja": "イラン戦争の背景と将来の見通しに関する分析であり、直近の緊急情報ではありません。",
-      "importance_score": 25
+      "id": "494a681b3226f09e74323f8db2f4a183",
+      "category": "Hormuz",
+      "title": "Ships attacked in the Strait of Hormuz: What that means for ongoing talks - Al Jazeera",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOSWxQQVZHR2dmVHRRem9Mb25HeDdFQnJwVGUzTHY0QUx2YndfMlRXcDlJNDFSRjk1UF9TbFBTOVlIdUotbUV4M3FIVGZoWHdIdDBTdy0zMWRXWENacXR1QnhvQ1U1RkFBQUtNTjU5X3Qyc25TMXgxaTJ0R1E3aHBpdV9iZmxCSFpMYWI4SENTeWg0bmVJQ1pLVlFTQ3JPTTM2c0VWOHlLTFNXUWpVRjA4ZHpn0gG3AUFVX3lxTE1jS3JLS21OVy03MHh2NzNTNGx6YjBaMjlaeS1GTXM2dkk4RkZMR3VJc2hmTmRoUEZrVjJsYUY3VjBkYlBFcXlNRDVWMjhKQWZTai1SdTFBNXY2TEozbWl0aGlVRmFUdDUweDFoeFE3a2xVdTlzVWVMUkJMbF81ZlNFNDhKUTNVeE1vNjNjYnBWaEd4di1GLVZMbTlwbDFCYmpRVDhtYTVYbWdDRlFpNTItc1VpWUlfQQ?oc=5",
+      "published_at": "2026-07-08T03:24:30+00:00",
+      "title_ja": "Ships attacked in the Strait of Hormuz: What that means for ongoing talks - Al Jazeera",
+      "summary_ja": "",
+      "key_point_ja": "",
+      "importance_score": 0
+    },
+    {
+      "id": "b7cf6ca415a7b1303e9248bbb9da94b3",
+      "category": "Flight",
+      "title": "Airlines resume some Middle East flights but disruption continues - Reuters",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNTFA3dXVfVFNLY2dtWkM0MlYxMlNsUDkxVWhEdnoySWYyQ3dCQUlkMUhUREttNW8zay1WUXNEdFduNl9KRGozdDI1eFJjYzVoMkNfRzJMVHhkdnZZNHF6ankyYnhwb0Y4c2lYTE16VUJFeEdCUWNNUnVlLVBQYWpwX1daNzloVHZLMGs1Q3Z4WGVLdnZ4MVZCS1g4bmt3UTdsekhOUGoyc0VtcWlnQ2NOa1hGbkY2dw?oc=5",
+      "published_at": "2026-07-02T07:00:00+00:00",
+      "title_ja": "Airlines resume some Middle East flights but disruption continues - Reuters",
+      "summary_ja": "",
+      "key_point_ja": "",
+      "importance_score": 0
     },
     {
       "id": "990c6a1aaec5a19a39eac5bf19615a29",
@@ -337,32 +318,10 @@
       "title": "Pragmatic choice: Israel’s war backfires as Gulf backs US-Iran deal - Al Jazeera",
       "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNTThlLW1nRGJvTmRsV18yeWtHUkhPMC1fUHh4XzlGS3RObVlKYVBFMVJ1VWVCN05ENnF1RXFHSWdSMF82Z0ZKSU1xMXVZN2xxRmVBUmlUb09UV3BfY2ZiVGl0OTZZMXJJN2xZaWFINkhQT3pXTmV4Q1FLa1ZZd09acTF4OGZOT0E2eG04VjdjLTlGYnRQaUtwZTVyOU83Y0dPSThMb3dvSVBBQTI0S05EcHg1LTdfUdIBuwFBVV95cUxOc04tT0ZzcWZOaHJlSzRyekVTUERET3J0UEpWRVRDaDVyZG1Dakh0S0NuYklRWWk0T3NObDRtR3VKSW1kOGxwNXNuZVVBaHVISWN1WHhQd3JaSEV6UVI2c19QdVVmWTA0bU1ibEVLelVsV0hEbjRsb21XMEE0MFFNQ0laZl9oZVVhakI2YXQyQ0dRNlo3RkcyRmhOaWJ2dTJ2Q0E5d3NvemdldkNVak80LVdqTUNMdTBKS2ZZ?oc=5",
       "published_at": "2026-06-25T07:00:00+00:00",
-      "title_ja": "イスラエル戦争の裏目、湾岸諸国が米イラン合意を支持",
-      "summary_ja": "イスラエル戦争が裏目に出て、湾岸諸国が米国とイランの合意を支持していると報じられています。",
-      "key_point_ja": "湾岸諸国の外交姿勢に関する情報ですが、現在の軍事衝突の激化とは異なる文脈です。",
-      "importance_score": 20
-    },
-    {
-      "id": "13de682dc4553e6ccddc6d26e52d65e1",
-      "category": "Iran",
-      "title": "War can't entirely eliminate Iran's nuclear program, the U.N. atomic energy chief says - NPR",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQc055WlFaeExSeG5tLXBmdV9jNVctZUFFZC1iLTlQcjdQOTUzVENEV25Ua2VDOGEzeVhVVkxyTVk3Y0EzZ0tKUW1Hc081M2t3TnczOEVfWWx2bWVUeU51azd3VlI3TnVuWjFMc2pwYUdZclJkd1NzNThzeWc4Z3R6eGhKYnRITEdFUEMzXzVmakFQaXFncFE3Y0VWemI4ekNL?oc=5",
-      "published_at": "2026-03-18T07:00:00+00:00",
-      "title_ja": "国連原子力機関トップ、戦争ではイランの核計画を完全に排除できないと発言",
-      "summary_ja": "国連原子力機関のトップは、戦争によってイランの核計画を完全に排除することはできないと述べました。",
-      "key_point_ja": "イランの核開発問題に関する専門家の見解であり、現在の軍事衝突の直接的な進展ではありません。",
-      "importance_score": 20
-    },
-    {
-      "id": "83dced403af1b611da12a2153175a21c",
-      "category": "Gulf",
-      "title": "Iran War Transforms Gulf Arab Region | Alhurra - الحرة",
-      "url": "https://news.google.com/rss/articles/CBMiQkFVX3lxTE42SEx1M3ctMmY3VDY3M2w4Ym14NklUM2xQVFpyZ2dBM1J3ak80LXBNU0JQbFlOdmFTV2R0YjJVODl4UQ?oc=5",
-      "published_at": "2026-06-24T07:00:00+00:00",
-      "title_ja": "イラン戦争が湾岸アラブ地域を変革",
-      "summary_ja": "イラン戦争が湾岸アラブ地域に大きな変革をもたらしていると分析されています。",
-      "key_point_ja": "地域の長期的な地政学的変化に関する分析であり、直近の緊急情報ではありません。",
-      "importance_score": 15
+      "title_ja": "Pragmatic choice: Israel’s war backfires as Gulf backs US-Iran deal - Al Jazeera",
+      "summary_ja": "",
+      "key_point_ja": "",
+      "importance_score": 0
     },
     {
       "id": "beae1dac8be18b4016785020e8cb150c",
@@ -370,10 +329,32 @@
       "title": "Supply Chain Operational Update: Middle East - Marken.",
       "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNMEMxeENKUW00MEp3SE5semhEUlZJdU00TlVtNEctbzYwVEtha1JXZzdEV0sxaWtSZnhjaFlIdi1mTUpmTHFRTklhYXVVdzNLWUY1TXBSRXpITUJqeE55U1JBQWsxWE9GV3BnUWxTSWI4Mk02TXNTdTFHOTdLWW9EdDM3ZXUzWGR0?oc=5",
       "published_at": "2026-06-25T07:00:00+00:00",
-      "title_ja": "中東のサプライチェーン運用状況更新",
-      "summary_ja": "中東地域のサプライチェーンの運用状況に関する最新情報が提供されています。",
-      "key_point_ja": "サプライチェーンへの影響は間接的に経済に影響を与える可能性がありますが、直接的な安全保障やフライト情報ではありません。",
-      "importance_score": 10
+      "title_ja": "Supply Chain Operational Update: Middle East - Marken.",
+      "summary_ja": "",
+      "key_point_ja": "",
+      "importance_score": 0
+    },
+    {
+      "id": "83dced403af1b611da12a2153175a21c",
+      "category": "Gulf",
+      "title": "Iran War Transforms Gulf Arab Region | Alhurra - الحرة",
+      "url": "https://news.google.com/rss/articles/CBMiQkFVX3lxTE42SEx1M3ctMmY3VDY3M2w4Ym14NklUM2xQVFpyZ2dBM1J3ak80LXBNU0JQbFlOdmFTV2R0YjJVODl4UQ?oc=5",
+      "published_at": "2026-06-24T07:00:00+00:00",
+      "title_ja": "Iran War Transforms Gulf Arab Region | Alhurra - الحرة",
+      "summary_ja": "",
+      "key_point_ja": "",
+      "importance_score": 0
+    },
+    {
+      "id": "33fb3ba909d17e377394f31979b5048f",
+      "category": "Flight",
+      "title": "Middle East Flights Reopen as New Confusion Hits Travelers - Newsweek",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQLXhpRk12U01Id25TaURDZVR6bXZvbnV5QzREOENCTGhoLTVhZHZ1SDYwOUJUQW1zWUZGYW9oTDFUZmM4alEyNDRGWDlUb2ozcjNZNWN3bmh5eVB6ZnV6Mk1oS0VEZTlKR3BVMWQ0cmFYQy1mbFptX1Z5c2M5bDZkUUxldXdxYkJsaVVXZVZfS281S0o3RGJN?oc=5",
+      "published_at": "2026-06-20T07:00:00+00:00",
+      "title_ja": "Middle East Flights Reopen as New Confusion Hits Travelers - Newsweek",
+      "summary_ja": "",
+      "key_point_ja": "",
+      "importance_score": 0
     },
     {
       "id": "24f676b8f336a9d4b4ebcec169012132",
@@ -381,10 +362,54 @@
       "title": "The Gulf Cooperation Council - Middle East Institute",
       "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE04ZVhnaHZUYlUwVnpHVTIxb0dQYTdjbHJiNzJNT08yUXluQl84Q1BjRUVTSGhrVWZYZGVsdlZTNE1ybnVWSG9SZnA5N0FvZ2tucXVSWkVkMFF4Wi01RVZlWkhNbDdmZ0dJemc?oc=5",
       "published_at": "2026-06-18T07:00:00+00:00",
-      "title_ja": "湾岸協力会議",
-      "summary_ja": "湾岸協力会議（GCC）に関する情報が提供されています。",
-      "key_point_ja": "湾岸地域の協力体制に関する一般的な情報であり、現在の緊急事態とは直接関連しません。",
-      "importance_score": 5
+      "title_ja": "The Gulf Cooperation Council - Middle East Institute",
+      "summary_ja": "",
+      "key_point_ja": "",
+      "importance_score": 0
+    },
+    {
+      "id": "0598fe25b876d18d1344a5a880116db1",
+      "category": "Iran",
+      "title": "Iranian Economist Calls for Iran to Demonstrate Nuclear Capability Against U.S. and Israel - Homeland Security Today",
+      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxOS19DcG12dzNSMDAwa2d3NzdxRFlQRDQwYlVBQWJuNlpXcnZYVFNHZEd3SU5aX2Y4dnhwdVN3VmRqbXc1WnNQUU1MTEZzaWNUX3o1Njc3R25VZmxEWWNPQm4wLV9qajNnUGtIYWVZMUstb3RMSGJQVTdZOFBOc1o4RkloRVJsRHc5SDc3cUNnZDlMOWhZWF96R3dGY1ZKcmZpaTlsaEdNTnVjTmc1eDBzWWF2anFlVlN6RDdvemc5SzVQNWZkNTF4SUdvZEx5ZzBJOFptSk9vbnRKaFJCSVlsdV8waEJOQQ?oc=5",
+      "published_at": "2026-06-10T07:00:00+00:00",
+      "title_ja": "Iranian Economist Calls for Iran to Demonstrate Nuclear Capability Against U.S. and Israel - Homeland Security Today",
+      "summary_ja": "",
+      "key_point_ja": "",
+      "importance_score": 0
+    },
+    {
+      "id": "f9f3df5bb5df3a6527bb62e508aebc7d",
+      "category": "Iran",
+      "title": "Why did US and Israel attack Iran and how long could the war last? - BBC",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE55MG5wdTJrMFlNLWRENFBMZEFMcW0yN0E5dE1lajB6eGRWU1JNN2Y0cXhkbGlGdEpTcG1naHdqN00yLThGV3Qzd2RmYWhBa0tfS1I5ejRobjVGZw?oc=5",
+      "published_at": "2026-04-23T07:00:00+00:00",
+      "title_ja": "Why did US and Israel attack Iran and how long could the war last? - BBC",
+      "summary_ja": "",
+      "key_point_ja": "",
+      "importance_score": 0
+    },
+    {
+      "id": "13de682dc4553e6ccddc6d26e52d65e1",
+      "category": "Iran",
+      "title": "War can't entirely eliminate Iran's nuclear program, the U.N. atomic energy chief says - NPR",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQc055WlFaeExSeG5tLXBmdV9jNVctZUFFZC1iLTlQcjdQOTUzVENEV25Ua2VDOGEzeVhVVkxyTVk3Y0EzZ0tKUW1Hc081M2t3TnczOEVfWWx2bWVUeU51azd3VlI3TnVuWjFMc2pwYUdZclJkd1NzNThzeWc4Z3R6eGhKYnRITEdFUEMzXzVmakFQaXFncFE3Y0VWemI4ekNL?oc=5",
+      "published_at": "2026-03-18T07:00:00+00:00",
+      "title_ja": "War can't entirely eliminate Iran's nuclear program, the U.N. atomic energy chief says - NPR",
+      "summary_ja": "",
+      "key_point_ja": "",
+      "importance_score": 0
+    },
+    {
+      "id": "74c76ff854dfe0fe5b67368ebfa55888",
+      "category": "Flight",
+      "title": "Hundreds of thousands of travellers stranded or diverted by airspace closures in Middle East - The Guardian",
+      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQNkFTQUVjS3FrUzc3N29ZclJYYW42bWs5eGlCZF9YYnpUaURteXduSnBqaTJBR1U0U3FvNDdqQVMtYzkwcmFOVVpVSW5fWDVZWFFoSFJiQ3JhTXhDT0VBcGh3S0Z5RGtaMnIxSGliMVRLWWhWZkJDcHdiOEowZFNUNXdRbTJ6elcyNVpyYjMzUkZIUEN2WGZqSW5wemdUcVJiSE5FR0dWSndlUDNzMzVrRm5XYUF1ZnhNOUFJc1dMSGIwVUZtSjZZMjlrRGpOczg4SXNJY2hQc1hDWTg?oc=5",
+      "published_at": "2026-02-28T08:00:00+00:00",
+      "title_ja": "Hundreds of thousands of travellers stranded or diverted by airspace closures in Middle East - The Guardian",
+      "summary_ja": "",
+      "key_point_ja": "",
+      "importance_score": 0
     }
   ]
 }
