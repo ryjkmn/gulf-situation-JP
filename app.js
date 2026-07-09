@@ -16,12 +16,19 @@ async function loadNews() {
 
     const data = await response.json();
 
-    // その他の重要ニュースだけを保持
     allNews = data.other_news || [];
 
     renderUpdatedAt(data.updated_at);
-    renderRisk(data.risk);
-    renderCurrentSituation(data.current_situation_summary);
+
+    renderRisk(
+      data.risk
+    );
+
+    renderCurrentSituation(
+      data.current_situation_summary,
+      data.situation_highlight
+    );
+
     renderChanges(data.changes || []);
     renderMustRead(data.must_read || []);
     renderFlights(data.flight_impacts || []);
@@ -29,7 +36,6 @@ async function loadNews() {
 
     initFilters();
 
-    // 地図には全ニュースを渡す
     initMap(data.items || []);
 
   } catch (error) {
@@ -93,7 +99,11 @@ function renderRisk(risk) {
   }
 
   label.textContent = risk.label || "確認中";
-  summary.textContent = risk.summary || "";
+
+  summary.innerHTML = highlightText(
+    risk.summary || "",
+    risk.risk_highlight || ""
+  );
 
   dot.className = "risk-dot";
 
@@ -107,7 +117,7 @@ function renderRisk(risk) {
 // 現在の状況 3行まとめ
 // ==========================================
 
-function renderCurrentSituation(summary) {
+function renderCurrentSituation(summary, highlight) {
   const element = document.getElementById(
     "currentSituationSummary"
   );
@@ -120,7 +130,10 @@ function renderCurrentSituation(summary) {
     return;
   }
 
-  element.textContent = summary;
+  element.innerHTML = highlightText(
+    summary,
+    highlight || ""
+  );
 }
 
 
@@ -199,7 +212,7 @@ function renderFlights(items) {
   container.innerHTML = items
     .slice(0, 3)
     .map((item, index) =>
-      createEditorialCard(item, index + 1, false)
+      createEditorialCard(item, index + 1)
     )
     .join("");
 }
@@ -209,7 +222,7 @@ function renderFlights(items) {
 // ニュースカード
 // ==========================================
 
-function createEditorialCard(item, number, highlight) {
+function createEditorialCard(item, number) {
 
   const title = escapeHtml(
     item.title_ja ||
@@ -217,23 +230,21 @@ function createEditorialCard(item, number, highlight) {
     "タイトルなし"
   );
 
-  const summary = escapeHtml(
-    item.summary_ja || ""
+  const summary = highlightText(
+    item.summary_ja || "",
+    item.summary_highlight || ""
   );
 
-  const keyPoint = escapeHtml(
-    item.key_point_ja || ""
+  const keyPoint = highlightText(
+    item.key_point_ja || "",
+    item.key_point_highlight || ""
   );
 
   const category = getCategoryLabel(item.category);
   const date = formatDate(item.published_at);
 
-  const highlightClass = highlight
-    ? " highlight-card"
-    : "";
-
   return `
-    <article class="editorial-card${highlightClass}">
+    <article class="editorial-card">
 
       <div class="card-meta">
 
@@ -267,8 +278,15 @@ function createEditorialCard(item, number, highlight) {
         keyPoint
           ? `
             <div class="key-point">
-              <strong>読むべきポイント</strong>
-              <p>${keyPoint}</p>
+
+              <strong>
+                読むべきポイント
+              </strong>
+
+              <p>
+                ${keyPoint}
+              </p>
+
             </div>
           `
           : ""
@@ -324,12 +342,14 @@ function renderAllNews(items) {
         "タイトルなし"
       );
 
-      const summary = escapeHtml(
-        item.summary_ja || ""
+      const summary = highlightText(
+        item.summary_ja || "",
+        item.summary_highlight || ""
       );
 
-      const keyPoint = escapeHtml(
-        item.key_point_ja || ""
+      const keyPoint = highlightText(
+        item.key_point_ja || "",
+        item.key_point_highlight || ""
       );
 
       const category = getCategoryLabel(item.category);
@@ -360,7 +380,9 @@ function renderAllNews(items) {
             keyPoint
               ? `
                 <div class="news-key-point">
-                  <strong>重要ポイント：</strong>
+                  <strong>
+                    重要ポイント：
+                  </strong>
                   ${keyPoint}
                 </div>
               `
@@ -380,6 +402,48 @@ function renderAllNews(items) {
       `;
     })
     .join("");
+}
+
+
+// ==========================================
+// AIが選んだ重要フレーズをハイライト
+// ==========================================
+
+function highlightText(text, highlight) {
+
+  if (!text) {
+    return "";
+  }
+
+  const safeText = escapeHtml(text);
+
+  if (!highlight) {
+    return safeText;
+  }
+
+  // AIが返したハイライトが
+  // 元文章に完全一致する場合だけ適用
+  const index = text.indexOf(highlight);
+
+  if (index === -1) {
+    return safeText;
+  }
+
+  const before = escapeHtml(
+    text.slice(0, index)
+  );
+
+  const important = escapeHtml(
+    highlight
+  );
+
+  const after = escapeHtml(
+    text.slice(index + highlight.length)
+  );
+
+  return `
+    ${before}<mark class="ai-highlight">${important}</mark>${after}
+  `;
 }
 
 
@@ -512,7 +576,7 @@ function formatDate(dateString) {
 
 
 // ==========================================
-// セキュリティ
+// HTMLエスケープ
 // ==========================================
 
 function escapeHtml(value) {
