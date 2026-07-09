@@ -652,22 +652,28 @@ def main():
             if len(other_news) >= MAX_OTHER_NEWS:
                 break
 
-    risk = ai_result.get(
-        "risk",
-        {
-            "level": "green",
-            "label": "通常",
-            "summary": (
-                "現在取得できたニュースからは、"
-                "ドバイへの重大な直接的影響は確認されていません。"
-            )
-        }
-    )
+   risk = ai_result.get(
+    "risk",
+    {
+        "level": "green",
+        "label": "通常",
+        "summary": (
+            "現在取得できたニュースからは、"
+            "ドバイへの重大な直接的影響は確認されていません。"
+        ),
+        "risk_highlight": ""
+    }
+)
 
-    current_situation_summary = ai_result.get(
-        "current_situation_summary",
-        risk.get("summary", "")
-    )
+current_situation_summary = ai_result.get(
+    "current_situation_summary",
+    ""
+)
+
+situation_highlight = ai_result.get(
+    "situation_highlight",
+    ""
+)
 
     output = {
         "updated_at": datetime.datetime.now(
@@ -676,7 +682,7 @@ def main():
 
         "risk": risk,
 
-        "current_situation_summary": current_situation_summary,
+       "situation_highlight": situation_highlight,
 
         "changes": changes,
 
