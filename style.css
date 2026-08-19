@@ -410,6 +410,20 @@ main {
   box-shadow: none;
 }
 
+.map-popup-item {
+  margin: 4px 0;
+}
+
+.map-popup-meta {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.map-popup-title {
+  font-weight: bold;
+  margin: 2px 0;
+}
+
 
 /* =========================
    FOOTER
