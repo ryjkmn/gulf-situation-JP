@@ -295,7 +295,7 @@ def call_gemini(prompt, max_attempts=3):
 # AIプロンプト
 # ==========================================
 
-def build_prompt(items, previous_ids):
+def build_prompt(items, previous_ids, previous_summary=""):
     simplified_items = []
 
     for item in items:
@@ -408,6 +408,42 @@ current_situation_summary は、
 
 risk.summary ですでに書いた結論を
 そのまま繰り返してはいけません。
+
+
+【前回の更新との差分について（重要）】
+
+以下は前回の current_situation_summary です。
+
+---
+{previous_summary if previous_summary else "（前回のデータはありません）"}
+---
+
+今回の current_situation_summary は、
+前回とほぼ同じ内容・同じ言い回しに
+なってはいけません。
+
+「軍事的緊張が高まっている」
+「間接的な影響を及ぼす可能性がある」
+のような、どの日にも当てはまる
+抽象的な表現だけで終わらせないでください。
+
+今回のニュース一覧の中から、
+最も具体的で新しい出来事
+（例：特定の船舶名、特定の都市への
+ミサイル警報、特定の合意期限など）
+を1つ以上、固有名詞つきで
+明示的に盛り込んでください。
+
+前回と比べて実質的に
+新しい情報が無い場合は、
+「前回からの大きな変化はない」ことが
+分かるように書いてください。
+（例：「昨日に続き、ホルムズ海峡周辺の
+緊張は高い状態が続いています」等）
+これも前回と同じ抽象的な文章の
+使い回しにならないよう、
+最新のニュースの具体的な事実を
+1つ含めてください。
 
 
 【各ニュースの文章の役割】
@@ -842,6 +878,13 @@ def main():
         if item.get("id")
     }
 
+    previous_summary = str(
+        previous_data.get(
+            "current_situation_summary",
+            ""
+        )
+    ).strip()
+
     all_items = []
 
     for category, query in SEARCHES:
@@ -904,7 +947,8 @@ def main():
 
     prompt = build_prompt(
         items,
-        previous_ids
+        previous_ids,
+        previous_summary
     )
 
     print(
