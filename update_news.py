@@ -34,7 +34,21 @@ MAX_OTHER_NEWS = 6
 # Google News RSS
 # ==========================================
 
-def fetch_google_news(category, query):
+GOOGLE_NEWS_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/124.0.0.0 Safari/537.36"
+    ),
+    "Accept": (
+        "application/rss+xml, application/xml;q=0.9, "
+        "*/*;q=0.8"
+    ),
+    "Accept-Language": "en-US,en;q=0.9",
+}
+
+
+def fetch_google_news(category, query, max_attempts=4):
     encoded = urllib.parse.quote(query)
 
     url = (
@@ -42,41 +56,90 @@ def fetch_google_news(category, query):
         f"q={encoded}&hl=en-US&gl=US&ceid=US:en"
     )
 
-    request = urllib.request.Request(
-        url,
-        headers={"User-Agent": "Mozilla/5.0"}
-    )
+    last_error = None
 
-    with urllib.request.urlopen(request, timeout=30) as response:
-        xml_data = response.read()
-
-    root = ET.fromstring(xml_data)
-    items = []
-
-    for item in root.findall(".//item")[:MAX_ITEMS_PER_SEARCH]:
-        title = item.findtext("title", "").strip()
-        link = item.findtext("link", "").strip()
-        pub_date = item.findtext("pubDate", "").strip()
+    for attempt in range(1, max_attempts + 1):
+        request = urllib.request.Request(
+            url,
+            headers=GOOGLE_NEWS_HEADERS
+        )
 
         try:
-            parsed_date = email.utils.parsedate_to_datetime(pub_date)
-            published_at = parsed_date.isoformat()
-        except Exception:
-            published_at = pub_date
+            with urllib.request.urlopen(
+                request,
+                timeout=30
+            ) as response:
+                xml_data = response.read()
 
-        unique_id = hashlib.md5(
-            (title + link).encode("utf-8")
-        ).hexdigest()
+            root = ET.fromstring(xml_data)
+            items = []
 
-        items.append({
-            "id": unique_id,
-            "category": category,
-            "title": title,
-            "url": link,
-            "published_at": published_at,
-        })
+            for item in root.findall(".//item")[:MAX_ITEMS_PER_SEARCH]:
+                title = item.findtext("title", "").strip()
+                link = item.findtext("link", "").strip()
+                pub_date = item.findtext("pubDate", "").strip()
 
-    return items
+                try:
+                    parsed_date = email.utils.parsedate_to_datetime(pub_date)
+                    published_at = parsed_date.isoformat()
+                except Exception:
+                    published_at = pub_date
+
+                unique_id = hashlib.md5(
+                    (title + link).encode("utf-8")
+                ).hexdigest()
+
+                items.append({
+                    "id": unique_id,
+                    "category": category,
+                    "title": title,
+                    "url": link,
+                    "published_at": published_at,
+                })
+
+            return items
+
+        except urllib.error.HTTPError as error:
+            last_error = error
+
+            if (
+                error.code in (429, 500, 502, 503, 504)
+                and attempt < max_attempts
+            ):
+                wait_seconds = 10 * attempt
+
+                print(
+                    f"{category}: HTTP {error.code}. "
+                    f"{wait_seconds}秒後に再試行します "
+                    f"({attempt}/{max_attempts})..."
+                )
+
+                time.sleep(wait_seconds)
+                continue
+
+            raise
+
+        except urllib.error.URLError as error:
+            last_error = error
+
+            if attempt < max_attempts:
+                wait_seconds = 10 * attempt
+
+                print(
+                    f"{category}: 接続エラー。"
+                    f"{wait_seconds}秒後に再試行します "
+                    f"({attempt}/{max_attempts})..."
+                )
+
+                time.sleep(wait_seconds)
+                continue
+
+            raise
+
+    if last_error:
+        raise last_error
+
+    return []
 
 
 # ==========================================
@@ -769,6 +832,11 @@ def main():
                 f"{category}: {error}"
             )
 
+        # Googleニュース側にbotとして
+        # ブロックされにくくするため、
+        # 各カテゴリの間に少し間隔を空ける
+        time.sleep(3)
+
     # 完全一致の重複を削除
     unique_items = {}
 
@@ -789,9 +857,16 @@ def main():
     items = items[:MAX_TOTAL_ITEMS]
 
     if not items:
-        raise RuntimeError(
-            "ニュースを1件も取得できませんでした。"
+        # Googleニュース側の一時的なブロック(503)などで
+        # 全カテゴリの取得に失敗した場合は、
+        # エラーで落として空データで上書きするのではなく、
+        # 前回の news.json をそのまま残して正常終了する。
+        print(
+            "警告: ニュースを1件も取得できませんでした。"
+            "今回の更新はスキップし、"
+            "前回のnews.jsonを保持します。"
         )
+        return
 
     print(
         f"Fetched {len(items)} "
