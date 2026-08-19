@@ -23,10 +23,15 @@ SEARCHES = [
     ("Gulf", "UAE Saudi Qatar Bahrain Kuwait Oman Iran attack"),
     ("Flight", "UAE Dubai airspace closure flights Iran Middle East"),
     ("Hormuz", "Strait of Hormuz tanker shipping Iran"),
+    # UAE本土(ドバイ・アブダビ)への直接的な
+    # ミサイル警報・防空・迎撃ニュースを拾うための
+    # 専用クエリ。他のクエリは湾岸全体や海峡の話に
+    # 埋もれやすいため、これだけ独立させている。
+    ("UAE Alert", "Dubai UAE missile alert air defence intercept warning"),
 ]
 
 MAX_ITEMS_PER_SEARCH = 5
-MAX_TOTAL_ITEMS = 25
+MAX_TOTAL_ITEMS = 30
 MAX_OTHER_NEWS = 6
 
 
@@ -499,6 +504,27 @@ UAE周辺の空域変更やフライト運航への影響に
 6. 適切なフレーズがなければ空文字 "" にする。
 
 
+【UAE本土への直接警報・迎撃について】
+
+ドバイまたはUAE本土に対する
+以下のようなニュースは、
+最優先の直接的影響として扱ってください。
+
+- ミサイル警報、空襲警報の発令
+- UAEの防空システムによる迎撃
+- ドバイ・アブダビでの爆発音、爆発
+- 空港・港湾・重要施設への着弾や被害
+
+このようなニュースが
+is_new=true として含まれる場合は、
+必ず changes_ids または must_read_ids に含め、
+risk レベルの判断でも最優先で考慮してください。
+
+ホルムズ海峡での船舶攻撃など
+UAE本土から離れた場所での出来事とは
+明確に区別してください。
+
+
 【昨日から何が変わった？】
 
 changes_ids には、
@@ -506,6 +532,9 @@ is_new=true のニュースの中から、
 前回更新以降の重要な変化を最大3件選んでください。
 
 同じ出来事の類似記事を複数選ばないでください。
+
+UAE本土への警報・迎撃ニュースがある場合は、
+必ずこのセクションを優先してください。
 
 
 【今日読むべきニュース】
