@@ -34,6 +34,29 @@ MAX_ITEMS_PER_SEARCH = 5
 MAX_TOTAL_ITEMS = 30
 MAX_OTHER_NEWS = 6
 
+# ==========================================
+# 地図表示用の固定座標
+# ==========================================
+# AIに緯度経度そのものを生成させると
+# 不正確・不安定になりやすいため、
+# AIには location_key（固定の地名キー）だけを
+# 選ばせて、Python側で座標に変換する。
+
+LOCATION_COORDS = {
+    "dubai": (25.2048, 55.2708, "ドバイ"),
+    "abu_dhabi": (24.4539, 54.3773, "アブダビ"),
+    "strait_of_hormuz": (26.5667, 56.25, "ホルムズ海峡"),
+    "fujairah": (25.1288, 56.3265, "フジャイラ"),
+    "tehran": (35.6892, 51.3890, "テヘラン"),
+    "washington_dc": (38.9072, -77.0369, "ワシントンD.C."),
+    "doha": (25.2854, 51.5310, "ドーハ"),
+    "riyadh": (24.7136, 46.6753, "リヤド"),
+    "baghdad": (33.3152, 44.3661, "バグダッド"),
+    "amman": (31.9454, 35.9284, "アンマン（ヨルダン）"),
+    "bab_el_mandeb": (12.5833, 43.3333, "バブ・エル・マンデブ海峡"),
+    "gulf_of_oman": (24.5, 58.5, "オマーン湾"),
+}
+
 
 # ==========================================
 # Google News RSS
@@ -616,6 +639,23 @@ other_news_ids には、
 
 【返却するJSON形式】
 
+location_key は、必ず次のいずれか1つにしてください。
+出来事の場所が明確でない場合は、
+最も関連が深い場所を選んでください。
+
+- dubai（ドバイ本土での出来事）
+- abu_dhabi（アブダビ本土での出来事）
+- strait_of_hormuz（ホルムズ海峡での船舶・軍事関連）
+- fujairah（フジャイラ沖・フジャイラ港関連）
+- tehran（イラン国内・イラン政府の動き）
+- washington_dc（米国政府・トランプ大統領の動き）
+- doha（カタール関連）
+- riyadh（サウジアラビア関連）
+- baghdad（イラク関連）
+- amman（ヨルダン関連）
+- bab_el_mandeb（バブ・エル・マンデブ海峡関連）
+- gulf_of_oman（オマーン湾関連、上記に当てはまらない場合）
+
 {{
   "risk": {{
     "level": "green または yellow または orange または red",
@@ -641,7 +681,9 @@ other_news_ids には、
         "必ず日本語でドバイ・UAE在住者への意味や影響",
       "key_point_highlight":
         "key_point_ja内に完全一致する重要フレーズ",
-      "importance_score": 0
+      "importance_score": 0,
+      "location_key":
+        "このニュースの出来事の場所に最も近いキーを1つ選ぶ"
     }}
   ],
 
@@ -767,6 +809,25 @@ def merge_ai_results(items, ai_result):
             )
         except Exception:
             item["importance_score"] = 0
+
+        # location_key を座標に変換
+        # （AIには地名キーだけ選ばせ、
+        # 実際の緯度経度はPython側の
+        # 固定テーブルから引く）
+        location_key = str(
+            ai_data.get("location_key", "")
+        ).strip()
+
+        location = LOCATION_COORDS.get(location_key)
+
+        if location:
+            item["lat"] = location[0]
+            item["lng"] = location[1]
+            item["location_name"] = location[2]
+        else:
+            item.pop("lat", None)
+            item.pop("lng", None)
+            item.pop("location_name", None)
 
         # 表示可能条件：
         # タイトル・要約・ポイントがすべて存在し、
