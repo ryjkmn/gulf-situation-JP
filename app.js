@@ -485,6 +485,28 @@ function initFilters() {
 // 地図
 // ==========================================
 
+// 地図上に常時表示する注目エリア
+// （ホルムズ海峡・UAE空域）
+const MAP_ZONES = [
+  {
+    name: "ホルムズ海峡",
+    center: [26.5667, 56.25],
+    radiusMeters: 70000,
+    description:
+      "世界の海上原油輸送の要衝。" +
+      "船舶攻撃・拿捕などが発生すると" +
+      "海運・原油価格に影響します。"
+  },
+  {
+    name: "UAE空域（ドバイ・アブダビ周辺）",
+    center: [24.85, 54.9],
+    radiusMeters: 150000,
+    description:
+      "空域閉鎖や運航制限が起きると" +
+      "ドバイ発着便に直接影響します。"
+  }
+];
+
 function initMap(items) {
   const mapElement = document.getElementById("map");
 
@@ -498,8 +520,8 @@ function initMap(items) {
   }
 
   map = L.map("map").setView(
-    [25.2048, 55.2708],
-    5
+    [25.4, 56.0],
+    6
   );
 
   L.tileLayer(
@@ -509,28 +531,98 @@ function initMap(items) {
     }
   ).addTo(map);
 
+  // 注目エリアを破線の円で表示
+  MAP_ZONES.forEach(zone => {
+    L.circle(zone.center, {
+      radius: zone.radiusMeters,
+      color: "#000000",
+      weight: 1,
+      dashArray: "4 4",
+      fillOpacity: 0.05
+    })
+      .addTo(map)
+      .bindPopup(
+        `<strong>${escapeHtml(zone.name)}</strong>` +
+        `<br>${escapeHtml(zone.description)}`
+      );
+  });
+
   L.marker([25.2048, 55.2708])
     .addTo(map)
-    .bindPopup("Dubai");
+    .bindPopup("ドバイ");
+
+  // 同じ地点に複数ニュースがある場合、
+  // ポップアップに一覧としてまとめる
+  const itemsByLocation = new Map();
 
   items.forEach(item => {
-
     if (
-      typeof item.lat === "number" &&
-      typeof item.lng === "number"
+      typeof item.lat !== "number" ||
+      typeof item.lng !== "number"
     ) {
-
-      const popupTitle =
-        item.title_ja ||
-        item.title ||
-        "";
-
-      L.marker([item.lat, item.lng])
-        .addTo(map)
-        .bindPopup(
-          escapeHtml(popupTitle)
-        );
+      return;
     }
+
+    const key = `${item.lat},${item.lng}`;
+
+    if (!itemsByLocation.has(key)) {
+      itemsByLocation.set(key, []);
+    }
+
+    itemsByLocation.get(key).push(item);
+  });
+
+  itemsByLocation.forEach((locationItems, key) => {
+    const [lat, lng] = key.split(",").map(Number);
+
+    const locationName =
+      locationItems[0].location_name || "";
+
+    const popupHtml = locationItems
+      .slice(0, 5)
+      .map(item => {
+        const title = escapeHtml(
+          item.title_ja || item.title || ""
+        );
+
+        const category = escapeHtml(
+          getCategoryLabel(item.category)
+        );
+
+        const date = escapeHtml(
+          formatDate(item.published_at)
+        );
+
+        const url = escapeAttribute(
+          item.url || "#"
+        );
+
+        return `
+          <div class="map-popup-item">
+            <div class="map-popup-meta">
+              ${category} ・ ${date}
+            </div>
+            <div class="map-popup-title">
+              ${title}
+            </div>
+            <a
+              href="${url}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              情報源を読む →
+            </a>
+          </div>
+        `;
+      })
+      .join("<hr>");
+
+    L.marker([lat, lng])
+      .addTo(map)
+      .bindPopup(
+        `<strong>${escapeHtml(locationName)}</strong>` +
+        `<br>${popupHtml}`
+      );
   });
 }
 
